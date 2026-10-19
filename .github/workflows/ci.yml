@@ -1,0 +1,60 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+# A newer push to the same branch makes the previous run pointless.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    name: Static checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Format
+        run: npm run format:check
+
+      - name: Locales in sync
+        run: npm run i18n:check
+
+      # Guards the rules that typecheck, lint and a bundle all accept while the
+      # app breaks at runtime — above all the lazy MMKV load that Expo Go needs.
+      - name: Invariants
+        run: npm run check:invariants
+
+  bundle:
+    name: Metro bundle
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      # The static checks above cannot see a broken import graph or a bad
+      # app.config.ts. Bundling can, so it runs on every PR.
+      - name: Bundle for Android
+        run: npx expo export --platform android --output-dir ./dist

@@ -1,5 +1,6 @@
 // `import type` is erased at compile time, so it emits no runtime require.
 import type { SQLiteDatabase } from 'expo-sqlite';
+import { Platform } from 'react-native';
 
 /**
  * Owns the database handle, the schema and the lazy load of `expo-sqlite`.
@@ -149,6 +150,44 @@ export function getDatabase(): SQLiteDatabase | null {
   }
 
   return handle;
+}
+
+let preparo: Promise<void> | undefined;
+
+/**
+ * Web only (the layout preview): opens the database asynchronously, once,
+ * before the first screen reads it. On web `expo-sqlite` runs in a
+ * WebAssembly worker, and a synchronous call made before the worker is up
+ * times out — while a retry would open a second connection and find the file
+ * locked. Natively this resolves at once and `getDatabase` opens on first use.
+ */
+export function prepararBanco(): Promise<void> {
+  if (Platform.OS !== 'web' || handle !== undefined) return Promise.resolve();
+  preparo ??= (async () => {
+    // expo-sqlite's web sync calls give up after ~1M `Atomics.pause()` spins —
+    // a few milliseconds, which a busy worker (an OPFS flush) easily exceeds,
+    // failing reads at random. Without `Atomics.pause` it falls back to its
+    // long busy-wait (1e9 spins). Web preview only; native never gets here.
+    try {
+      Object.defineProperty(Atomics, 'pause', { value: undefined, configurable: true });
+    } catch {
+      // Not configurable in this engine: keep the short timeout.
+    }
+    const sqlite = loadSQLite();
+    if (!sqlite) {
+      handle = null;
+      return;
+    }
+    try {
+      const db = await sqlite.openDatabaseAsync(DATABASE_NAME);
+      await db.execAsync('PRAGMA foreign_keys = ON');
+      migrate(db);
+      handle = db;
+    } catch {
+      handle = null;
+    }
+  })();
+  return preparo;
 }
 
 /**

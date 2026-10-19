@@ -84,3 +84,24 @@ export function pluralizar(singular: string): string {
   const [primeira, ...resto] = limpo.split(' ');
   return [pluralDaPalavra(primeira!), ...resto].join(' ');
 }
+
+export type Unidade = { singular: string; plural: string };
+
+/**
+ * The unit a business sells, ready to print: what the person typed, or the
+ * locale's "venda/vendas" when nothing was. The plural is the edited one if
+ * there is one, else generated — but only in Portuguese (`gerarPlural`): in
+ * English and Spanish the rule does not apply, and the screen asks for it.
+ */
+export function resolverUnidade(
+  singularDigitado: string | null,
+  pluralDigitado: string | null,
+  padrao: Unidade,
+  gerarPlural: boolean,
+): Unidade {
+  const singular = singularDigitado?.trim();
+  if (!singular) return padrao;
+  const plural = pluralDigitado?.trim();
+  if (plural) return { singular, plural };
+  return { singular, plural: gerarPlural ? pluralizar(singular) : singular };
+}

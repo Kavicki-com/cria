@@ -8,7 +8,7 @@
  * The barrel exports implementations; the implementations never import back
  * through it (invariant 2).
  */
-export { getDatabase, isDatabaseAvailable } from './db';
+export { getDatabase, isDatabaseAvailable, prepararBanco } from './db';
 export * from './types';
 export { assinarMudancas, versaoDosDados } from './mudancas';
 export * from './negociosRepository';

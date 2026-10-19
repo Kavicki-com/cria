@@ -22,6 +22,8 @@ export type ButtonProps = {
   icon?: Icon;
   /** The sticky FAB's drop shadow. */
   elevated?: boolean;
+  /** `link` only: the underline of "Pular por enquanto"; the onboarding's "Pular" has none. */
+  underline?: boolean;
   style?: StyleProp<ViewStyle>;
   accessibilityLabel?: string;
   accessibilityHint?: string;
@@ -39,6 +41,7 @@ export function Button({
   loading = false,
   icon: Glyph,
   elevated = false,
+  underline = true,
   style,
   accessibilityLabel,
   accessibilityHint,
@@ -60,7 +63,7 @@ export function Button({
     secondary: theme.colors.surfaceElevated,
   };
   const corTexto: Record<ButtonVariant, string> = {
-    primary: theme.colors.onPrimary,
+    primary: isDisabled && !loading ? theme.colors.textMuted : theme.colors.onPrimary,
     secondary: theme.colors.text,
     link: theme.colors.textMuted,
     danger: theme.colors.onDangerSoft,
@@ -79,12 +82,19 @@ export function Button({
         {
           minHeight: link ? 44 : ALTURA_CTA,
           justifyContent: 'center',
-          backgroundColor: pressed ? fundoPressionado[variant] : fundo[variant],
+          // A disabled CTA is grey, not a faded blue (design Estado-negocio-0).
+          backgroundColor:
+            isDisabled && !loading && variant === 'primary'
+              ? theme.colors.border
+              : pressed
+                ? fundoPressionado[variant]
+                : fundo[variant],
           borderRadius: theme.radius.lg,
           borderWidth: variant === 'secondary' ? 1 : 0,
           borderColor: theme.colors.borderInput,
           paddingHorizontal: link ? theme.spacing.xs : theme.spacing.lg,
-          opacity: isDisabled ? 0.5 : link && pressed ? 0.6 : 1,
+          opacity:
+            isDisabled && !(variant === 'primary' && !loading) ? 0.5 : link && pressed ? 0.6 : 1,
         },
         elevated && {
           shadowColor: theme.colors.primary,
@@ -110,7 +120,7 @@ export function Button({
             { color: corTexto[variant], textAlign: 'center', flexShrink: 1 },
             link && {
               fontSize: 15,
-              textDecorationLine: 'underline',
+              textDecorationLine: underline ? 'underline' : 'none',
             },
           ]}
         >

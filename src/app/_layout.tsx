@@ -1,7 +1,7 @@
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { configureNotificationHandler, ensureAndroidChannel } from '@/core/notifications';
@@ -9,6 +9,7 @@ import { usePurchasesBootstrap } from '@/core/purchases';
 import { useRegisterLaunch } from '@/core/rating';
 import { useConfigStore } from '@/core/storage';
 import { ThemeProvider, useAppFonts, useTheme } from '@/core/theme';
+import { prepararBanco } from '@/data';
 
 // Foreground behaviour must be registered before the first notification
 // arrives, so it runs at module scope rather than in an effect.
@@ -22,12 +23,18 @@ void SplashScreen.preventAutoHideAsync().catch(() => {
 
 export default function RootLayout() {
   const fontsReady = useAppFonts();
+  // Resolves at once natively; on the web preview it waits for SQLite's worker.
+  const [bancoPronto, setBancoPronto] = useState(false);
 
   useEffect(() => {
-    if (fontsReady) void SplashScreen.hideAsync().catch(() => {});
-  }, [fontsReady]);
+    void prepararBanco().then(() => setBancoPronto(true));
+  }, []);
 
-  if (!fontsReady) return null;
+  useEffect(() => {
+    if (fontsReady && bancoPronto) void SplashScreen.hideAsync().catch(() => {});
+  }, [fontsReady, bancoPronto]);
+
+  if (!fontsReady || !bancoPronto) return null;
 
   return (
     <SafeAreaProvider>
@@ -68,6 +75,9 @@ function RootNavigator() {
           <Stack.Screen name="negocio/novo" options={{ presentation: 'modal' }} />
           <Stack.Screen name="negocio/[id]/index" />
           <Stack.Screen name="negocio/[id]/editar" options={{ presentation: 'modal' }} />
+          <Stack.Screen name="negocio/[id]/lean" />
+          <Stack.Screen name="negocio/[id]/lean-revisao" />
+          <Stack.Screen name="negocio/[id]/equilibrio" />
         </Stack.Protected>
 
         <Stack.Protected guard={!onboardingCompleted}>

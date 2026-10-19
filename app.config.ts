@@ -63,7 +63,9 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   },
   web: {
     bundler: 'metro',
-    output: 'static',
+    // 'single' (SPA): web is a layout preview only, and the static renderer
+    // cannot serialize expo-sqlite's web worker ("Worker chunk not found").
+    output: 'single',
     favicon: './assets/images/favicon.png',
   },
   plugins: [

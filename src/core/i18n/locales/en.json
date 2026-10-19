@@ -163,5 +163,247 @@
       "metricas": "Burgers sold per month and customers who return within 30 days.",
       "vantagem": "Our own sauce recipe and good ties with the neighbours."
     }
+  },
+  "equilibrio": {
+    "subtitulo": "How much you need to sell to pay all of the month's bills.",
+    "oQueVende": "What do you sell?",
+    "oQueVendePlaceholder": "E.g. burger, haircut, class",
+    "pluralFica": "One unit, singular. In the plural it is",
+    "mudarPlural": "Change",
+    "mudarPluralDica": "Edits how the word reads in the plural",
+    "plural": "In the plural",
+    "unidadePadrao": "sale",
+    "unidadePadraoPlural": "sales",
+    "fixos": "Fixed costs per month",
+    "fixosDica": "Rent, wages, internet, fees… what you pay whether you sell or not.",
+    "custoDeCada": "Cost of each %{singular}",
+    "preco": "Selling price",
+    "maiorCusto": "What is your biggest cost? (optional)",
+    "maiorCustoPlaceholder": "E.g. beef",
+    "maiorCustoDica": "The item that weighs most in the cost of each %{singular}. Helps the analysis spot risks.",
+    "empataVendendo": "You break even selling",
+    "porMes": "%{plural} per month",
+    "porDia": "Per day",
+    "porDiaValor": "≈ %{n} %{plural}",
+    "faturamento": "Monthly revenue",
+    "deCada": "Of each %{singular} at %{preco}:",
+    "barraRotulo": "Of the price, %{pct}% is the cost of each %{singular} and the rest pays the fixed bills",
+    "deCusto": "%{valor} of cost",
+    "pagaContas": "%{valor} pays the bills",
+    "maiorCustoAntes": "Your biggest cost is ",
+    "maiorCustoMeio": ". If it goes up %{um} on each %{singular}, you need to sell ",
+    "maiorCustoN": "+%{n} %{plural}",
+    "maiorCustoDepois": " a month to break even.",
+    "naoFechaTitulo": "The numbers don't add up",
+    "naoFechaTexto": "The selling price has to be higher than the cost of each %{singular}. How about reviewing the price?",
+    "salvarVoltar": "Save and go back",
+    "resumo": "%{n} %{plural} per month",
+    "resumoVazio": "3 numbers and you're done",
+    "resumoNaoFecha": "Price below cost"
+  },
+  "quadros": {
+    "lean": {
+      "problema": {
+        "bloco": "Problem",
+        "pergunta": "What problem do you solve for your customer?",
+        "ajuda": "Every business starts from someone's annoyance. With a clear problem, it is easy to explain why someone would pay.",
+        "exemplo": "the neighbourhood only has chain burgers, pricey and slow to deliver."
+      },
+      "paraQuem": {
+        "bloco": "Who it is for",
+        "pergunta": "Who will buy from you?",
+        "ajuda": "The clearer your customer, the easier it is to decide price, place and promotion. Start with the first group who would buy.",
+        "exemplo": "families and people working from home, within 3 km."
+      },
+      "diferencial": {
+        "bloco": "What makes you different",
+        "pergunta": "Why would someone choose you over someone else?",
+        "ajuda": "It is your promise in one sentence. It comes back in the rest of the plan and in the document.",
+        "exemplo": "handmade burgers that arrive hot in 25 minutes."
+      },
+      "solucao": {
+        "bloco": "Solution",
+        "pergunta": "How do you solve that problem?",
+        "ajuda": "Say what you sell and how you deliver it. Start simple: you can improve it later.",
+        "exemplo": "short menu, orders by WhatsApp and our own delivery."
+      },
+      "canais": {
+        "bloco": "Where customers find you",
+        "pergunta": "How do customers hear about you and buy?",
+        "ajuda": "Instagram, WhatsApp, word of mouth, a shop, an app… Without a path to the customer, there is no sale.",
+        "exemplo": "local Instagram, the building's group chat and WhatsApp for orders."
+      },
+      "receitas": {
+        "bloco": "How you make money",
+        "pergunta": "How does money come into your business?",
+        "ajuda": "What you charge, how much and how. Think about how much each customer spends per purchase.",
+        "exemplo": "burgers and combos; average ticket of $ 32."
+      },
+      "custos": {
+        "bloco": "Main costs",
+        "pergunta": "Which costs can't you avoid?",
+        "ajuda": "List the biggest: rent, supplies, wages, fees. They go into the break-even calculation.",
+        "exemplo": "kitchen rent, ingredients, gas, delivery rider."
+      },
+      "metricas": {
+        "bloco": "How to tell it is working",
+        "pergunta": "Which numbers show the business is doing well?",
+        "ajuda": "Pick 1 or 2 numbers to check every week. Without them, it is hard to know whether something needs to change.",
+        "exemplo": "burgers sold per month, customers who come back within 30 days."
+      },
+      "vantagem": {
+        "bloco": "What no one copies easily",
+        "pergunta": "What do you have that a competitor can't copy quickly?",
+        "ajuda": "A recipe, a location, a contact or the neighbours' trust. If you don't have one yet, that's fine: leave it blank.",
+        "exemplo": "our own sauce recipe and the relationship with the neighbours."
+      }
+    },
+    "bmc": {
+      "segmentos": {
+        "bloco": "Customer segments",
+        "pergunta": "Which groups of customers do you sell to?",
+        "ajuda": "It can be more than one group. If the person who pays and the one who uses are different, list both.",
+        "exemplo": "local families and small companies ordering for meetings."
+      },
+      "proposta": {
+        "bloco": "Value proposition",
+        "pergunta": "What does each group gain by choosing you?",
+        "ajuda": "Time, price, quality, convenience… It is the reason customers come back.",
+        "exemplo": "handmade burgers, hot in 25 minutes, no minimum order."
+      },
+      "canais": {
+        "bloco": "Channels",
+        "pergunta": "How do you reach customers and deliver what you sell?",
+        "ajuda": "How they find you, buy and receive. Each step can have a different channel.",
+        "exemplo": "Instagram to promote, WhatsApp to order, our own rider to deliver."
+      },
+      "relacionamento": {
+        "bloco": "Customer relationships",
+        "pergunta": "How do you look after customers so they come back?",
+        "ajuda": "Service, loyalty, after-sales. A returning customer costs less than a new one.",
+        "exemplo": "loyalty card: the 10th burger is on the house."
+      },
+      "receitas": {
+        "bloco": "Revenue streams",
+        "pergunta": "Where does each dollar coming in come from?",
+        "ajuda": "List the ways you charge: single sale, combo, order, delivery fee.",
+        "exemplo": "single burgers, family combos and the delivery fee."
+      },
+      "recursos": {
+        "bloco": "Key resources",
+        "pergunta": "What do you need to have in order to work?",
+        "ajuda": "Equipment, place, people and know-how. Think of what would be missed if it disappeared tomorrow.",
+        "exemplo": "griddle, freezer, delivery bike and the sauce recipe."
+      },
+      "atividades": {
+        "bloco": "Key activities",
+        "pergunta": "What do you need to do every week for the business to run?",
+        "ajuda": "The tasks that, if they stop, stop the business. Helps you see how much time and how many people you need.",
+        "exemplo": "local burger place — buy supplies, make the burgers, deliver, post on Instagram."
+      },
+      "parcerias": {
+        "bloco": "Key partners",
+        "pergunta": "Who, outside the business, can help you?",
+        "ajuda": "Suppliers, partners and people who refer you. Good partners lower costs or bring customers.",
+        "exemplo": "the bakery that delivers the buns, the local butcher, the building manager next door."
+      },
+      "custos": {
+        "bloco": "Cost structure",
+        "pergunta": "How much does it cost to keep the business running?",
+        "ajuda": "Separate what is fixed (paid every month) from what changes with sales. It is the same split as in the break-even calculator.",
+        "exemplo": "fixed: rent and internet; variable: beef, buns and packaging."
+      }
+    },
+    "persona": {
+      "quem": {
+        "bloco": "Who they are",
+        "pergunta": "Give your ideal customer a name and an age",
+        "ajuda": "Picturing a real person helps you make decisions. It can be made up.",
+        "exemplo": "Carla, 34."
+      },
+      "rotina": {
+        "bloco": "Routine",
+        "pergunta": "Where does this person live and what is their day like?",
+        "ajuda": "Neighbourhood, work, family, schedule. Whatever helps you understand when and how they buy.",
+        "exemplo": "lives near the shop, works from home, has two young kids."
+      },
+      "quer": {
+        "bloco": "What they want",
+        "pergunta": "What do they want to solve when they look for a business like yours?",
+        "ajuda": "It is not the product itself: it is the result they expect.",
+        "exemplo": "a tasty dinner without cooking at the end of the day."
+      },
+      "incomoda": {
+        "bloco": "What bothers them",
+        "pergunta": "What annoys this person most about the options they have today?",
+        "ajuda": "Their complaints are your opportunities.",
+        "exemplo": "late deliveries and burgers that arrive cold."
+      },
+      "decide": {
+        "bloco": "How they decide",
+        "pergunta": "How do they choose who to buy from?",
+        "ajuda": "Price, referrals, reviews, distance… What matters most to them?",
+        "exemplo": "neighbours' recommendations and the building's group chat."
+      },
+      "proposta": {
+        "bloco": "Value proposition",
+        "pergunta": "In one sentence: why would they choose you?",
+        "ajuda": "Combine what they want with what you do differently. This sentence is highlighted in the document.",
+        "exemplo": "handmade burgers that arrive hot in 25 minutes, without the wait of the big chains."
+      }
+    }
+  },
+  "formulario": {
+    "fecharSalvar": "Close and save",
+    "deTotal": "%{atual} of %{total}",
+    "perguntaDe": "Question %{atual} of %{total}",
+    "porQueImporta": "Why does this matter?",
+    "abrir": "Open",
+    "fechar": "Close",
+    "suaResposta": "Your answer",
+    "placeholder": "Write it your way, no wrong answers",
+    "placeholderPersona": "Write it your way",
+    "exemplo": "E.g.:",
+    "pular": "Skip for now",
+    "proxima": "Next",
+    "concluir": "Finish section",
+    "verResultado": "See result",
+    "veioDaIdeia": "From your idea — adjust if you like",
+    "ilustracao": "Illustration of your customer",
+    "mulher": "Woman",
+    "homem": "Man",
+    "ilustracaoRotulo": "Illustration of a %{genero} representing %{nome}",
+    "personaPadrao": "Your ideal customer",
+    "respostasDe": "%{n} of %{total} answers"
+  },
+  "revisao": {
+    "rotulo": "Review · %{quadro}",
+    "toque": "Tap an answer to adjust it.",
+    "pulada": "Skipped — no answer yet",
+    "semResposta": "No answer yet",
+    "responder": "Answer",
+    "editar": "Edit",
+    "tudoCerto": "All good, back to the business",
+    "item": "%{n} · %{bloco}"
+  },
+  "hub": {
+    "voltar": "Back to My businesses",
+    "editar": "Edit business",
+    "gratuito": "Free",
+    "concluido": "%{n}% complete",
+    "porOndeComecar": "Where to start",
+    "comecarTexto": "9 short questions. It is the base the other parts build on.",
+    "comecarAgora": "Start now",
+    "deTotal": "%{n} of %{total}",
+    "nenhumaTarefa": "No tasks yet",
+    "tarefasFeitas": "%{n} of %{total} tasks done",
+    "continuar": "Continue",
+    "noCompleto": "In the full plan",
+    "noCompletoTexto": "The one-time purchase unlocks everything, for all your businesses, with the analysis and the PDF document.",
+    "bloqueado": "%{parte}, locked",
+    "rodapeLiberado": "Plan unlocked: generate the PDF as often as you like",
+    "rodapeGratis": "The PDF document comes with the full plan.",
+    "rodapeComecar": "Start with your idea. The rest of the plan comes with the one-time purchase.",
+    "gerarDocumento": "Generate document"
   }
 }

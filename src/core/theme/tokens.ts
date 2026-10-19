@@ -72,6 +72,16 @@ export type ColorTokens = {
   /** Text on `successSoft` (the "Plano liberado" seal). */
   onSuccessSoft: string;
 
+  /** The break-even card (design Ponto-equilibrio): green, never red. */
+  equilibrioFundo: string;
+  equilibrioBorda: string;
+  /** Its paragraph text; the big number uses `onSuccessSoft`. */
+  equilibrioTexto: string;
+  /** Labels inside its white tiles. */
+  equilibrioRotulo: string;
+  /** The "custo" share of the price bar; the rest is `success`. */
+  equilibrioCusto: string;
+
   danger: string;
   dangerSoft: string;
   onDangerSoft: string;
@@ -122,6 +132,12 @@ const lightColors: ColorTokens = {
   successSoft: '#DDF3E7',
   onSuccessSoft: '#145C3D',
 
+  equilibrioFundo: '#E7F5EC',
+  equilibrioBorda: '#BFE3CD',
+  equilibrioTexto: '#2F4A3C',
+  equilibrioRotulo: '#4A6356',
+  equilibrioCusto: '#63D773',
+
   danger: '#B3261E',
   dangerSoft: '#FBE9E7',
   onDangerSoft: '#8C1D18',
@@ -169,6 +185,13 @@ const darkColors: ColorTokens = {
   success: '#7FD3A8',
   successSoft: '#163527',
   onSuccessSoft: '#9FE0BE',
+
+  // Not in the handoff: the same green family on the dark surface.
+  equilibrioFundo: '#163527',
+  equilibrioBorda: '#24543D',
+  equilibrioTexto: '#C4EBD6',
+  equilibrioRotulo: '#9FCDB6',
+  equilibrioCusto: '#3E9C66',
 
   // Not in the handoff (its error swatch is the light one). Material's dark
   // error pair, 8.9:1 on `dangerSoft`.
@@ -257,16 +280,17 @@ export type TypographyVariant =
 
 /**
  * From the style guide: screen title Poppins 600 30–34/1.08, form question
- * 28/1.15, card title 20; text and answers Roboto 17/1.5, support 15/1.45,
+ * 28/1.15, card title 20 — with the line height raised to ~1.25: Poppins's
+ * accents sit above the em box, and at 1.08 the "ó" of "negócio" is clipped; text and answers Roboto 17/1.5, support 15/1.45,
  * block label Roboto 700 13 in caps. One-off sizes override `fontSize` on top
  * of a variant rather than growing this list.
  */
 export const typography: Record<TypographyVariant, TextStyle> = {
-  display: { fontFamily: fonts.display, fontSize: 34, lineHeight: 37, letterSpacing: -0.68 },
-  title: { fontFamily: fonts.display, fontSize: 30, lineHeight: 34, letterSpacing: -0.6 },
-  question: { fontFamily: fonts.display, fontSize: 28, lineHeight: 32, letterSpacing: -0.42 },
-  heading: { fontFamily: fonts.display, fontSize: 20, lineHeight: 25 },
-  subheading: { fontFamily: fonts.display, fontSize: 17, lineHeight: 22 },
+  display: { fontFamily: fonts.display, fontSize: 34, lineHeight: 41, letterSpacing: -0.68 },
+  title: { fontFamily: fonts.display, fontSize: 30, lineHeight: 39, letterSpacing: -0.6 },
+  question: { fontFamily: fonts.display, fontSize: 28, lineHeight: 36, letterSpacing: -0.42 },
+  heading: { fontFamily: fonts.display, fontSize: 20, lineHeight: 27 },
+  subheading: { fontFamily: fonts.display, fontSize: 17, lineHeight: 24 },
   body: { fontFamily: fonts.regular, fontSize: 17, lineHeight: 25 },
   bodyStrong: { fontFamily: fonts.bold, fontSize: 17, lineHeight: 25 },
   support: { fontFamily: fonts.regular, fontSize: 15, lineHeight: 22 },

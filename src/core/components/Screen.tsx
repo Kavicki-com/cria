@@ -59,7 +59,7 @@ export function Screen({
           style={{
             paddingTop: insets.top + 4,
             paddingHorizontal: theme.spacing.tela - 10,
-            minHeight: insets.top + 52,
+            minHeight: insets.top + 48,
             flexDirection: 'row',
             alignItems: 'center',
             gap: 4,

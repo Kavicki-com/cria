@@ -32,7 +32,7 @@ export function MeusNegociosScreen() {
         paddingHorizontal: 4,
       }}
     >
-      <Text variant="title" style={{ fontSize: 32, lineHeight: 38 }} accessibilityRole="header">
+      <Text variant="title" style={{ fontSize: 32, lineHeight: 41 }} accessibilityRole="header">
         {t('negocios.titulo')}
       </Text>
       <IconButton
@@ -137,7 +137,7 @@ function Vazio() {
         <Text
           variant="title"
           center
-          style={{ fontSize: 26, lineHeight: 30 }}
+          style={{ fontSize: 26, lineHeight: 33 }}
           accessibilityRole="header"
         >
           {t('negocios.vazioTitulo')}
@@ -200,7 +200,7 @@ function CardNegocio({ item }: { item: NegocioComProgresso }) {
             {linha}
           </Text>
         </View>
-        <Text variant="heading" color="primaryText" style={{ fontSize: 22, lineHeight: 28 }}>
+        <Text variant="heading" color="primaryText" style={{ fontSize: 22, lineHeight: 30 }}>
           {t('negocios.percentual', { n: progresso.percentual })}
         </Text>
       </View>

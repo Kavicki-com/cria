@@ -85,7 +85,7 @@ export function NovoNegocioScreen({ negocio }: NovoNegocioProps) {
         />
       }
     >
-      <Text variant="title" accessibilityRole="header" style={{ marginTop: -8 }}>
+      <Text variant="title" accessibilityRole="header">
         {negocio ? t('novoNegocio.tituloEditar') : t('novoNegocio.titulo')}
       </Text>
 

@@ -63,6 +63,7 @@ export function BoasVindasScreen({ onConcluir }: BoasVindasProps) {
           <Button
             variant="link"
             label={t('boasVindas.pular')}
+            underline={false}
             onPress={() => onConcluir(false)}
             style={{ paddingHorizontal: 4 }}
           />
@@ -73,9 +74,9 @@ export function BoasVindasScreen({ onConcluir }: BoasVindasProps) {
         contentContainerStyle={{
           flexGrow: 1,
           paddingHorizontal: 24,
-          paddingTop: 20,
+          paddingTop: 8,
           paddingBottom: insets.bottom + 24,
-          gap: 28,
+          gap: 24,
         }}
         showsVerticalScrollIndicator={false}
       >

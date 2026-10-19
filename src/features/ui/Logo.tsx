@@ -17,7 +17,7 @@ export function Logo({ size = 32, accessibilityLabel }: LogoProps) {
       width={size}
       height={size}
       viewBox="0 0 64 64"
-      accessible={Boolean(accessibilityLabel)}
+      accessible={accessibilityLabel ? true : undefined}
       accessibilityLabel={accessibilityLabel}
       accessibilityRole={accessibilityLabel ? 'image' : undefined}
     >

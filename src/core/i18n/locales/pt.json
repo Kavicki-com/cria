@@ -163,5 +163,247 @@
       "metricas": "Lanches vendidos por mês e clientes que voltam em 30 dias.",
       "vantagem": "Receita própria de molho e relação com os vizinhos."
     }
+  },
+  "equilibrio": {
+    "subtitulo": "Quanto você precisa vender para pagar todas as contas do mês.",
+    "oQueVende": "O que você vende?",
+    "oQueVendePlaceholder": "Ex.: lanche, corte, aula",
+    "pluralFica": "Uma unidade, no singular. No plural fica",
+    "mudarPlural": "Mudar",
+    "mudarPluralDica": "Edita como a palavra fica no plural",
+    "plural": "No plural",
+    "unidadePadrao": "venda",
+    "unidadePadraoPlural": "vendas",
+    "fixos": "Custos fixos por mês",
+    "fixosDica": "Aluguel, salários, internet, MEI… o que você paga vendendo ou não.",
+    "custoDeCada": "Custo de cada %{singular}",
+    "preco": "Preço de venda",
+    "maiorCusto": "Qual é o seu maior custo? (opcional)",
+    "maiorCustoPlaceholder": "Ex.: carne",
+    "maiorCustoDica": "O item que mais pesa no custo de cada %{singular}. Ajuda a análise a achar riscos.",
+    "empataVendendo": "Você empata vendendo",
+    "porMes": "%{plural} por mês",
+    "porDia": "Por dia",
+    "porDiaValor": "≈ %{n} %{plural}",
+    "faturamento": "Faturamento no mês",
+    "deCada": "De cada %{singular} de %{preco}:",
+    "barraRotulo": "Do preço, %{pct}% é custo de cada %{singular} e o resto paga as contas fixas",
+    "deCusto": "%{valor} de custo",
+    "pagaContas": "%{valor} paga as contas",
+    "maiorCustoAntes": "Seu maior custo é ",
+    "maiorCustoMeio": ". Se ele subir %{um} em cada %{singular}, você precisa vender ",
+    "maiorCustoN": "+%{n} %{plural}",
+    "maiorCustoDepois": " por mês para empatar.",
+    "naoFechaTitulo": "Assim não fecha a conta",
+    "naoFechaTexto": "O preço de venda precisa ser maior que o custo de cada %{singular}. Que tal revisar o preço?",
+    "salvarVoltar": "Salvar e voltar",
+    "resumo": "%{n} %{plural} por mês",
+    "resumoVazio": "3 números e pronto",
+    "resumoNaoFecha": "Preço abaixo do custo"
+  },
+  "quadros": {
+    "lean": {
+      "problema": {
+        "bloco": "Problema",
+        "pergunta": "Que problema você resolve para o seu cliente?",
+        "ajuda": "Todo negócio nasce de um incômodo de alguém. Com o problema claro, fica fácil explicar por que alguém pagaria.",
+        "exemplo": "no bairro só tem lanche de rede, caro e demorado no delivery."
+      },
+      "paraQuem": {
+        "bloco": "Para quem",
+        "pergunta": "Quem vai comprar de você?",
+        "ajuda": "Quanto mais claro o seu cliente, mais fácil decidir preço, lugar e divulgação. Comece pelo primeiro grupo que compraria.",
+        "exemplo": "famílias e quem trabalha de casa, num raio de 3 km."
+      },
+      "diferencial": {
+        "bloco": "O que te faz diferente",
+        "pergunta": "Por que alguém escolheria você e não outro?",
+        "ajuda": "É a sua promessa em uma frase. Ela volta no resto do plano e no documento.",
+        "exemplo": "lanche artesanal que chega quente em 25 minutos."
+      },
+      "solucao": {
+        "bloco": "Solução",
+        "pergunta": "Como você resolve esse problema?",
+        "ajuda": "Conte o que você vende e como entrega. Comece simples: dá para melhorar depois.",
+        "exemplo": "cardápio curto, pedido pelo WhatsApp e entrega própria."
+      },
+      "canais": {
+        "bloco": "Onde o cliente te encontra",
+        "pergunta": "Como o cliente fica sabendo de você e compra?",
+        "ajuda": "Instagram, WhatsApp, indicação, ponto físico, aplicativo… Sem um caminho até o cliente, a venda não acontece.",
+        "exemplo": "Instagram do bairro, grupo do condomínio e WhatsApp para os pedidos."
+      },
+      "receitas": {
+        "bloco": "Como ganha dinheiro",
+        "pergunta": "Como o dinheiro entra no seu negócio?",
+        "ajuda": "O que você cobra, quanto e de que jeito. Pense em quanto cada cliente deixa por compra.",
+        "exemplo": "venda de lanches e combos; ticket médio de R$ 32."
+      },
+      "custos": {
+        "bloco": "Principais custos",
+        "pergunta": "Quais gastos não dá para evitar?",
+        "ajuda": "Liste os maiores: aluguel, insumos, salários, taxas. Eles entram na conta do ponto de equilíbrio.",
+        "exemplo": "aluguel da cozinha, insumos, gás, motoboy."
+      },
+      "metricas": {
+        "bloco": "Como saber se está dando certo",
+        "pergunta": "Que números mostram que o negócio está indo bem?",
+        "ajuda": "Escolha 1 ou 2 números para olhar toda semana. Sem isso, fica difícil saber se precisa mudar alguma coisa.",
+        "exemplo": "lanches vendidos por mês, clientes que voltam em 30 dias."
+      },
+      "vantagem": {
+        "bloco": "O que ninguém copia fácil",
+        "pergunta": "O que você tem que um concorrente não consegue copiar rápido?",
+        "ajuda": "Pode ser uma receita, um ponto, um contato ou a confiança da vizinhança. Se ainda não tiver, tudo bem: deixe em branco.",
+        "exemplo": "receita própria de molho e a relação com os vizinhos."
+      }
+    },
+    "bmc": {
+      "segmentos": {
+        "bloco": "Segmentos",
+        "pergunta": "Para quais grupos de clientes você vende?",
+        "ajuda": "Pode ser mais de um grupo. Se quem paga e quem usa forem pessoas diferentes, conte os dois.",
+        "exemplo": "famílias do bairro e pequenas empresas que pedem para reuniões."
+      },
+      "proposta": {
+        "bloco": "Proposta de valor",
+        "pergunta": "O que cada grupo ganha escolhendo você?",
+        "ajuda": "Tempo, preço, qualidade, conveniência… É o motivo de o cliente voltar.",
+        "exemplo": "lanche artesanal quente em 25 minutos, sem pedido mínimo."
+      },
+      "canais": {
+        "bloco": "Canais",
+        "pergunta": "Por onde você chega até o cliente e entrega o que vende?",
+        "ajuda": "Como ele te conhece, compra e recebe. Cada etapa pode ter um canal diferente.",
+        "exemplo": "Instagram para divulgar, WhatsApp para pedir, motoboy próprio para entregar."
+      },
+      "relacionamento": {
+        "bloco": "Relacionamento",
+        "pergunta": "Como você cuida do cliente para ele voltar?",
+        "ajuda": "Atendimento, fidelidade, pós-venda. Cliente que volta custa menos que cliente novo.",
+        "exemplo": "cartão fidelidade: o 10º lanche é por conta da casa."
+      },
+      "receitas": {
+        "bloco": "Fontes de receita",
+        "pergunta": "De onde vem cada real que entra?",
+        "ajuda": "Liste as formas de cobrar: venda avulsa, combo, encomenda, taxa de entrega.",
+        "exemplo": "lanches avulsos, combos família e taxa de entrega."
+      },
+      "recursos": {
+        "bloco": "Recursos principais",
+        "pergunta": "O que você precisa ter para conseguir trabalhar?",
+        "ajuda": "Equipamentos, lugar, pessoas e conhecimento. Pense no que faria falta se sumisse amanhã.",
+        "exemplo": "chapa, freezer, moto de entrega e a receita do molho."
+      },
+      "atividades": {
+        "bloco": "Atividades principais",
+        "pergunta": "O que você precisa fazer toda semana para o negócio funcionar?",
+        "ajuda": "São as tarefas que, se pararem, o negócio para. Ajuda a ver quanto tempo e quanta gente você vai precisar.",
+        "exemplo": "hamburgueria de bairro — comprar insumos, montar os lanches, fazer as entregas, postar no Instagram."
+      },
+      "parcerias": {
+        "bloco": "Parcerias principais",
+        "pergunta": "Quem, de fora do negócio, pode te ajudar?",
+        "ajuda": "Fornecedores, parceiros e quem indica você. Bons parceiros baixam custos ou trazem clientes.",
+        "exemplo": "padaria que entrega o pão, açougue do bairro, síndico do condomínio vizinho."
+      },
+      "custos": {
+        "bloco": "Estrutura de custos",
+        "pergunta": "Quanto custa manter o negócio funcionando?",
+        "ajuda": "Separe o que é fixo (paga todo mês) do que muda com as vendas. É a mesma divisão da calculadora do ponto de equilíbrio.",
+        "exemplo": "fixos: aluguel e internet; variáveis: carne, pão e embalagem."
+      }
+    },
+    "persona": {
+      "quem": {
+        "bloco": "Quem é",
+        "pergunta": "Dê um nome e uma idade para o seu cliente ideal",
+        "ajuda": "Imaginar uma pessoa de verdade ajuda a tomar decisões. Pode ser inventado.",
+        "exemplo": "Carla, 34 anos."
+      },
+      "rotina": {
+        "bloco": "Rotina",
+        "pergunta": "Onde essa pessoa mora e como é o dia dela?",
+        "ajuda": "Bairro, trabalho, família, horários. O que ajuda a entender quando e como ela compra.",
+        "exemplo": "mora perto da loja, trabalha de casa, tem dois filhos pequenos."
+      },
+      "quer": {
+        "bloco": "O que ela quer",
+        "pergunta": "O que ela quer resolver quando procura um negócio como o seu?",
+        "ajuda": "Não é o produto em si: é o resultado que ela espera.",
+        "exemplo": "jantar gostoso sem precisar cozinhar no fim do dia."
+      },
+      "incomoda": {
+        "bloco": "O que incomoda",
+        "pergunta": "O que mais irrita essa pessoa nas opções que ela tem hoje?",
+        "ajuda": "As reclamações dela são as suas oportunidades.",
+        "exemplo": "entrega que atrasa e lanche que chega frio."
+      },
+      "decide": {
+        "bloco": "Como decide",
+        "pergunta": "Como ela escolhe de quem comprar?",
+        "ajuda": "Preço, indicação, avaliação, proximidade… O que pesa mais para ela?",
+        "exemplo": "indicação de vizinhos e o grupo do condomínio."
+      },
+      "proposta": {
+        "bloco": "Proposta de valor",
+        "pergunta": "Em uma frase: por que ela escolheria você?",
+        "ajuda": "Junte o que ela quer com o que você faz de diferente. Esta frase vai em destaque no documento.",
+        "exemplo": "lanche artesanal que chega quente em 25 minutos, sem a demora das grandes redes."
+      }
+    }
+  },
+  "formulario": {
+    "fecharSalvar": "Fechar e salvar",
+    "deTotal": "%{atual} de %{total}",
+    "perguntaDe": "Pergunta %{atual} de %{total}",
+    "porQueImporta": "Por que isso importa?",
+    "abrir": "Abrir",
+    "fechar": "Fechar",
+    "suaResposta": "Sua resposta",
+    "placeholder": "Escreva do seu jeito, sem medo de errar",
+    "placeholderPersona": "Escreva do seu jeito",
+    "exemplo": "Ex.:",
+    "pular": "Pular por enquanto",
+    "proxima": "Próxima",
+    "concluir": "Concluir bloco",
+    "verResultado": "Ver resultado",
+    "veioDaIdeia": "Veio da sua ideia — ajuste se quiser",
+    "ilustracao": "Ilustração do seu cliente",
+    "mulher": "Mulher",
+    "homem": "Homem",
+    "ilustracaoRotulo": "Ilustração de %{genero} representando %{nome}",
+    "personaPadrao": "Seu cliente ideal",
+    "respostasDe": "%{n} de %{total} respostas"
+  },
+  "revisao": {
+    "rotulo": "Revisão · %{quadro}",
+    "toque": "Toque numa resposta para ajustar.",
+    "pulada": "Pulada — sem resposta ainda",
+    "semResposta": "Sem resposta ainda",
+    "responder": "Responder",
+    "editar": "Editar",
+    "tudoCerto": "Tudo certo, voltar ao negócio",
+    "item": "%{n} · %{bloco}"
+  },
+  "hub": {
+    "voltar": "Voltar para Meus negócios",
+    "editar": "Editar negócio",
+    "gratuito": "Gratuito",
+    "concluido": "%{n}% concluído",
+    "porOndeComecar": "Por onde começar",
+    "comecarTexto": "9 perguntas curtas. É a base que as outras partes usam.",
+    "comecarAgora": "Começar agora",
+    "deTotal": "%{n} de %{total}",
+    "nenhumaTarefa": "Nenhuma tarefa ainda",
+    "tarefasFeitas": "%{n} de %{total} tarefas feitas",
+    "continuar": "Continuar",
+    "noCompleto": "No plano completo",
+    "noCompletoTexto": "A compra única libera tudo, em todos os seus negócios, com a análise e o documento em PDF.",
+    "bloqueado": "%{parte}, bloqueado",
+    "rodapeLiberado": "Plano liberado: gere o PDF quantas vezes quiser",
+    "rodapeGratis": "O documento em PDF vem com o plano completo.",
+    "rodapeComecar": "Comece pela sua ideia. O resto do plano vem com a compra única.",
+    "gerarDocumento": "Gerar documento"
   }
 }

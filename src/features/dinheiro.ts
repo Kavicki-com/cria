@@ -88,3 +88,50 @@ export function formatarMoedaCurta(centavos: number, simbolo: string): string {
     : formatarValor(Math.abs(centavos));
   return `${negativo ? '−' : ''}${simbolo} ${texto}`;
 }
+
+/**
+ * Centavos as typed in a money field, without the symbol: "6.240" for a whole
+ * amount, "12,50" otherwise. Empty for `null`, so a field never shows "0,00"
+ * the person did not type.
+ */
+export function formatarEntrada(centavos: number | null): string {
+  if (centavos === null) return '';
+  return Math.round(centavos) % 100 === 0
+    ? formatarInteiro(centavos / 100)
+    : formatarValor(centavos);
+}
+
+/**
+ * Parses a typed amount into centavos, or `null` when there is no number.
+ *
+ * Unlike `parseValor` (Pendurô's keypad, where the last separator is always
+ * the decimal mark), this reads what a Brazilian types in a text field: a
+ * comma is the decimal mark, and a dot followed by exactly three digits is a
+ * thousands separator — "6.240" is six thousand, not six reais. A lone dot
+ * with one or two digits after it ("12.50") is still taken as decimals, for
+ * keyboards that only offer a dot.
+ */
+export function parseDinheiro(texto: string): number | null {
+  const limpo = texto.replace(/[^\d.,]/g, '');
+  if (!/\d/.test(limpo)) return null;
+
+  let inteiro: string;
+  let decimais = '';
+  if (limpo.includes(',')) {
+    const ultima = limpo.lastIndexOf(',');
+    inteiro = limpo.slice(0, ultima).replace(/[.,]/g, '');
+    decimais = limpo.slice(ultima + 1).replace(/[.,]/g, '');
+  } else {
+    const grupos = limpo.split('.');
+    const ultimo = grupos[grupos.length - 1] ?? '';
+    if (grupos.length > 1 && ultimo.length !== 3) {
+      decimais = grupos.pop() ?? '';
+      inteiro = grupos.join('');
+    } else {
+      inteiro = grupos.join('');
+    }
+  }
+
+  const centavos = Number(inteiro || '0') * 100 + Number(decimais.padEnd(2, '0').slice(0, 2));
+  return Number.isFinite(centavos) ? centavos : null;
+}

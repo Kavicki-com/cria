@@ -58,7 +58,7 @@ export function AnelProgresso({
 
   return (
     <View
-      accessible={Boolean(accessibilityLabel)}
+      accessible={accessibilityLabel ? true : undefined}
       accessibilityRole={accessibilityLabel ? 'image' : undefined}
       accessibilityLabel={accessibilityLabel}
       style={{ width: size, height: size, alignItems: 'center', justifyContent: 'center' }}

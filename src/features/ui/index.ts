@@ -7,3 +7,4 @@ export {
   type BarraSegmentadaProps,
 } from './Progresso';
 export { SeloLiberado } from './Selo';
+export { IlustracaoPersona } from './IlustracaoPersona';

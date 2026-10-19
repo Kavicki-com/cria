@@ -57,7 +57,7 @@ export function AjustesScreen() {
         <IconButton icon={IconChevronLeft} accessibilityLabel={t('common.back')} onPress={voltar} />
       }
     >
-      <Text variant="title" accessibilityRole="header" style={{ marginTop: -6 }}>
+      <Text variant="title" accessibilityRole="header">
         {t('ajustes.titulo')}
       </Text>
 

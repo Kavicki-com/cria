@@ -3,6 +3,7 @@ export { MeusNegociosScreen } from './MeusNegociosScreen';
 export { NovoNegocioScreen, type NovoNegocioProps } from './NovoNegocioScreen';
 export {
   calcularProgresso,
+  parteCompleta,
   parteComecada,
   proximaParte,
   TOTAL_PROGRESSO,

@@ -87,6 +87,10 @@ export type ColorTokens = {
   onDangerSoft: string;
   warning: string;
 
+  /** "Pontos de atenção" card on the analysis (design Analise). */
+  atencaoFundo: string;
+  atencaoBorda: string;
+
   /** SWOT "Ameaças" tag and quadrant (design Swot): lavender. */
   lilasSoft: string;
   onLilasSoft: string;
@@ -147,6 +151,9 @@ const lightColors: ColorTokens = {
   onDangerSoft: '#8C1D18',
   warning: '#8A5A00',
 
+  atencaoFundo: '#FDF0F1',
+  atencaoBorda: '#F2BCC2',
+
   lilasSoft: '#ECE7F5',
   onLilasSoft: '#4B2E83',
 
@@ -206,6 +213,9 @@ const darkColors: ColorTokens = {
   dangerSoft: '#3B1714',
   onDangerSoft: '#F9DEDC',
   warning: '#F2C661',
+
+  atencaoFundo: '#2B1A1F',
+  atencaoBorda: '#5A2A33',
 
   lilasSoft: '#2A2340',
   onLilasSoft: '#CBB8F0',

@@ -530,5 +530,128 @@
     "lembretePrecisaDia": "Pick a day to turn the reminder on.",
     "excluir": "Delete task",
     "lembreteTitulo": "Action plan · %{negocio}"
+  },
+  "analise": {
+    "titulo": "Your analysis",
+    "sobra": "left from each sale",
+    "porDia": "%{n}/day",
+    "paraEmpatar": "to break even",
+    "sensibilidade": "+%{n}",
+    "sensibilidadeRotulo": "%{plural}/month for each %{um} of cost",
+    "semNumeros": "Fill in the break-even point to see your numbers here.",
+    "atencao": "Points of attention",
+    "bom": "What is going well",
+    "passos": "Next steps",
+    "nenhumaAtencao": "No points of attention for now. Keep filling in the plan.",
+    "adicionarAoPlano": "Add “%{tarefa}” to the plan",
+    "noPlano": "“%{tarefa}” is already in the plan",
+    "rodape": "In the document: scenarios, simulations and full strategies.",
+    "aviso": "Suggestions built from your answers and the numbers you entered. They do not replace advice from an accountant or consultant.",
+    "previa": "Preview of your analysis",
+    "previaResumo": "We found %{atencao} and %{passos}",
+    "verCompleta": "See full analysis",
+    "verAnalise": "See your analysis",
+    "cardResumo": "%{atencao} · %{passos}",
+    "umPontoAtencao": "1 point of attention",
+    "pontosAtencao": "%{n} points of attention",
+    "umPasso": "1 next step",
+    "passosN": "%{n} next steps",
+    "previaVazia": "Answer a few more questions to see the analysis preview.",
+    "borrado": "Full analysis content, unlocked with the full plan",
+    "regras": {
+      "sem_numeros": {
+        "titulo": "The numbers are missing",
+        "texto": "Without costs and price, there is no way to know how much to sell to pay the bills.",
+        "passo": "Fill in the 3 break-even numbers"
+      },
+      "canais_vazios": {
+        "titulo": "Channels still open",
+        "texto": "Without knowing where customers find you, the goal of %{empateDia} %{plural} a day is a shot in the dark.",
+        "textoSemMeta": "Without knowing where customers find you, it is hard to plan sales.",
+        "passo": "Answer your channels in the Lean Canvas"
+      },
+      "margem_baixa": {
+        "titulo": "Tight margin",
+        "texto": "Only %{pct}% of the price is left for the bills. A small cost increase wipes out the profit.",
+        "passo": "Review price and cost in the break-even point"
+      },
+      "custo_dominante": {
+        "titulo": "%{maiorCusto} at the center of the risk",
+        "texto": "Each %{um} more in the cost of each %{singular} raises break-even by %{n} %{plural} a month.",
+        "passo": "Add “%{tarefa}” to the plan",
+        "tarefa": "Get a quote from a second %{maiorCusto} supplier"
+      },
+      "capacidade": {
+        "titulo": "Few hands for the goal",
+        "texto": "You wrote “%{fraqueza}”. It covers the goal, but leaves no room to grow.",
+        "passo": "Add “%{tarefa}” to the plan",
+        "tarefa": "Find who can help on the busiest days"
+      },
+      "empate_alto": {
+        "titulo": "Demanding daily goal",
+        "texto": "Breaking even takes %{empateDia} %{plural} a day, more than a small business in your field usually handles (about %{limite}).",
+        "passo": "Review fixed costs and price in the break-even point"
+      },
+      "ideia_sem_validacao": {
+        "titulo": "No way to measure yet",
+        "texto": "At the idea stage, picking 1 or 2 numbers to track is what shows whether it is worth going on.",
+        "passo": "Answer how to tell it is working"
+      },
+      "proposta_vaga": {
+        "titulo": "Promise still vague",
+        "texto": "“%{proposta}” is short to convince. Say what the customer gains and why you.",
+        "textoVazio": "You haven't written what makes you different yet. It is the sentence that sells the business.",
+        "passo": "Write your proposition in one sentence"
+      },
+      "swot_desequilibrado": {
+        "titulo": "More weights than strengths",
+        "texto": "You listed %{ruins} things holding you back and %{forcas} strengths. Look for what you already do well.",
+        "passo": "Review the strengths in the SWOT"
+      },
+      "persona_sem_decisao": {
+        "titulo": "How does your customer decide?",
+        "texto": "Without this, it is hard to choose where and how to reach them.",
+        "passo": "Answer how your customer decides"
+      },
+      "margem_boa": {
+        "titulo": "Comfortable margin",
+        "texto": "More than half of the price (%{pct}%) is left for fixed costs."
+      },
+      "proposta_mensuravel": {
+        "titulo": "Measurable proposition",
+        "texto": "“%{proposta}” is a promise customers can check."
+      },
+      "cliente_definido": {
+        "titulo": "Well-defined customer",
+        "texto": "Persona, pains and value proposition line up with each other."
+      },
+      "sem_tarefas": {
+        "passo": "Create the first task of the action plan"
+      }
+    },
+    "cruzamentos": {
+      "ataque": {
+        "rotulo": "Strength + opportunity · attack",
+        "texto": "Use “%{forca}” to take advantage of “%{oportunidade}”."
+      },
+      "defesa": {
+        "rotulo": "Strength + threat · defend",
+        "texto": "Lean on “%{forca}” to face “%{ameaca}”."
+      },
+      "melhore": {
+        "rotulo": "Weakness + opportunity · improve",
+        "texto": "Use “%{oportunidade}” to fix “%{fraqueza}”."
+      },
+      "evite": {
+        "rotulo": "Weakness + threat · avoid",
+        "texto": "Deal with “%{fraqueza}” before “%{ameaca}” hits your cash."
+      }
+    },
+    "conquistar": {
+      "titulo": "How to win %{nome}",
+      "onde": "Where to reach %{nome}",
+      "decide": "How %{nome} decides",
+      "dizer": "What to say"
+    }
   }
 }

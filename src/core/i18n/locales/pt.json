@@ -530,5 +530,128 @@
     "lembretePrecisaDia": "Escolha um dia para ligar o lembrete.",
     "excluir": "Excluir tarefa",
     "lembreteTitulo": "Plano de ação · %{negocio}"
+  },
+  "analise": {
+    "titulo": "Sua análise",
+    "sobra": "sobra de cada venda",
+    "porDia": "%{n}/dia",
+    "paraEmpatar": "para empatar",
+    "sensibilidade": "+%{n}",
+    "sensibilidadeRotulo": "%{plural}/mês a cada %{um} de custo",
+    "semNumeros": "Preencha o ponto de equilíbrio para ver seus números aqui.",
+    "atencao": "Pontos de atenção",
+    "bom": "O que está bom",
+    "passos": "Próximos passos",
+    "nenhumaAtencao": "Nenhum ponto de atenção por enquanto. Continue preenchendo o plano.",
+    "adicionarAoPlano": "Adicionar “%{tarefa}” ao plano",
+    "noPlano": "“%{tarefa}” já está no plano",
+    "rodape": "No documento: cenários, simulações e estratégias completas.",
+    "aviso": "Sugestões montadas a partir das suas respostas e dos números informados. Não substituem a orientação de um contador ou consultor.",
+    "previa": "Prévia da sua análise",
+    "previaResumo": "Encontramos %{atencao} e %{passos}",
+    "verCompleta": "Ver análise completa",
+    "verAnalise": "Ver sua análise",
+    "cardResumo": "%{atencao} · %{passos}",
+    "umPontoAtencao": "1 ponto de atenção",
+    "pontosAtencao": "%{n} pontos de atenção",
+    "umPasso": "1 próximo passo",
+    "passosN": "%{n} próximos passos",
+    "previaVazia": "Responda mais algumas perguntas para ver a prévia da análise.",
+    "borrado": "Conteúdo da análise completa, liberado com o plano completo",
+    "regras": {
+      "sem_numeros": {
+        "titulo": "Faltam os números",
+        "texto": "Sem custos e preço, não dá para saber quanto vender para pagar as contas.",
+        "passo": "Preencha os 3 números do ponto de equilíbrio"
+      },
+      "canais_vazios": {
+        "titulo": "Canais em aberto",
+        "texto": "Sem saber onde o cliente te encontra, a meta de %{empateDia} %{plural} por dia fica no escuro.",
+        "textoSemMeta": "Sem saber onde o cliente te encontra, fica difícil planejar as vendas.",
+        "passo": "Responda seus canais no Lean Canvas"
+      },
+      "margem_baixa": {
+        "titulo": "Margem apertada",
+        "texto": "Só %{pct}% do preço sobra para as contas. Um aumento pequeno de custo já tira o lucro.",
+        "passo": "Revise preço e custo no ponto de equilíbrio"
+      },
+      "custo_dominante": {
+        "titulo": "%{maiorCusto} no centro do risco",
+        "texto": "Cada %{um} a mais no custo de cada %{singular} sobe o empate em %{n} %{plural} por mês.",
+        "passo": "Adicionar “%{tarefa}” ao plano",
+        "tarefa": "Cotar um segundo fornecedor de %{maiorCusto}"
+      },
+      "capacidade": {
+        "titulo": "Pouca gente para a meta",
+        "texto": "Você escreveu “%{fraqueza}”. Dá conta da meta, mas não sobra folga para crescer.",
+        "passo": "Adicionar “%{tarefa}” ao plano",
+        "tarefa": "Ver quem pode ajudar nos dias de mais movimento"
+      },
+      "empate_alto": {
+        "titulo": "Meta diária puxada",
+        "texto": "Para empatar são %{empateDia} %{plural} por dia, acima do que um negócio pequeno do seu ramo costuma dar conta (cerca de %{limite}).",
+        "passo": "Revise custos fixos e preço no ponto de equilíbrio"
+      },
+      "ideia_sem_validacao": {
+        "titulo": "Falta um jeito de medir",
+        "texto": "Na fase de ideia, escolher 1 ou 2 números para acompanhar é o que mostra se vale seguir.",
+        "passo": "Responda como saber se está dando certo"
+      },
+      "proposta_vaga": {
+        "titulo": "Promessa ainda vaga",
+        "texto": "“%{proposta}” é curta para convencer. Diga o que o cliente ganha e por que você.",
+        "textoVazio": "Você ainda não escreveu o que te faz diferente. É a frase que vende o negócio.",
+        "passo": "Escreva sua proposta em uma frase"
+      },
+      "swot_desequilibrado": {
+        "titulo": "Mais pesos do que forças",
+        "texto": "Você listou %{ruins} pontos que atrapalham e %{forcas} forças. Vale procurar o que você já faz bem.",
+        "passo": "Reveja as forças no SWOT"
+      },
+      "persona_sem_decisao": {
+        "titulo": "Como seu cliente decide?",
+        "texto": "Sem isso, fica difícil escolher onde e como falar com ele.",
+        "passo": "Responda como seu cliente decide"
+      },
+      "margem_boa": {
+        "titulo": "Margem confortável",
+        "texto": "Mais da metade do preço (%{pct}%) sobra para as contas fixas."
+      },
+      "proposta_mensuravel": {
+        "titulo": "Proposta mensurável",
+        "texto": "“%{proposta}” é uma promessa que o cliente consegue conferir."
+      },
+      "cliente_definido": {
+        "titulo": "Cliente bem definido",
+        "texto": "Persona, dores e proposta de valor estão alinhadas entre si."
+      },
+      "sem_tarefas": {
+        "passo": "Crie a 1ª tarefa do plano de ação"
+      }
+    },
+    "cruzamentos": {
+      "ataque": {
+        "rotulo": "Força + oportunidade · ataque",
+        "texto": "Use “%{forca}” para aproveitar “%{oportunidade}”."
+      },
+      "defesa": {
+        "rotulo": "Força + ameaça · defesa",
+        "texto": "Apoie-se em “%{forca}” para enfrentar “%{ameaca}”."
+      },
+      "melhore": {
+        "rotulo": "Fraqueza + oportunidade · melhore",
+        "texto": "Aproveite “%{oportunidade}” para resolver “%{fraqueza}”."
+      },
+      "evite": {
+        "rotulo": "Fraqueza + ameaça · evite",
+        "texto": "Cuide de “%{fraqueza}” antes que “%{ameaca}” pese no caixa."
+      }
+    },
+    "conquistar": {
+      "titulo": "Como conquistar %{nome}",
+      "onde": "Onde falar com %{nome}",
+      "decide": "Como %{nome} decide",
+      "dizer": "O que dizer"
+    }
   }
 }

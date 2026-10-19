@@ -4,3 +4,7 @@ dist
 android
 ios
 package-lock.json
+
+# Exported from the design editor; reference only, never reformatted
+docs/cria/design/*.dc.html
+docs/cria/design/canvas.json

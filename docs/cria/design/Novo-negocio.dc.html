@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Novo negócio</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&amp;family=Roboto:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0}
+[data-scroll]>*{flex-shrink:0}
+[data-scroll]::-webkit-scrollbar{display:none}
+a{color:#1F4F8F}a:hover{color:#173B6C}
+</style>
+</helmet>
+<div data-scroll="" style="width: 390px; height: 844px; box-sizing: border-box; background: #FAF7F2; color: #18212E; font-family: 'Roboto', 'Segoe UI', system-ui, sans-serif; display: flex; flex-direction: column; padding: 56px 20px 34px; gap: 22px; overflow-y: auto; overflow-x: hidden; scrollbar-width: none">
+  <div style="display: flex; align-items: center; gap: 4px">
+    <a href="Meus-negocios.dc.html" aria-label="Fechar" style="width: 44px; height: 44px; margin-left: -10px; display: flex; align-items: center; justify-content: center; color: #18212E">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg>
+    </a>
+  </div>
+  <h1 style="margin: -8px 0 0; font-family: 'Poppins', 'Trebuchet MS', sans-serif; font-weight: 600; font-size: 30px; letter-spacing: -0.02em">Novo negócio</h1>
+
+  <div style="display: flex; flex-direction: column; gap: 8px">
+    <label for="nome" style="font-size: 15px; font-weight: 600">Nome do negócio</label>
+    <input id="nome" value="{{nome}}" onChange="{{setNome}}" placeholder="Ex.: Lanches da Vila" style="min-height: 54px; box-sizing: border-box; border: 2px solid #1F4F8F; border-radius: 14px; background: #FFFFFF; padding: 0 16px; font-family: inherit; font-size: 17px; color: #18212E">
+    <span style="font-size: 13px; color: #545F6E">Pode ser provisório. Dá para mudar depois.</span>
+  </div>
+
+  <fieldset style="border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px">
+    <legend style="font-size: 15px; font-weight: 600; padding: 0; margin-bottom: 10px">Segmento</legend>
+    <div style="display: flex; flex-wrap: wrap; gap: 8px">
+      <sc-for list="{{segmentos}}" as="s" hint-placeholder-count="8">
+        <sc-if value="{{s.sel}}" hint-placeholder-val="{{ false }}">
+          <button onClick="{{s.escolher}}" aria-pressed="true" style="min-height: 44px; padding: 0 16px; border-radius: 999px; border: 2px solid #1F4F8F; background: #E4ECF7; color: #1F4F8F; font-family: inherit; font-size: 15px; font-weight: 700">{{s.nome}}</button>
+        </sc-if>
+        <sc-if value="{{s.naoSel}}" hint-placeholder-val="{{ true }}">
+          <button onClick="{{s.escolher}}" aria-pressed="false" style="min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #D6CFC3; background: #FFFFFF; color: #18212E; font-family: inherit; font-size: 15px">{{s.nome}}</button>
+        </sc-if>
+      </sc-for>
+    </div>
+  </fieldset>
+
+  <fieldset style="border: 0; margin: 0; padding: 0; display: flex; flex-direction: column">
+    <legend style="font-size: 15px; font-weight: 600; padding: 0; margin-bottom: 10px">Em que pé está?</legend>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+      <sc-for list="{{estagios}}" as="e" hint-placeholder-count="2">
+        <sc-if value="{{e.sel}}" hint-placeholder-val="{{ false }}">
+          <button onClick="{{e.escolher}}" aria-pressed="true" style="min-height: 96px; border-radius: 16px; border: 2px solid #1F4F8F; background: #E4ECF7; color: #18212E; font-family: inherit; text-align: left; padding: 14px; display: flex; flex-direction: column; justify-content: space-between; gap: 6px">
+            <span style="font-size: 16px; font-weight: 700; color: #1F4F8F">{{e.nome}}</span>
+            <span style="font-size: 13px; color: #3A4555">{{e.desc}}</span>
+          </button>
+        </sc-if>
+        <sc-if value="{{e.naoSel}}" hint-placeholder-val="{{ true }}">
+          <button onClick="{{e.escolher}}" aria-pressed="false" style="min-height: 96px; border-radius: 16px; border: 1px solid #D6CFC3; background: #FFFFFF; color: #18212E; font-family: inherit; text-align: left; padding: 15px; display: flex; flex-direction: column; justify-content: space-between; gap: 6px">
+            <span style="font-size: 16px; font-weight: 700">{{e.nome}}</span>
+            <span style="font-size: 13px; color: #545F6E">{{e.desc}}</span>
+          </button>
+        </sc-if>
+      </sc-for>
+    </div>
+  </fieldset>
+
+  <a href="Hub-gratis.dc.html" style="margin-top: auto; min-height: 56px; border-radius: 16px; background: #1F4F8F; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 600; text-decoration: none">Criar negócio</a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { nome: 'Lanches da Vila', segmento: 'Alimentação', estagio: 'Já vendo' };
+  }
+  renderVals() {
+    var self = this;
+    var segs = ['Alimentação', 'Beleza', 'Loja / comércio', 'Serviços', 'Moda', 'Saúde e bem-estar', 'Educação', 'Outro'];
+    var ests = [{ nome: 'Só ideia', desc: 'Ainda não vendi' }, { nome: 'Já vendo', desc: 'Já tenho clientes' }];
+    return {
+      nome: this.state.nome,
+      setNome: function (ev) { self.setState({ nome: ev.target.value }); },
+      segmentos: segs.map(function (n) {
+        var sel = self.state.segmento === n;
+        return { nome: n, sel: sel, naoSel: !sel, escolher: function () { self.setState({ segmento: n }); } };
+      }),
+      estagios: ests.map(function (e) {
+        var sel = self.state.estagio === e.nome;
+        return { nome: e.nome, desc: e.desc, sel: sel, naoSel: !sel, escolher: function () { self.setState({ estagio: e.nome }); } };
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>

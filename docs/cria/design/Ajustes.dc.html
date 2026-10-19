@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Ajustes</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&amp;family=Roboto:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0}
+[data-scroll]>*{flex-shrink:0}
+[data-scroll]::-webkit-scrollbar{display:none}
+a{color:#1F4F8F}a:hover{color:#173B6C}
+</style>
+</helmet>
+<div data-scroll="" style="width: 390px; height: 844px; box-sizing: border-box; background: #FAF7F2; color: #18212E; font-family: 'Roboto', 'Segoe UI', system-ui, sans-serif; display: flex; flex-direction: column; padding: 56px 20px 34px; gap: 18px; overflow-y: auto; overflow-x: hidden; scrollbar-width: none">
+  <div style="display: flex; flex-direction: column; gap: 6px">
+    <a href="Meus-negocios.dc.html" aria-label="Voltar" style="width: 44px; height: 44px; margin-left: -10px; display: flex; align-items: center; justify-content: center; color: #18212E">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg>
+    </a>
+    <h1 style="margin: 0; font-family: 'Poppins', 'Trebuchet MS', sans-serif; font-weight: 600; font-size: 30px; letter-spacing: -0.02em">Ajustes</h1>
+  </div>
+
+  <div style="background: #1F4F8F; color: #FFFFFF; border-radius: 20px; padding: 18px; display: flex; flex-direction: column; gap: 14px">
+    <div style="display: flex; justify-content: space-between; align-items: center">
+      <span style="display: flex; flex-direction: column; gap: 2px">
+        <span style="font-size: 14px; color: #D3E0F2">Créditos disponíveis</span>
+        <span style="font-family: 'Poppins', 'Trebuchet MS', sans-serif; font-weight: 600; font-size: 34px; display: flex; align-items: center; gap: 10px"><svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true" style="flex-shrink: 0"><path d="M4 6h16a1 1 0 0 1 1 1v3a2 2 0 0 0 0 4v3a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-3a2 2 0 0 0 0-4V7a1 1 0 0 1 1-1z" fill="#FFFFFF"></path><path d="M15 8v1.5M15 11.25v1.5M15 14.5v1.5" stroke="#1F4F8F" stroke-width="1.6" stroke-linecap="round"></path></svg>2</span>
+      </span>
+      <a href="Paywall.dc.html" style="min-height: 44px; padding: 0 16px; border-radius: 12px; background: #FFFFFF; color: #1F4F8F; display: flex; align-items: center; font-size: 15px; font-weight: 700; text-decoration: none">Comprar mais</a>
+    </div>
+    <span style="display: flex; align-items: center; gap: 6px; font-size: 13px; color: #D3E0F2">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"></rect><path d="M11 18h2"></path></svg>
+      Ficam salvos neste aparelho. Se trocar de celular, eles não vão junto.
+    </span>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 8px">
+    <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #545F6E">Aparência</span>
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; background: #EDE8DF; border-radius: 14px; padding: 4px">
+      <button style="min-height: 44px; border: 0; border-radius: 10px; background: #FFFFFF; color: #18212E; font-family: inherit; font-size: 15px; font-weight: 700; box-shadow: 0 1px 3px rgba(24,33,46,0.12)">Automático</button>
+      <button style="min-height: 44px; border: 0; border-radius: 10px; background: transparent; color: #3A4555; font-family: inherit; font-size: 15px">Claro</button>
+      <button style="min-height: 44px; border: 0; border-radius: 10px; background: transparent; color: #3A4555; font-family: inherit; font-size: 15px">Escuro</button>
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 8px">
+    <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #545F6E">Sobre o app</span>
+    <div style="background: #FFFFFF; border: 1px solid #E7E1D7; border-radius: 16px; display: flex; flex-direction: column">
+      <button style="min-height: 52px; padding: 0 16px; display: flex; align-items: center; justify-content: space-between; color: #18212E; background: transparent; border: 0; border-bottom: 1px solid #EFEAE1; font-family: inherit; font-size: 16px; text-align: left; width: 100%">Como funciona o documento<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8A93A0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></button>
+      <button style="min-height: 52px; padding: 0 16px; display: flex; align-items: center; justify-content: space-between; color: #18212E; background: transparent; border: 0; border-bottom: 1px solid #EFEAE1; font-family: inherit; font-size: 16px; text-align: left; width: 100%">Fale com a gente<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8A93A0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></button>
+      <button style="min-height: 52px; padding: 0 16px; display: flex; align-items: center; justify-content: space-between; color: #18212E; background: transparent; border: 0; border-bottom: 1px solid #EFEAE1; font-family: inherit; font-size: 16px; text-align: left; width: 100%">Política de privacidade<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8A93A0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></button>
+      <div style="min-height: 52px; padding: 0 16px; display: flex; align-items: center; justify-content: space-between; font-size: 16px"><span>Versão</span><span style="color: #545F6E">[VERSÃO]</span></div>
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 8px">
+    <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #545F6E">Créditos das licenças</span>
+    <div style="background: #FFFFFF; border: 1px solid #E7E1D7; border-radius: 16px; padding: 14px 16px; display: flex; flex-direction: column; gap: 10px; font-size: 14px; line-height: 1.45; color: #3A4555">
+      <span><strong style="color: #18212E">Lean Canvas</strong> — adaptado do Business Model Canvas por Ash Maurya. Licença CC BY-SA 3.0.</span>
+      <span><strong style="color: #18212E">Business Model Canvas</strong> — Strategyzer AG. Licença CC BY-SA 3.0.</span>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

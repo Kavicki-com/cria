@@ -1,0 +1,466 @@
+{
+  "v": 3,
+  "attachments": {},
+  "boards": {
+    "Ajustes.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "title": "5.3 · Ajustes",
+      "w": 390,
+      "x": 940,
+      "y": 5056
+    },
+    "Analise.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "title": "4.2 · Sua análise",
+      "w": 390,
+      "x": 470,
+      "y": 3792
+    },
+    "Documento-pronto.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "title": "5.2 · Documento pronto",
+      "w": 390,
+      "x": 470,
+      "y": 5056
+    },
+    "Escuro-formulario.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "title": "Escuro · Formulário guiado",
+      "w": 390,
+      "x": 940,
+      "y": 6320
+    },
+    "Escuro-hub.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "title": "Escuro · Hub — plano liberado",
+      "w": 390,
+      "x": 470,
+      "y": 6320
+    },
+    "Escuro-meus-negocios.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "title": "Escuro · Meus negócios",
+      "w": 390,
+      "x": 0,
+      "y": 6320
+    },
+    "Estado-compra-falhou.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "title": "3.2 · Compra falhou",
+      "w": 390,
+      "x": 470,
+      "y": 2528
+    },
+    "Estado-compra-pendente.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "title": "3.3 · Compra pendente / retomada",
+      "w": 390,
+      "x": 940,
+      "y": 2528
+    },
+    "Estado-gerando.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "title": "5.1 · Gerando PDF",
+      "w": 390,
+      "x": 0,
+      "y": 5056
+    },
+    "Estado-negocio-0.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "title": "2.1 · Hub — negócio 0%",
+      "w": 390,
+      "x": 0,
+      "y": 1264
+    },
+    "Estado-sem-creditos.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "title": "3.5 · Sem créditos",
+      "w": 390,
+      "x": 1880,
+      "y": 2528
+    },
+    "Estado-vazio.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "title": "1.4 · Meus negócios — vazio",
+      "w": 390,
+      "x": 1880,
+      "y": 0
+    },
+    "Formulario.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "title": "4.3 · Formulário guiado — Como o negócio funciona",
+      "w": 390,
+      "x": 940,
+      "y": 3792
+    },
+    "Guia-de-estilo.dc.html": {
+      "h": 1880,
+      "title": "Mini guia de estilo",
+      "w": 1440,
+      "x": 0,
+      "y": 9107
+    },
+    "Hub-gratis.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "title": "2.2 · Hub — gratuito",
+      "w": 390,
+      "x": 470,
+      "y": 1264
+    },
+    "Hub.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "title": "4.1 · Hub — plano liberado",
+      "w": 390,
+      "x": 0,
+      "y": 3792
+    },
+    "Logo.dc.html": {
+      "h": 1120,
+      "title": "Logo — 3 direções",
+      "w": 1440,
+      "x": 0,
+      "y": 11387
+    },
+    "Main.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "title": "1.1 · Boas-vindas",
+      "w": 390,
+      "x": 470,
+      "y": 0
+    },
+    "Meus-negocios.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "title": "1.5 · Meus negócios",
+      "w": 390,
+      "x": 2350,
+      "y": 0
+    },
+    "Novo-negocio.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "title": "1.6 · Novo negócio",
+      "w": 390,
+      "x": 2820,
+      "y": 0
+    },
+    "Onboarding-2.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "title": "1.2 · Como funciona: grátis × plano completo",
+      "w": 390,
+      "x": 940,
+      "y": 0
+    },
+    "Onboarding-3.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "title": "1.3 · Começar",
+      "w": 390,
+      "x": 1410,
+      "y": 0
+    },
+    "PDF-1-capa.dc.html": {
+      "h": 1123,
+      "paper": "a4",
+      "title": "PDF 1 · Capa",
+      "w": 794,
+      "x": 0,
+      "y": 7584
+    },
+    "PDF-2-sumario.dc.html": {
+      "h": 1123,
+      "paper": "a4",
+      "title": "PDF 2 · Sumário executivo",
+      "w": 794,
+      "x": 874,
+      "y": 7584
+    },
+    "PDF-2b-diagnostico.dc.html": {
+      "h": 1123,
+      "paper": "a4",
+      "title": "PDF 3 · Diagnóstico",
+      "w": 794,
+      "x": 1748,
+      "y": 7584
+    },
+    "PDF-3-lean-canvas.dc.html": {
+      "h": 794,
+      "paper": "a4",
+      "title": "PDF 4 · Lean Canvas",
+      "w": 1123,
+      "x": 2622,
+      "y": 7584
+    },
+    "PDF-4-bmc.dc.html": {
+      "h": 794,
+      "paper": "a4",
+      "title": "PDF 5 · Business Model Canvas",
+      "w": 1123,
+      "x": 3825,
+      "y": 7584
+    },
+    "PDF-5-swot.dc.html": {
+      "h": 1123,
+      "paper": "a4",
+      "title": "PDF 6 · Forças e fraquezas",
+      "w": 794,
+      "x": 5028,
+      "y": 7584
+    },
+    "PDF-6-persona.dc.html": {
+      "h": 1123,
+      "paper": "a4",
+      "title": "PDF 7 · Persona e proposta de valor",
+      "w": 794,
+      "x": 5902,
+      "y": 7584
+    },
+    "PDF-7-numeros.dc.html": {
+      "h": 1123,
+      "paper": "a4",
+      "title": "PDF 8 · Números",
+      "w": 794,
+      "x": 6776,
+      "y": 7584
+    },
+    "PDF-8-plano.dc.html": {
+      "h": 1123,
+      "paper": "a4",
+      "title": "PDF 9 · Plano de ação",
+      "w": 794,
+      "x": 7650,
+      "y": 7584
+    },
+    "Paywall-credito.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "title": "3.4 · Com crédito disponível",
+      "w": 390,
+      "x": 1410,
+      "y": 2528
+    },
+    "Paywall.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "title": "3.1 · Paywall",
+      "w": 390,
+      "x": 0,
+      "y": 2528
+    },
+    "Persona.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "title": "4.6 · Persona e proposta de valor",
+      "w": 390,
+      "x": 2350,
+      "y": 3792
+    },
+    "Plano-acao.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "title": "4.8 · Plano de ação",
+      "w": 390,
+      "x": 3290,
+      "y": 3792
+    },
+    "Ponto-equilibrio.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "title": "2.4 · Ponto de equilíbrio",
+      "w": 390,
+      "x": 1410,
+      "y": 1264
+    },
+    "Revisao-persona.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "title": "4.7 · Revisão — Persona",
+      "w": 390,
+      "x": 2820,
+      "y": 3792
+    },
+    "Revisao-swot.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "title": "4.5 · Revisão — Forças e fraquezas",
+      "w": 390,
+      "x": 1880,
+      "y": 3792
+    },
+    "Revisao.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "title": "2.3 · Revisão — Sua ideia em uma página",
+      "w": 390,
+      "x": 940,
+      "y": 1264
+    },
+    "Swot.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "title": "4.4 · Forças e fraquezas",
+      "w": 390,
+      "x": 1410,
+      "y": 3792
+    },
+    "Splash.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "1.0 · Splash screen"
+    },
+    "Icone-app.dc.html": {
+      "x": 1520,
+      "y": 11387,
+      "w": 1440,
+      "h": 900,
+      "title": "Ícone do app"
+    }
+  },
+  "createdOnFiles": {
+    "at": "2026-10-15T20:40:00Z",
+    "v": 1
+  },
+  "designSystems": [],
+  "launch": {
+    "view": "canvas"
+  },
+  "notes": {
+    "row0": {
+      "kind": "title1",
+      "maxW": 3210,
+      "text": "1 · Primeiro contato",
+      "w": 240,
+      "x": 0,
+      "y": -300
+    },
+    "row1": {
+      "kind": "title1",
+      "maxW": 1800,
+      "text": "2 · Plano gratuito",
+      "w": 240,
+      "x": 0,
+      "y": 964
+    },
+    "row2": {
+      "kind": "title1",
+      "maxW": 2270,
+      "text": "3 · Compra do plano completo",
+      "w": 240,
+      "x": 0,
+      "y": 2228
+    },
+    "row3": {
+      "kind": "title1",
+      "maxW": 3680,
+      "text": "4 · Plano liberado",
+      "w": 240,
+      "x": 0,
+      "y": 3492
+    },
+    "row4": {
+      "kind": "title1",
+      "maxW": 1330,
+      "text": "5 · Documento e ajustes",
+      "w": 240,
+      "x": 0,
+      "y": 4756
+    },
+    "row5": {
+      "kind": "title1",
+      "maxW": 1330,
+      "text": "6 · Modo escuro",
+      "w": 240,
+      "x": 0,
+      "y": 6020
+    },
+    "row_guia": {
+      "kind": "title1",
+      "maxW": 1440,
+      "text": "8 · Mini guia de estilo",
+      "w": 240,
+      "x": 0,
+      "y": 8807
+    },
+    "row_logo": {
+      "kind": "title1",
+      "maxW": 2960,
+      "text": "9 · Logo e ícone",
+      "w": 240,
+      "x": 0,
+      "y": 11087
+    },
+    "row_pdf": {
+      "kind": "title1",
+      "maxW": 8000,
+      "text": "7 · Documento PDF — A4, o produto pago",
+      "w": 240,
+      "x": 0,
+      "y": 7284
+    }
+  },
+  "order": [
+    "Splash.dc.html",
+    "Main.dc.html",
+    "Onboarding-2.dc.html",
+    "Onboarding-3.dc.html",
+    "Estado-vazio.dc.html",
+    "Meus-negocios.dc.html",
+    "Novo-negocio.dc.html",
+    "Estado-negocio-0.dc.html",
+    "Hub-gratis.dc.html",
+    "Revisao.dc.html",
+    "Ponto-equilibrio.dc.html",
+    "Paywall.dc.html",
+    "Estado-compra-falhou.dc.html",
+    "Estado-compra-pendente.dc.html",
+    "Paywall-credito.dc.html",
+    "Estado-sem-creditos.dc.html",
+    "Hub.dc.html",
+    "Analise.dc.html",
+    "Formulario.dc.html",
+    "Swot.dc.html",
+    "Revisao-swot.dc.html",
+    "Persona.dc.html",
+    "Revisao-persona.dc.html",
+    "Plano-acao.dc.html",
+    "Estado-gerando.dc.html",
+    "Documento-pronto.dc.html",
+    "Ajustes.dc.html",
+    "Escuro-meus-negocios.dc.html",
+    "Escuro-hub.dc.html",
+    "Escuro-formulario.dc.html",
+    "PDF-1-capa.dc.html",
+    "PDF-2-sumario.dc.html",
+    "PDF-2b-diagnostico.dc.html",
+    "PDF-3-lean-canvas.dc.html",
+    "PDF-4-bmc.dc.html",
+    "PDF-5-swot.dc.html",
+    "PDF-6-persona.dc.html",
+    "PDF-7-numeros.dc.html",
+    "PDF-8-plano.dc.html",
+    "Guia-de-estilo.dc.html",
+    "Logo.dc.html",
+    "Icone-app.dc.html"
+  ],
+  "pages": [],
+  "title": "Cria — Meu plano de negócios"
+}

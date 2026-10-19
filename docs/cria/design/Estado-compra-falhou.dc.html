@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Compra falhou</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&amp;family=Roboto:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0}
+[data-scroll]>*{flex-shrink:0}
+[data-scroll]::-webkit-scrollbar{display:none}
+a{color:#1F4F8F}a:hover{color:#173B6C}
+</style>
+</helmet>
+<div data-scroll="" style="width: 390px; height: 844px; box-sizing: border-box; background: #FAF7F2; color: #18212E; font-family: 'Roboto', 'Segoe UI', system-ui, sans-serif; position: relative; overflow-y: auto; overflow-x: hidden; scrollbar-width: none">
+  <div style="padding: 112px 20px 0; display: flex; flex-direction: column; gap: 18px" aria-hidden="true">
+    <span style="font-family: 'Poppins', 'Trebuchet MS', sans-serif; font-weight: 600; font-size: 28px; line-height: 1.12">Seu plano vira um documento de verdade</span>
+    <span style="height: 210px; border-radius: 20px; background: #EFEAE1"></span>
+    <span style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px"><span style="height: 120px; border-radius: 18px; background: #FFFFFF"></span><span style="height: 120px; border-radius: 18px; background: #E4ECF7"></span></span>
+  </div>
+  <div style="position: absolute; inset: 0; background: rgba(18,24,34,0.55)"></div>
+
+  <div role="dialog" aria-labelledby="falhou-t" style="position: absolute; left: 0; right: 0; bottom: 0; background: #FFFFFF; border-radius: 28px 28px 0 0; padding: 12px 24px 34px; display: flex; flex-direction: column; gap: 18px">
+    <span style="align-self: center; width: 40px; height: 5px; border-radius: 3px; background: #D6CFC3"></span>
+    <span style="width: 56px; height: 56px; border-radius: 18px; background: #FBE9E7; color: #B3261E; display: flex; align-items: center; justify-content: center">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 8v5"></path><path d="M12 16h.01"></path></svg>
+    </span>
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <h1 id="falhou-t" style="margin: 0; font-family: 'Poppins', 'Trebuchet MS', sans-serif; font-weight: 600; font-size: 26px; letter-spacing: -0.015em">A compra não foi concluída</h1>
+      <p style="margin: 0; font-size: 16px; line-height: 1.5; color: #3A4555">Nada foi cobrado. Pode ter sido a conexão ou o cartão cadastrado na loja. Suas respostas continuam salvas.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 10px">
+      <a href="Paywall.dc.html" style="min-height: 56px; border-radius: 16px; background: #1F4F8F; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 600; text-decoration: none">Tentar de novo</a>
+      <a href="Hub.dc.html" style="min-height: 52px; border-radius: 16px; border: 1px solid #D6CFC3; color: #18212E; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 600; text-decoration: none">Agora não</a>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

@@ -224,3 +224,12 @@ feature because it is inert there.
 Conventional-commit subjects (`feat:`, `fix:`, `chore:`). Say what broke and why
 the fix works, and state plainly what was verified and what was not. Do not add
 Claude attribution or co-author trailers.
+
+## Cria — onde está o plano
+
+Este app é o **Cria — Meu plano de negócios**. Antes de qualquer tarefa, leia
+`docs/cria/PLANO.md` (plano, fases, modelo de dados, regras) e use `docs/cria/design/`
+como referência visual — o mapa tela → rota está em `docs/cria/design/README.md`.
+Referências de código da casa: `Kavicki-com/penduro` (principal) e
+`Kavicki-com/churrapp`. Não use o Vjez como referência.
+Trabalhe uma fase por vez e pare no fim de cada uma para revisão.

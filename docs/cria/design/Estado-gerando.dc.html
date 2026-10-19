@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Gerando PDF</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&amp;family=Roboto:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0}
+[data-scroll]>*{flex-shrink:0}
+[data-scroll]::-webkit-scrollbar{display:none}
+a{color:#1F4F8F}a:hover{color:#173B6C}
+@keyframes mpn-pulse{0%,100%{opacity:1}50%{opacity:0.35}}
+</style>
+</helmet>
+<div data-scroll="" style="width: 390px; height: 844px; box-sizing: border-box; background: #FAF7F2; color: #18212E; font-family: 'Roboto', 'Segoe UI', system-ui, sans-serif; display: flex; flex-direction: column; padding: 100px 28px 34px; gap: 32px; overflow-y: auto; overflow-x: hidden; scrollbar-width: none">
+  <div style="display: flex; justify-content: center; position: relative; height: 230px">
+    <div style="position: absolute; top: 18px; width: 150px; height: 212px; background: #FFFFFF; border: 1px solid #E7E1D7; border-radius: 6px; transform: translateX(34px) rotate(7deg)"></div>
+    <div style="position: absolute; top: 8px; width: 150px; height: 212px; background: #FFFFFF; border: 1px solid #E7E1D7; border-radius: 6px; transform: translateX(16px) rotate(3deg)"></div>
+    <div style="position: absolute; top: 0; width: 150px; height: 212px; background: #FFFDF9; border: 1px solid #E7E1D7; border-radius: 6px; box-shadow: 0 14px 34px rgba(24,33,46,0.14); padding: 14px; box-sizing: border-box; display: flex; flex-direction: column; gap: 6px">
+      <span style="font-size: 7px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #1F4F8F">{{paginaAtual}}</span>
+      <div style="flex: 1; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); grid-template-rows: repeat(3, minmax(0, 1fr)); gap: 3px">
+        <span style="grid-row: span 2; background: #E4ECF7; border-radius: 2px"></span>
+        <span style="background: #E4ECF7; border-radius: 2px"></span>
+        <span style="grid-row: span 2; background: #FCE3E5; border-radius: 2px"></span>
+        <span style="background: #E4ECF7; border-radius: 2px"></span>
+        <span style="grid-row: span 2; background: #E4ECF7; border-radius: 2px; animation: mpn-pulse 1.4s ease-in-out infinite"></span>
+        <span style="background: #E4ECF7; border-radius: 2px"></span>
+        <span style="background: #EDE8DF; border-radius: 2px; animation: mpn-pulse 1.4s ease-in-out infinite"></span>
+        <span style="grid-column: span 2; background: #EDE8DF; border-radius: 2px"></span>
+        <span style="grid-column: span 3; background: #EDE8DF; border-radius: 2px"></span>
+      </div>
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 10px; text-align: center" aria-live="polite">
+    <h1 style="margin: 0; font-family: 'Poppins', 'Trebuchet MS', sans-serif; font-weight: 600; font-size: 28px; letter-spacing: -0.015em">{{titulo}}</h1>
+    <p style="margin: 0; font-size: 16px; color: #545F6E">{{subtitulo}}</p>
+  </div>
+
+  <div style="height: 10px; border-radius: 5px; background: #E7E1D7; overflow: hidden" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{pct}}" aria-label="Progresso da geração">
+    <div style="height: 100%; width: {{pctCss}}; border-radius: 5px; background: #1F4F8F; transition: width 0.5s ease"></div>
+  </div>
+
+  <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; font-size: 16px">
+    <sc-for list="{{etapas}}" as="e" hint-placeholder-count="4">
+      <li style="display: flex; align-items: center; gap: 12px">
+        <sc-if value="{{e.feita}}" hint-placeholder-val="{{ false }}">
+          <span style="width: 26px; height: 26px; border-radius: 50%; background: #1F4F8F; color: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span>
+        </sc-if>
+        <sc-if value="{{e.atual}}" hint-placeholder-val="{{ false }}">
+          <span style="width: 26px; height: 26px; border-radius: 50%; border: 3px solid #1F4F8F; border-right-color: #E7E1D7; box-sizing: border-box; flex-shrink: 0"></span>
+        </sc-if>
+        <sc-if value="{{e.depois}}" hint-placeholder-val="{{ true }}">
+          <span style="width: 26px; height: 26px; border-radius: 50%; border: 2px solid #D6CFC3; box-sizing: border-box; flex-shrink: 0"></span>
+        </sc-if>
+        <span>{{e.nome}}</span>
+      </li>
+    </sc-for>
+  </ul>
+
+  <sc-if value="{{pronto}}" hint-placeholder-val="{{ false }}">
+    <a href="Documento-pronto.dc.html" style="margin-top: auto; min-height: 56px; border-radius: 16px; background: #1F4F8F; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 600; text-decoration: none">Ver meu documento</a>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { passo: 0 };
+    this.nomes = ['Capa, sumário e diagnóstico', 'Lean Canvas', 'Business Model Canvas', 'Números e plano de ação'];
+  }
+  componentDidMount() {
+    var self = this;
+    this.timer = setInterval(function () {
+      if (self.state.passo >= 4) { clearInterval(self.timer); return; }
+      self.setState({ passo: self.state.passo + 1 });
+    }, 900);
+  }
+  componentWillUnmount() {
+    if (this.timer) clearInterval(this.timer);
+  }
+  renderVals() {
+    var p = this.state.passo;
+    var pronto = p >= 4;
+    var pct = Math.round((p / 4) * 100);
+    var etapas = this.nomes.map(function (nome, k) {
+      return { nome: nome, feita: k < p, atual: k === p, depois: k > p };
+    });
+    return {
+      etapas: etapas,
+      pronto: pronto,
+      pct: pct,
+      pctCss: Math.max(pct, 6) + '%',
+      paginaAtual: pronto ? 'Documento completo' : this.nomes[p],
+      titulo: pronto ? 'Documento pronto!' : 'Montando seu documento…',
+      subtitulo: pronto ? '9 páginas, prontas para compartilhar.' : 'Pode deixar o app aberto. Leva alguns segundos.'
+    };
+  }
+}
+</script>
+</body>
+</html>

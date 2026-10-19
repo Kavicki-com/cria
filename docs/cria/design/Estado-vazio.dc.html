@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Meus negócios — vazio</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&amp;family=Roboto:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0}
+[data-scroll]>*{flex-shrink:0}
+[data-scroll]::-webkit-scrollbar{display:none}
+a{color:#1F4F8F}a:hover{color:#173B6C}
+</style>
+</helmet>
+<div data-scroll="" style="width: 390px; height: 844px; box-sizing: border-box; background: #FAF7F2; color: #18212E; font-family: 'Roboto', 'Segoe UI', system-ui, sans-serif; display: flex; flex-direction: column; padding: 56px 20px 34px; gap: 20px; overflow-y: auto; overflow-x: hidden; scrollbar-width: none">
+  <div style="display: flex; justify-content: space-between; align-items: center; padding: 0 4px">
+    <h1 style="margin: 0; font-family: 'Poppins', 'Trebuchet MS', sans-serif; font-weight: 600; font-size: 32px; letter-spacing: -0.02em">Meus negócios</h1>
+    <a href="Ajustes.dc.html" aria-label="Ajustes" style="width: 44px; height: 44px; border-radius: 22px; background: #FFFFFF; border: 1px solid #E7E1D7; box-sizing: border-box; display: flex; align-items: center; justify-content: center; color: #18212E">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h10"></path><path d="M18 7h2"></path><circle cx="16" cy="7" r="2"></circle><path d="M4 17h4"></path><path d="M12 17h8"></path><circle cx="10" cy="17" r="2"></circle></svg>
+    </a>
+  </div>
+
+  <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px; text-align: center; padding: 0 12px">
+    <div style="position: relative; width: 180px; height: 180px; border-radius: 50%; background: #EFEAE1; display: flex; align-items: center; justify-content: center">
+      <div style="width: 96px; height: 128px; background: #FFFFFF; border: 2px dashed #B9B0A1; border-radius: 10px; box-sizing: border-box; display: flex; align-items: center; justify-content: center">
+        <svg width="56" height="56" viewBox="0 0 64 64" aria-hidden="true"><path d="M15 47h11V37h11V27h11" fill="none" stroke="#1F4F8F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="48" cy="17" r="5" fill="#EF6F7A"></circle></svg>
+      </div>
+      <span style="position: absolute; right: 18px; top: 22px; width: 36px; height: 36px; border-radius: 50%; background: #E4ECF7"></span>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 10px">
+      <h2 style="margin: 0; font-family: 'Poppins', 'Trebuchet MS', sans-serif; font-weight: 600; font-size: 26px; line-height: 1.15; letter-spacing: -0.015em; text-wrap: balance">Toda ideia começa no papel</h2>
+      <p style="margin: 0; font-size: 16px; line-height: 1.5; color: #545F6E; text-wrap: pretty">Comece só com o nome do negócio. O resto a gente pergunta aos poucos, e você pode parar quando quiser.</p>
+    </div>
+  </div>
+
+  <a href="Novo-negocio.dc.html" style="min-height: 56px; border-radius: 16px; background: #1F4F8F; color: #FFFFFF; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 17px; font-weight: 600; text-decoration: none">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg>
+    Criar meu primeiro negócio
+  </a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

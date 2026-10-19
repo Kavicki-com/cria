@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Splash screen</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&amp;family=Roboto:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#1F4F8F}a:hover{color:#173B6C}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #FFFDF9; color: #18212E; font-family: 'Roboto', 'Segoe UI', system-ui, sans-serif; display: flex; flex-direction: column; overflow: hidden; position: relative">
+  <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px; padding: 0 32px">
+    <svg width="76" height="76" viewBox="0 0 64 64" role="img" aria-label="Logo Cria" style="display: block"><rect width="64" height="64" rx="18" fill="#1F4F8F"></rect><path d="M15 47h11V37h11V27h11" fill="none" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="48" cy="17" r="5.5" fill="#EF6F7A"></circle></svg>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 2px; text-align: center">
+      <span style="font-family: 'Poppins', 'Trebuchet MS', sans-serif; font-weight: 600; font-size: 46px; line-height: 1.05; letter-spacing: -0.01em">Cria</span>
+      <span style="font-size: 18px; font-weight: 500; color: #545F6E">Meu plano de negócios</span>
+    </div>
+    <span style="width: 48px; height: 5px; border-radius: 3px; background: #EF6F7A"></span>
+  </div>
+  <div style="height: 300px; background: #1F4F8F; position: relative; overflow: hidden; flex-shrink: 0" aria-hidden="true">
+    <span style="position: absolute; width: 260px; height: 260px; border-radius: 50%; background: #EF6F7A; right: -70px; top: -110px"></span>
+    <span style="position: absolute; width: 150px; height: 150px; border-radius: 50%; border: 2px solid #4A73B0; left: 40px; top: 70px"></span>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

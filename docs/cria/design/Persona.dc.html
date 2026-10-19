@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Persona e proposta de valor</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&amp;family=Roboto:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0}
+[data-scroll]>*{flex-shrink:0}
+[data-scroll]::-webkit-scrollbar{display:none}
+a{color:#1F4F8F}a:hover{color:#173B6C}
+</style>
+</helmet>
+<div data-scroll="" style="width: 390px; height: 844px; box-sizing: border-box; background: #FAF7F2; color: #18212E; font-family: 'Roboto', 'Segoe UI', system-ui, sans-serif; display: flex; flex-direction: column; padding: 56px 20px 34px; gap: 18px; overflow-y: auto; overflow-x: hidden; scrollbar-width: none">
+  <div style="display: flex; flex-direction: column; gap: 10px">
+    <div style="display: flex; align-items: center; gap: 8px">
+      <a href="Hub.dc.html" aria-label="Fechar e salvar" style="width: 44px; height: 44px; margin-left: -10px; display: flex; align-items: center; justify-content: center; color: #18212E; flex-shrink: 0">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg>
+      </a>
+      <span style="flex: 1; font-size: 15px; font-weight: 600">Seu cliente ideal</span>
+      <span style="font-size: 14px; color: #545F6E">{{numero}} de 6</span>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 4px" role="img" aria-label="Pergunta {{numero}} de 6">
+      <sc-for list="{{segmentos}}" as="s" hint-placeholder-count="6">
+        <span style="height: 6px; border-radius: 3px; background: {{s.cor}}"></span>
+      </sc-for>
+    </div>
+  </div>
+
+  <div style="background: #FFFFFF; border: 1px solid #E7E1D7; border-radius: 16px; padding: 12px 14px; display: flex; align-items: center; gap: 12px" aria-label="Resumo da persona">
+    <span role="img" aria-label="{{avatarLabel}}" style="flex-shrink: 0; display: block">
+      <sc-if value="{{ehMulher}}" hint-placeholder-val="{{ true }}"><svg width="44" height="44" viewBox="0 0 64 64" aria-hidden="true" style="flex-shrink: 0; border-radius: 50%; display: block"><defs><clipPath id="av-form-m"><circle cx="32" cy="32" r="32"></circle></clipPath></defs><g clip-path="url(#av-form-m)"><rect width="64" height="64" fill="#FCE3E5"></rect><path d="M13 40c0-17 8-27 19-27s19 10 19 27v14H13z" fill="#2B1D16"></path><path d="M8 66c0-13 11-20 24-20s24 7 24 20z" fill="#E4ECF7"></path><path d="M24 46c2 4 5 6 8 6s6-2 8-6" fill="none" stroke="#B8C9E2" stroke-width="2"></path><rect x="27" y="37" width="10" height="11" rx="4" fill="#B97A57"></rect><ellipse cx="32" cy="29" rx="10.5" ry="12.5" fill="#C98B67"></ellipse><path d="M21 28c1-10 6-14 11.5-14 6.5 0 10.5 5 11 12-5-1-9-4-11.5-8-2 5-6 8.5-11 10z" fill="#2B1D16"></path><circle cx="28" cy="30" r="1.3" fill="#2B1D16"></circle><circle cx="36" cy="30" r="1.3" fill="#2B1D16"></circle><path d="M28.5 35.5c2 1.6 5 1.6 7 0" fill="none" stroke="#7A3E2A" stroke-width="1.4" stroke-linecap="round"></path><circle cx="42.5" cy="33" r="1.6" fill="#EF6F7A"></circle></g></svg></sc-if>
+      <sc-if value="{{ehHomem}}" hint-placeholder-val="{{ false }}"><svg width="44" height="44" viewBox="0 0 64 64" aria-hidden="true" style="flex-shrink: 0; border-radius: 50%; display: block"><defs><clipPath id="av-form-h"><circle cx="32" cy="32" r="32"></circle></clipPath></defs><g clip-path="url(#av-form-h)"><rect width="64" height="64" fill="#E4ECF7"></rect><path d="M7 66c0-13 11-21 25-21s25 8 25 21z" fill="#1F4F8F"></path><path d="M26 45l6 7 6-7" fill="#FFFFFF"></path><rect x="27" y="37" width="10" height="11" rx="4" fill="#8E5A3E"></rect><ellipse cx="21.5" cy="30" rx="2" ry="3" fill="#A86B4C"></ellipse><ellipse cx="42.5" cy="30" rx="2" ry="3" fill="#A86B4C"></ellipse><ellipse cx="32" cy="29.5" rx="10.5" ry="12.5" fill="#A86B4C"></ellipse><path d="M22.5 31c.5 8 4.5 11.5 9.5 11.5s9-3.5 9.5-11.5c-1.6 3.4-4.6 5.4-9.5 5.4s-7.9-2-9.5-5.4z" fill="#1E1612"></path><path d="M21.5 27c-.5-9 4.5-14.5 10.5-14.5S43 18 42.5 27c-1.6-3.6-3.6-6-6.5-6.6-2 1.6-5.6 2.4-9.6 1.6-2.4 1-4 2.8-4.9 5z" fill="#1E1612"></path><circle cx="28" cy="29.5" r="1.3" fill="#1E1612"></circle><circle cx="36" cy="29.5" r="1.3" fill="#1E1612"></circle><path d="M29 36.4c1.8 1.2 4.2 1.2 6 0" fill="none" stroke="#F3E3D6" stroke-width="1.4" stroke-linecap="round"></path></g></svg></sc-if>
+    </span>
+    <span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px">
+      <span style="font-size: 15px; font-weight: 700">{{nomePersona}}</span>
+      <span style="font-size: 13px; color: #545F6E; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{resumo}}</span>
+    </span>
+  </div>
+  <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: -8px; padding: 0 2px">
+    <span id="ilu" style="font-size: 14px; color: #545F6E">Ilustração do seu cliente</span>
+    <div role="radiogroup" aria-labelledby="ilu" style="display: flex; gap: 8px">
+      <sc-if value="{{ehMulher}}" hint-placeholder-val="{{ true }}">
+        <button role="radio" aria-checked="true" aria-label="Mulher" onClick="{{escolherMulher}}" style="width: 44px; height: 44px; border-radius: 50%; border: 2px solid #1F4F8F; background: #FFFFFF; padding: 2px; box-sizing: border-box; display: flex; align-items: center; justify-content: center"><svg width="36" height="36" viewBox="0 0 64 64" aria-hidden="true" style="flex-shrink: 0; border-radius: 50%; display: block"><defs><clipPath id="av-op-m1"><circle cx="32" cy="32" r="32"></circle></clipPath></defs><g clip-path="url(#av-op-m1)"><rect width="64" height="64" fill="#FCE3E5"></rect><path d="M13 40c0-17 8-27 19-27s19 10 19 27v14H13z" fill="#2B1D16"></path><path d="M8 66c0-13 11-20 24-20s24 7 24 20z" fill="#E4ECF7"></path><path d="M24 46c2 4 5 6 8 6s6-2 8-6" fill="none" stroke="#B8C9E2" stroke-width="2"></path><rect x="27" y="37" width="10" height="11" rx="4" fill="#B97A57"></rect><ellipse cx="32" cy="29" rx="10.5" ry="12.5" fill="#C98B67"></ellipse><path d="M21 28c1-10 6-14 11.5-14 6.5 0 10.5 5 11 12-5-1-9-4-11.5-8-2 5-6 8.5-11 10z" fill="#2B1D16"></path><circle cx="28" cy="30" r="1.3" fill="#2B1D16"></circle><circle cx="36" cy="30" r="1.3" fill="#2B1D16"></circle><path d="M28.5 35.5c2 1.6 5 1.6 7 0" fill="none" stroke="#7A3E2A" stroke-width="1.4" stroke-linecap="round"></path><circle cx="42.5" cy="33" r="1.6" fill="#EF6F7A"></circle></g></svg></button>
+        <button role="radio" aria-checked="false" aria-label="Homem" onClick="{{escolherHomem}}" style="width: 44px; height: 44px; border-radius: 50%; border: 1px solid #E7E1D7; background: #FFFFFF; padding: 3px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; opacity: 0.75"><svg width="36" height="36" viewBox="0 0 64 64" aria-hidden="true" style="flex-shrink: 0; border-radius: 50%; display: block"><defs><clipPath id="av-op-h1"><circle cx="32" cy="32" r="32"></circle></clipPath></defs><g clip-path="url(#av-op-h1)"><rect width="64" height="64" fill="#E4ECF7"></rect><path d="M7 66c0-13 11-21 25-21s25 8 25 21z" fill="#1F4F8F"></path><path d="M26 45l6 7 6-7" fill="#FFFFFF"></path><rect x="27" y="37" width="10" height="11" rx="4" fill="#8E5A3E"></rect><ellipse cx="21.5" cy="30" rx="2" ry="3" fill="#A86B4C"></ellipse><ellipse cx="42.5" cy="30" rx="2" ry="3" fill="#A86B4C"></ellipse><ellipse cx="32" cy="29.5" rx="10.5" ry="12.5" fill="#A86B4C"></ellipse><path d="M22.5 31c.5 8 4.5 11.5 9.5 11.5s9-3.5 9.5-11.5c-1.6 3.4-4.6 5.4-9.5 5.4s-7.9-2-9.5-5.4z" fill="#1E1612"></path><path d="M21.5 27c-.5-9 4.5-14.5 10.5-14.5S43 18 42.5 27c-1.6-3.6-3.6-6-6.5-6.6-2 1.6-5.6 2.4-9.6 1.6-2.4 1-4 2.8-4.9 5z" fill="#1E1612"></path><circle cx="28" cy="29.5" r="1.3" fill="#1E1612"></circle><circle cx="36" cy="29.5" r="1.3" fill="#1E1612"></circle><path d="M29 36.4c1.8 1.2 4.2 1.2 6 0" fill="none" stroke="#F3E3D6" stroke-width="1.4" stroke-linecap="round"></path></g></svg></button>
+      </sc-if>
+      <sc-if value="{{ehHomem}}" hint-placeholder-val="{{ false }}">
+        <button role="radio" aria-checked="false" aria-label="Mulher" onClick="{{escolherMulher}}" style="width: 44px; height: 44px; border-radius: 50%; border: 1px solid #E7E1D7; background: #FFFFFF; padding: 3px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; opacity: 0.75"><svg width="36" height="36" viewBox="0 0 64 64" aria-hidden="true" style="flex-shrink: 0; border-radius: 50%; display: block"><defs><clipPath id="av-op-m2"><circle cx="32" cy="32" r="32"></circle></clipPath></defs><g clip-path="url(#av-op-m2)"><rect width="64" height="64" fill="#FCE3E5"></rect><path d="M13 40c0-17 8-27 19-27s19 10 19 27v14H13z" fill="#2B1D16"></path><path d="M8 66c0-13 11-20 24-20s24 7 24 20z" fill="#E4ECF7"></path><path d="M24 46c2 4 5 6 8 6s6-2 8-6" fill="none" stroke="#B8C9E2" stroke-width="2"></path><rect x="27" y="37" width="10" height="11" rx="4" fill="#B97A57"></rect><ellipse cx="32" cy="29" rx="10.5" ry="12.5" fill="#C98B67"></ellipse><path d="M21 28c1-10 6-14 11.5-14 6.5 0 10.5 5 11 12-5-1-9-4-11.5-8-2 5-6 8.5-11 10z" fill="#2B1D16"></path><circle cx="28" cy="30" r="1.3" fill="#2B1D16"></circle><circle cx="36" cy="30" r="1.3" fill="#2B1D16"></circle><path d="M28.5 35.5c2 1.6 5 1.6 7 0" fill="none" stroke="#7A3E2A" stroke-width="1.4" stroke-linecap="round"></path><circle cx="42.5" cy="33" r="1.6" fill="#EF6F7A"></circle></g></svg></button>
+        <button role="radio" aria-checked="true" aria-label="Homem" onClick="{{escolherHomem}}" style="width: 44px; height: 44px; border-radius: 50%; border: 2px solid #1F4F8F; background: #FFFFFF; padding: 2px; box-sizing: border-box; display: flex; align-items: center; justify-content: center"><svg width="36" height="36" viewBox="0 0 64 64" aria-hidden="true" style="flex-shrink: 0; border-radius: 50%; display: block"><defs><clipPath id="av-op-h2"><circle cx="32" cy="32" r="32"></circle></clipPath></defs><g clip-path="url(#av-op-h2)"><rect width="64" height="64" fill="#E4ECF7"></rect><path d="M7 66c0-13 11-21 25-21s25 8 25 21z" fill="#1F4F8F"></path><path d="M26 45l6 7 6-7" fill="#FFFFFF"></path><rect x="27" y="37" width="10" height="11" rx="4" fill="#8E5A3E"></rect><ellipse cx="21.5" cy="30" rx="2" ry="3" fill="#A86B4C"></ellipse><ellipse cx="42.5" cy="30" rx="2" ry="3" fill="#A86B4C"></ellipse><ellipse cx="32" cy="29.5" rx="10.5" ry="12.5" fill="#A86B4C"></ellipse><path d="M22.5 31c.5 8 4.5 11.5 9.5 11.5s9-3.5 9.5-11.5c-1.6 3.4-4.6 5.4-9.5 5.4s-7.9-2-9.5-5.4z" fill="#1E1612"></path><path d="M21.5 27c-.5-9 4.5-14.5 10.5-14.5S43 18 42.5 27c-1.6-3.6-3.6-6-6.5-6.6-2 1.6-5.6 2.4-9.6 1.6-2.4 1-4 2.8-4.9 5z" fill="#1E1612"></path><circle cx="28" cy="29.5" r="1.3" fill="#1E1612"></circle><circle cx="36" cy="29.5" r="1.3" fill="#1E1612"></circle><path d="M29 36.4c1.8 1.2 4.2 1.2 6 0" fill="none" stroke="#F3E3D6" stroke-width="1.4" stroke-linecap="round"></path></g></svg></button>
+      </sc-if>
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 4px">
+    <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #1F4F8F">{{q.bloco}}</span>
+    <h1 style="margin: 0; font-family: 'Poppins', 'Trebuchet MS', sans-serif; font-weight: 600; font-size: 26px; line-height: 1.15; letter-spacing: -0.015em; text-wrap: balance">{{q.pergunta}}</h1>
+    <p style="margin: 0; font-size: 15px; line-height: 1.45; color: #545F6E">{{q.ajuda}}</p>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 8px">
+    <label for="resp" style="font-size: 14px; color: #545F6E">Sua resposta</label>
+    <textarea id="resp" rows="4" value="{{resposta}}" onChange="{{setResposta}}" placeholder="Escreva do seu jeito" style="box-sizing: border-box; width: 100%; min-height: 120px; resize: none; border: 2px solid #1F4F8F; border-radius: 14px; background: #FFFFFF; padding: 14px 16px; font-family: inherit; font-size: 17px; line-height: 1.5; color: #18212E"></textarea>
+    <div style="display: flex; gap: 8px; align-items: flex-start; font-size: 14px; line-height: 1.45; color: #545F6E">
+      <span style="font-weight: 700; color: #18212E; flex-shrink: 0">Ex.:</span>
+      <span>{{q.exemplo}}</span>
+    </div>
+  </div>
+
+  <div style="margin-top: auto; display: flex; flex-direction: column; gap: 6px">
+    <sc-if value="{{naoUltima}}" hint-placeholder-val="{{ true }}">
+      <button onClick="{{proxima}}" style="align-self: center; min-height: 44px; padding: 0 16px; border: 0; background: transparent; font-family: inherit; font-size: 15px; font-weight: 600; color: #545F6E; text-decoration: underline; text-underline-offset: 3px">Pular por enquanto</button>
+    </sc-if>
+    <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 10px">
+      <button onClick="{{voltar}}" style="min-height: 56px; border-radius: 16px; border: 1px solid #D6CFC3; background: #FFFFFF; color: #18212E; font-family: inherit; font-size: 17px; font-weight: 600">Voltar</button>
+      <sc-if value="{{naoUltima}}" hint-placeholder-val="{{ true }}">
+        <button onClick="{{proxima}}" style="min-height: 56px; border-radius: 16px; border: 0; background: #1F4F8F; color: #FFFFFF; font-family: inherit; font-size: 17px; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 8px">Próxima
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg>
+        </button>
+      </sc-if>
+      <sc-if value="{{ultima}}" hint-placeholder-val="{{ false }}">
+        <a href="Revisao-persona.dc.html" style="min-height: 56px; border-radius: 16px; background: #1F4F8F; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 600; text-decoration: none">Ver resultado</a>
+      </sc-if>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.perguntas = [
+      { bloco: 'Quem é', pergunta: 'Dê um nome e uma idade para o seu cliente ideal', ajuda: 'Imaginar uma pessoa de verdade ajuda a tomar decisões. Pode ser inventado.', exemplo: 'Carla, 34 anos.' },
+      { bloco: 'Rotina', pergunta: 'Onde essa pessoa mora e como é o dia dela?', ajuda: 'Bairro, trabalho, família, horários. O que ajuda a entender quando e como ela compra.', exemplo: 'mora perto da loja, trabalha de casa, tem dois filhos pequenos.' },
+      { bloco: 'O que ela quer', pergunta: 'O que ela quer resolver quando procura um negócio como o seu?', ajuda: 'Não é o produto em si: é o resultado que ela espera.', exemplo: 'jantar gostoso sem precisar cozinhar no fim do dia.' },
+      { bloco: 'O que incomoda', pergunta: 'O que mais irrita essa pessoa nas opções que ela tem hoje?', ajuda: 'As reclamações dela são as suas oportunidades.', exemplo: 'entrega que atrasa e lanche que chega frio.' },
+      { bloco: 'Como decide', pergunta: 'Como ela escolhe de quem comprar?', ajuda: 'Preço, indicação, avaliação, proximidade… O que pesa mais para ela?', exemplo: 'indicação de vizinhos e o grupo do condomínio.' },
+      { bloco: 'Proposta de valor', pergunta: 'Em uma frase: por que ela escolheria você?', ajuda: 'Junte o que ela quer com o que você faz de diferente. Esta frase vai em destaque no documento.', exemplo: 'lanche artesanal que chega quente em 25 minutos, sem a demora das grandes redes.' }
+    ];
+    this.state = { i: 3, respostas: ['Carla, 34 anos', 'Mora a 1 km da loja, trabalha de casa, dois filhos pequenos', 'Jantar gostoso sem cozinhar no fim do dia', '', '', ''], avatar: 'mulher' };
+  }
+  renderVals() {
+    var self = this;
+    var i = this.state.i;
+    var r = this.state.respostas;
+    var nome = (r[0] || '').trim();
+    var preenchidas = r.filter(function (x) { return (x || '').trim(); }).length;
+    var ultima = i === this.perguntas.length - 1;
+    return {
+      q: this.perguntas[i],
+      numero: i + 1,
+      segmentos: this.perguntas.map(function (_, k) {
+        var ok = (r[k] || '').trim();
+        return { cor: k === i ? '#EF6F7A' : (ok ? '#1F4F8F' : '#E7E1D7') };
+      }),
+      resposta: r[i],
+      inicial: nome ? nome.charAt(0).toUpperCase() : '?',
+      nomePersona: nome || 'Seu cliente ideal',
+      resumo: (r[1] || '').trim() ? r[1] : preenchidas + ' de 6 respostas',
+      ultima: ultima,
+      naoUltima: !ultima,
+      ehMulher: this.state.avatar === 'mulher',
+      ehHomem: this.state.avatar === 'homem',
+      avatarLabel: 'Ilustração de ' + (this.state.avatar === 'homem' ? 'homem' : 'mulher') + ' representando ' + (nome || 'seu cliente ideal'),
+      escolherMulher: function () { self.setState({ avatar: 'mulher' }); },
+      escolherHomem: function () { self.setState({ avatar: 'homem' }); },
+      setResposta: function (e) {
+        var n = self.state.respostas.slice();
+        n[self.state.i] = e.target.value;
+        self.setState({ respostas: n });
+      },
+      proxima: function () { self.setState({ i: Math.min(self.state.i + 1, self.perguntas.length - 1) }); },
+      voltar: function () { self.setState({ i: Math.max(self.state.i - 1, 0) }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

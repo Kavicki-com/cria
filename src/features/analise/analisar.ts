@@ -117,6 +117,24 @@ function citar(texto: string): string {
   return limpo.length > LIMITE_CITACAO ? `${limpo.slice(0, LIMITE_CITACAO - 1).trimEnd()}…` : limpo;
 }
 
+/**
+ * The part of a text around its first number, for quoting a measurable
+ * promise: "Para famílias do bairro que querem jantar sem sair de casa, a
+ * Lanches da Vila entrega lanche artesanal quente em 25 minutos…" → "lanche
+ * artesanal quente em 25 minutos". Falls back to the plain quote.
+ */
+export function trechoComNumero(texto: string): string {
+  const oracao = texto
+    .split(/[,;.—–]/)
+    .map((p) => p.trim())
+    .find((p) => /\d/.test(p));
+  if (!oracao) return citar(texto);
+  if (oracao.length <= LIMITE_CITACAO) return citar(oracao);
+  const palavras = oracao.split(/\s+/);
+  const i = palavras.findIndex((p) => /\d/.test(p));
+  return citar(palavras.slice(Math.max(0, i - 4), i + 3).join(' '));
+}
+
 function resposta(entrada: Entrada, quadro: 'lean' | 'bmc' | 'persona', campo: string): string {
   return entrada.respostas[quadro][campo]?.texto.trim() ?? '';
 }
@@ -137,6 +155,7 @@ export function aplicarRegras(entrada: Entrada): { achados: Achado[]; passos: Pa
   const ruins = entrada.swot.filter((i) => i.parte === 'fraquezas' || i.parte === 'ameacas');
   const propostaPersona = resposta(entrada, 'persona', 'proposta');
   const proposta = propostaPersona || resposta(entrada, 'lean', 'diferencial');
+  const promessaCurta = resposta(entrada, 'lean', 'diferencial') || propostaPersona;
   const maiorCusto = entrada.numeros.maiorCusto?.trim() ?? '';
   const personaComecada = Object.keys(entrada.respostas.persona).some(
     (c) => c !== 'ilustracao' && entrada.respostas.persona[c]?.texto.trim(),
@@ -239,7 +258,7 @@ export function aplicarRegras(entrada: Entrada): { achados: Achado[]; passos: Pa
     achados.push({ regra: 'margem_boa', severidade: 1, params: { pct: ind.margemPct } });
   }
 
-  if (proposta && MENSURAVEL.test(proposta)) {
+  if (promessaCurta && MENSURAVEL.test(promessaCurta)) {
     achados.push({
       regra: 'proposta_mensuravel',
       severidade: 1,

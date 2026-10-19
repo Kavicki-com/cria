@@ -64,6 +64,10 @@ function valueImportsOf(text, moduleName) {
 //   @react-native-community/datetimepicker
 //                          -> (android) datepicker -> specs/NativeModuleDatePicker
 //                             TurboModuleRegistry.getEnforcing('RNCDatePicker')
+//   expo-file-system       -> src/ExpoFileSystem.ts ->
+//                             requireNativeModule('FileSystem') at top level
+//   expo-asset             -> build/ExpoAsset.js ->
+//                             requireNativeModule('ExpoAsset') at top level
 //
 // expo-sqlite does ship inside Expo Go today, so its guard is precautionary —
 // but what puts a module on this list is the top-level native lookup, not a
@@ -86,6 +90,8 @@ const LAZY_ONLY_MODULES = [
     module: '@react-native-community/datetimepicker',
     owner: 'src/features/planoAcao/seletorData.tsx',
   },
+  { module: 'expo-file-system', owner: 'src/features/documento/arquivos.ts' },
+  { module: 'expo-asset', owner: 'src/features/documento/arquivos.ts' },
 ];
 
 for (const file of files) {

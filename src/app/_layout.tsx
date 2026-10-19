@@ -91,6 +91,7 @@ function RootNavigator() {
           <Stack.Screen name="negocio/[id]/persona-revisao" />
           <Stack.Screen name="negocio/[id]/plano-acao" />
           <Stack.Screen name="negocio/[id]/analise" />
+          <Stack.Screen name="negocio/[id]/documento" options={{ gestureEnabled: false }} />
         </Stack.Protected>
 
         <Stack.Protected guard={!onboardingCompleted}>

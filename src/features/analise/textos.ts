@@ -63,6 +63,14 @@ export function textoPasso(t: TranslateFn, locale: string, passo: Passo): string
   });
 }
 
+/**
+ * A step as the PDF writes it: the task itself ("Cotar um segundo fornecedor
+ * de carne") instead of the app's button label ("Adicionar … ao plano").
+ */
+export function textoPassoDocumento(t: TranslateFn, locale: string, passo: Passo): string {
+  return passo.destino.tipo === 'tarefa' ? tarefaDoPasso(t, passo) : textoPasso(t, locale, passo);
+}
+
 export function textoCruzamento(t: TranslateFn, c: Cruzamento): { rotulo: string; texto: string } {
   return {
     rotulo: t(`analise.cruzamentos.${c.tipo}.rotulo` as TranslationKey),

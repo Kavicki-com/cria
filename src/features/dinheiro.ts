@@ -16,6 +16,20 @@
  * user-facing string of its own (invariant 6).
  */
 
+/**
+ * Separators of the current language: "1.240,50" in Portuguese and Spanish,
+ * "1,240.50" in English. Set once per render by the root layout
+ * (`definirLocaleNumerico`); defaults to Portuguese, which is also what the
+ * tests use.
+ */
+let separadores = { milhar: '.', decimal: ',' };
+
+export function definirLocaleNumerico(locale: string): void {
+  separadores = locale.startsWith('en')
+    ? { milhar: ',', decimal: '.' }
+    : { milhar: '.', decimal: ',' };
+}
+
 /** Splits centavos into the grouped integer part and the two decimals. */
 export function formatarValor(centavos: number): string {
   const negativo = centavos < 0;
@@ -24,10 +38,10 @@ export function formatarValor(centavos: number): string {
   const reais = Math.floor(absoluto / 100);
   const resto = absoluto % 100;
 
-  const inteiro = String(reais).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  const inteiro = String(reais).replace(/\B(?=(\d{3})+(?!\d))/g, separadores.milhar);
   const decimais = String(resto).padStart(2, '0');
 
-  return `${negativo ? '-' : ''}${inteiro},${decimais}`;
+  return `${negativo ? '-' : ''}${inteiro}${separadores.decimal}${decimais}`;
 }
 
 /** `formatarValor` prefixed with the locale's currency symbol. */
@@ -72,7 +86,10 @@ export function centavosDigitados(texto: string): number | null {
 /** A whole number with the thousands grouped: 1240 → "1.240". */
 export function formatarInteiro(valor: number): string {
   const negativo = valor < 0;
-  const inteiro = String(Math.abs(Math.round(valor))).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  const inteiro = String(Math.abs(Math.round(valor))).replace(
+    /\B(?=(\d{3})+(?!\d))/g,
+    separadores.milhar,
+  );
   return `${negativo ? '-' : ''}${inteiro}`;
 }
 
@@ -112,7 +129,10 @@ export function formatarEntrada(centavos: number | null): string {
  * keyboards that only offer a dot.
  */
 export function parseDinheiro(texto: string): number | null {
-  const limpo = texto.replace(/[^\d.,]/g, '');
+  // In English the roles swap: "6,240.50". Normalise to the Brazilian form.
+  const local =
+    separadores.decimal === '.' ? texto.replace(/[.,]/g, (c) => (c === '.' ? ',' : '.')) : texto;
+  const limpo = local.replace(/[^\d.,]/g, '');
   if (!/\d/.test(limpo)) return null;
 
   let inteiro: string;

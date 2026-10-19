@@ -228,7 +228,11 @@ function CardComecar({ onPress }: { onPress: () => void }) {
         opacity: pressed ? 0.85 : 1,
       })}
     >
-      <Text variant="label" style={{ color: theme.colors.accent }}>
+      {/* The design's goiaba on the blue tint is 2.4:1; the deep goiaba keeps the hue at AA. */}
+      <Text
+        variant="label"
+        style={{ color: theme.scheme === 'dark' ? theme.colors.accent : theme.colors.onAccentSoft }}
+      >
         {t('hub.porOndeComecar')}
       </Text>
       <Text variant="heading" style={{ fontSize: 21, lineHeight: 28 }}>

@@ -19,7 +19,7 @@ import { salvarNumeros, type Numeros } from '@/data';
 
 import { formatarEntrada, formatarInteiro, formatarMoedaCurta, parseDinheiro } from '../dinheiro';
 import { avaliarNumeros, calcularIndicadores } from './calculo';
-import { pluralizar } from './unidade';
+import { pluralizadorDo } from './unidade';
 import { useUnidade } from './useUnidade';
 
 export type EquilibrioProps = {
@@ -35,7 +35,6 @@ export type EquilibrioProps = {
 export function EquilibrioScreen({ negocioId, numeros }: EquilibrioProps) {
   const theme = useTheme();
   const { t, locale } = useTranslation();
-  const ptBr = locale === 'pt-BR';
 
   const [unidade, setUnidade] = useState(numeros.unidadeSingular ?? '');
   const [plural, setPlural] = useState(numeros.unidadePlural ?? '');
@@ -91,7 +90,7 @@ export function EquilibrioScreen({ negocioId, numeros }: EquilibrioProps) {
     };
   }
 
-  const pluralGerado = ptBr && unidade.trim() ? pluralizar(unidade) : u.plural;
+  const pluralGerado = unidade.trim() ? pluralizadorDo(locale)(unidade) : u.plural;
 
   return (
     <Screen
@@ -122,7 +121,7 @@ export function EquilibrioScreen({ negocioId, numeros }: EquilibrioProps) {
             autoCapitalize="none"
             maxLength={40}
           />
-          {ptBr && !editandoPlural ? (
+          {!editandoPlural ? (
             <Pressable
               accessibilityRole="button"
               accessibilityHint={t('equilibrio.mudarPluralDica')}

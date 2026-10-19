@@ -43,3 +43,15 @@ test('os erros conhecidos da regra simples estão cobertos', () => {
   assert.equal(pluralizar('ônibus'), 'ônibus');
   assert.equal(pluralizar('tênis'), 'tênis');
 });
+
+test('regras simples de plural em inglês e espanhol', async () => {
+  const { pluralizarEn, pluralizarEs } = await import('./unidade');
+  assert.equal(pluralizarEn('burger'), 'burgers');
+  assert.equal(pluralizarEn('class'), 'classes');
+  assert.equal(pluralizarEn('candy'), 'candies');
+  assert.equal(pluralizarEn('haircut session'), 'haircut sessions');
+  assert.equal(pluralizarEs('hamburguesa'), 'hamburguesas');
+  assert.equal(pluralizarEs('clase'), 'clases');
+  assert.equal(pluralizarEs('lápiz'), 'lápices');
+  assert.equal(pluralizarEs('pan'), 'panes');
+});

@@ -363,16 +363,20 @@ function PreviaDocumento() {
       >
         <View style={{ paddingTop: 12, paddingHorizontal: 10, gap: 3 }}>
           <Text
+            allowFontScaling={false}
             style={{ fontSize: 5, fontFamily: fonts.bold, letterSpacing: 0.5, color: '#1F4F8F' }}
           >
             {t('boasVindas.docRotulo').toUpperCase()}
           </Text>
           <Text
+            allowFontScaling={false}
             style={{ fontFamily: fonts.display, fontSize: 16, lineHeight: 17, color: '#18212E' }}
           >
             {t('boasVindas.docNome')}
           </Text>
-          <Text style={{ fontSize: 5, color: '#545F6E' }}>{t('boasVindas.docSub')}</Text>
+          <Text allowFontScaling={false} style={{ fontSize: 5, color: '#545F6E' }}>
+            {t('boasVindas.docSub')}
+          </Text>
         </View>
         <View
           style={{ marginTop: 'auto', height: 64, backgroundColor: '#1F4F8F', overflow: 'hidden' }}
@@ -406,7 +410,10 @@ function PreviaDocumento() {
           elevation: 5,
         }}
       >
-        <Text style={{ fontSize: 5, fontFamily: fonts.bold, letterSpacing: 0.5, color: '#1F4F8F' }}>
+        <Text
+          allowFontScaling={false}
+          style={{ fontSize: 5, fontFamily: fonts.bold, letterSpacing: 0.5, color: '#1F4F8F' }}
+        >
           {t('boasVindas.docSwot').toUpperCase()}
         </Text>
         <View style={{ flex: 1, flexDirection: 'row', flexWrap: 'wrap', gap: 3, opacity: 0.6 }}>

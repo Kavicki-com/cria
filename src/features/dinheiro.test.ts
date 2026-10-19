@@ -28,3 +28,20 @@ test('formatos curtos', () => {
   assert.equal(formatarEntrada(1_250), '12,50');
   assert.equal(formatarEntrada(null), '');
 });
+
+test('em inglês os separadores trocam de papel', async () => {
+  const {
+    definirLocaleNumerico,
+    formatarMoedaCurta: moeda,
+    parseDinheiro: ler,
+  } = await import('./dinheiro');
+  definirLocaleNumerico('en');
+  try {
+    assert.equal(moeda(998_400, '$'), '$ 9,984');
+    assert.equal(moeda(3_250, '$'), '$ 32.50');
+    assert.equal(ler('6,240'), 624_000);
+    assert.equal(ler('12.50'), 1_250);
+  } finally {
+    definirLocaleNumerico('pt-BR');
+  }
+});

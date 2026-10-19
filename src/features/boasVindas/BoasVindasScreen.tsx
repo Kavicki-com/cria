@@ -2,7 +2,15 @@ import { useState, type ReactNode } from 'react';
 import { ScrollView, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { Button, IconButton, IconCheck, IconChevronLeft, IconPlus, Text } from '@/core/components';
+import {
+  Button,
+  IconButton,
+  IconCheck,
+  IconChevronLeft,
+  IconPlus,
+  LARGURA_MAXIMA,
+  Text,
+} from '@/core/components';
 import { useTranslation } from '@/core/i18n/useTranslation';
 import { fonts, useTheme } from '@/core/theme';
 
@@ -31,6 +39,9 @@ export function BoasVindasScreen({ onConcluir }: BoasVindasProps) {
     <View style={{ flex: 1, backgroundColor: theme.colors.background }}>
       <View
         style={{
+          width: '100%',
+          maxWidth: LARGURA_MAXIMA,
+          alignSelf: 'center',
           paddingTop: insets.top + 8,
           paddingHorizontal: 24,
           flexDirection: 'row',
@@ -73,6 +84,9 @@ export function BoasVindasScreen({ onConcluir }: BoasVindasProps) {
       <ScrollView
         contentContainerStyle={{
           flexGrow: 1,
+          width: '100%',
+          maxWidth: LARGURA_MAXIMA,
+          alignSelf: 'center',
           paddingHorizontal: 24,
           paddingTop: 8,
           paddingBottom: insets.bottom + 24,
@@ -334,7 +348,10 @@ function CenaDocumento() {
           elevation: 3,
         }}
       >
-        <Text style={{ fontSize: 7, fontFamily: fonts.bold, letterSpacing: 0.6, color: '#1F4F8F' }}>
+        <Text
+          allowFontScaling={false}
+          style={{ fontSize: 7, fontFamily: fonts.bold, letterSpacing: 0.6, color: '#1F4F8F' }}
+        >
           {t('boasVindas.docSwot').toUpperCase()}
         </Text>
         <View style={{ flex: 1, flexDirection: 'row', flexWrap: 'wrap', gap: 4 }}>
@@ -365,16 +382,20 @@ function CenaDocumento() {
       >
         <View style={{ paddingTop: 16, paddingHorizontal: 14, gap: 4 }}>
           <Text
+            allowFontScaling={false}
             style={{ fontSize: 7, fontFamily: fonts.bold, letterSpacing: 0.7, color: '#1F4F8F' }}
           >
             {t('boasVindas.docRotulo').toUpperCase()}
           </Text>
           <Text
+            allowFontScaling={false}
             style={{ fontFamily: fonts.display, fontSize: 22, lineHeight: 23, color: '#18212E' }}
           >
             {t('boasVindas.docNome')}
           </Text>
-          <Text style={{ fontSize: 7, color: '#545F6E' }}>{t('boasVindas.docSub')}</Text>
+          <Text allowFontScaling={false} style={{ fontSize: 7, color: '#545F6E' }}>
+            {t('boasVindas.docSub')}
+          </Text>
         </View>
         <View
           style={{ marginTop: 'auto', height: 96, backgroundColor: '#1F4F8F', overflow: 'hidden' }}

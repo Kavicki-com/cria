@@ -65,6 +65,7 @@ export const TextField = forwardRef<TextInput, TextFieldProps>(function TextFiel
         ) : null}
         <TextInput
           ref={ref}
+          maxFontSizeMultiplier={2}
           {...rest}
           multiline={multiline}
           accessibilityLabel={rest.accessibilityLabel ?? label}

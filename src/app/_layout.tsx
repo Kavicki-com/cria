@@ -9,7 +9,9 @@ import { usePurchasesBootstrap } from '@/core/purchases';
 import { useRegisterLaunch } from '@/core/rating';
 import { useConfigStore } from '@/core/storage';
 import { ThemeProvider, useAppFonts, useTheme } from '@/core/theme';
+import { useTranslation } from '@/core/i18n/useTranslation';
 import { prepararBanco } from '@/data';
+import { definirLocaleNumerico } from '@/features/dinheiro';
 import { useAbrirLembreteTocado, useAgendadorLembretes } from '@/features/planoAcao';
 
 // Foreground behaviour must be registered before the first notification
@@ -48,6 +50,10 @@ export default function RootLayout() {
 
 function RootNavigator() {
   const theme = useTheme();
+  const { locale } = useTranslation();
+  // Number separators follow the language ("1.240,50" / "1,240.50"); set
+  // before any screen below formats an amount.
+  definirLocaleNumerico(locale);
   const onboardingCompleted = useConfigStore((state) => state.onboardingCompleted);
 
   // Configures RevenueCat and keeps the cached unlock flag in sync.

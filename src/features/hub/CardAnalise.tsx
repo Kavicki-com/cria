@@ -49,8 +49,9 @@ export function CardAnalise({ dados }: { dados: DadosNegocio }) {
       >
         <View style={{ flex: 1, gap: 4 }}>
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
-            <IconFileCheck size={14} strokeWidth={2.4} color={theme.colors.success} />
-            <Text variant="label" style={{ fontSize: 12, color: theme.colors.success }}>
+            {/* success on the blue tint is 4.46:1 at 12 pt; the seal's own green passes AA. */}
+            <IconFileCheck size={14} strokeWidth={2.4} color={theme.colors.onSuccessSoft} />
+            <Text variant="label" style={{ fontSize: 12, color: theme.colors.onSuccessSoft }}>
               {t('negocios.liberado')}
             </Text>
           </View>

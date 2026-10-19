@@ -386,16 +386,22 @@ function CapaMiniatura({ nome, sub, rotulo }: { nome: string; sub: string; rotul
       }}
     >
       <View style={{ paddingTop: 16, paddingHorizontal: 14, gap: 4 }}>
-        <Text style={{ fontSize: 7, fontFamily: fonts.bold, letterSpacing: 0.7, color: '#1F4F8F' }}>
+        <Text
+          allowFontScaling={false}
+          style={{ fontSize: 7, fontFamily: fonts.bold, letterSpacing: 0.7, color: '#1F4F8F' }}
+        >
           {rotulo.toUpperCase()}
         </Text>
         <Text
+          allowFontScaling={false}
           numberOfLines={3}
           style={{ fontFamily: fonts.display, fontSize: 20, lineHeight: 22, color: '#18212E' }}
         >
           {nome}
         </Text>
-        <Text style={{ fontSize: 7, color: '#545F6E' }}>{sub}</Text>
+        <Text allowFontScaling={false} style={{ fontSize: 7, color: '#545F6E' }}>
+          {sub}
+        </Text>
       </View>
       <View
         style={{ marginTop: 'auto', height: 96, backgroundColor: '#1F4F8F', overflow: 'hidden' }}
@@ -462,7 +468,10 @@ function PilhaDePaginas({ rotulo }: { rotulo: string }) {
           elevation: 5,
         }}
       >
-        <Text style={{ fontSize: 7, fontFamily: fonts.bold, letterSpacing: 0.6, color: '#1F4F8F' }}>
+        <Text
+          allowFontScaling={false}
+          style={{ fontSize: 7, fontFamily: fonts.bold, letterSpacing: 0.6, color: '#1F4F8F' }}
+        >
           {rotulo.toUpperCase()}
         </Text>
         <View style={{ flex: 1, flexDirection: 'row', flexWrap: 'wrap', gap: 3 }}>

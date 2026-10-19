@@ -11,6 +11,12 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { useTheme } from '../theme';
 
+/**
+ * The screens were drawn at 390 pt. On an iPad the content keeps a phone-like
+ * column, centred, instead of stretching a form across 1,000 pt.
+ */
+export const LARGURA_MAXIMA = 600;
+
 export type ScreenProps = PropsWithChildren<{
   /** Scrolls the content. The footer, if any, stays put below it. */
   scroll?: boolean;
@@ -46,6 +52,9 @@ export function Screen({
   const fundo = backgroundColor ?? theme.colors.background;
 
   const conteudo: ViewStyle = {
+    width: '100%',
+    maxWidth: LARGURA_MAXIMA,
+    alignSelf: 'center',
     paddingHorizontal: theme.spacing.tela,
     paddingTop: header ? 0 : insets.top + 12,
     paddingBottom: footer ? theme.spacing.lg : insets.bottom + theme.spacing.xl,
@@ -57,6 +66,9 @@ export function Screen({
       {header ? (
         <View
           style={{
+            width: '100%',
+            maxWidth: LARGURA_MAXIMA,
+            alignSelf: 'center',
             paddingTop: insets.top + 4,
             paddingHorizontal: theme.spacing.tela - 10,
             minHeight: insets.top + 48,
@@ -85,6 +97,9 @@ export function Screen({
       {footer ? (
         <View
           style={{
+            width: '100%',
+            maxWidth: LARGURA_MAXIMA,
+            alignSelf: 'center',
             paddingHorizontal: theme.spacing.tela,
             paddingTop: theme.spacing.sm,
             // No KeyboardAvoidingView padding here: with behavior="padding" it

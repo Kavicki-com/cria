@@ -1,10 +1,7 @@
 import type { ConfigContext, ExpoConfig } from 'expo/config';
 
 /**
- * Kavicki starter kit — base Expo config.
- *
- * Each app cloned from this template should override `name`, `slug`, `scheme`,
- * `ios.bundleIdentifier`, `android.package` and the EAS project id.
+ * Cria — Meu plano de negócios. Expo config, built on the Kavicki starter kit.
  *
  * Notes:
  * - `react-native-purchases` (RevenueCat) and `expo-system-ui` ship no config
@@ -18,13 +15,14 @@ import type { ConfigContext, ExpoConfig } from 'expo/config';
  *   `src/core/notifications`.
  */
 
-const APP_NAME = 'Kavicki Starter Kit';
-const APP_SLUG = 'kavicki-starter-kit';
-const APP_SCHEME = 'kavickistarter';
-const BUNDLE_ID = 'com.kavicki.starterkit';
+const APP_NAME = 'Cria';
+const APP_SLUG = 'cria';
+const APP_SCHEME = 'cria';
+const BUNDLE_ID = 'com.kavicki.cria';
 
 export default ({ config }: ConfigContext): ExpoConfig => ({
   ...config,
+  owner: 'kavickicom',
   name: APP_NAME,
   slug: APP_SLUG,
   scheme: APP_SCHEME,
@@ -104,20 +102,13 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   extra: {
     router: {},
     /**
-     * This is the KIT'S OWN id, committed because this repo is itself built
-     * and shipped from — leaving it out meant re-pasting it after every pull.
+     * Cria's own EAS project (@kavickicom/cria), printed by `eas init`.
      *
-     * Each app runs `eas init` and REPLACES it with the printed id, as a
-     * literal (it cannot come from `.env.local`: the EAS build server never
-     * sees that file). Never invent a UUID: a fake id makes EAS look up a
-     * project that does not exist and fail with "Experience with id '…' does
-     * not exist", which tells you nothing, and with a bad id even
-     * `eas project:info` fails the same way — `eas init` is the only way in.
-     *
-     * Keeping the kit's id in an app would silently send its builds into the
-     * kit's EAS project; `check-invariants` refuses it once `kavickiTemplate`
-     * is deleted from package.json.
+     * A literal on purpose: `eas init` cannot write into a TypeScript config,
+     * and `.env.local` is never seen by the EAS build server. Never replace it
+     * with an invented UUID — EAS then fails with "Experience with id '…' does
+     * not exist", which names nothing useful.
      */
-    eas: { projectId: 'd68b190b-270b-46bb-9b15-dc7289322c92' },
+    eas: { projectId: 'f6d8192e-f1ce-4012-ba90-ede4dcd31ec1' },
   },
 });

@@ -1,3 +1,19 @@
+# Cria — Meu plano de negócios
+
+App offline que guia quem está começando um pequeno negócio a montar o plano de negócio,
+uma pergunta por vez, e gera um PDF de 9 páginas. Feito a partir do Kavicki starter kit
+(abaixo). O plano está em `docs/cria/PLANO.md`, as telas em `docs/cria/design/`, os textos
+das lojas em `store/textos-loja.md` e o site em `site/`.
+
+```bash
+npm install
+npm run check      # typecheck, lint, formato, locales, invariantes e testes
+npm start          # dev build
+npm run web        # pré-visualização web com dados (só layout)
+```
+
+---
+
 # Kavicki Starter Kit
 
 Reusable base for **offline, single-purchase mobile apps** — no backend, no
@@ -331,12 +347,12 @@ artifact (`aapt dump permissions <apk>`), not the prebuild output.
 
 ### EAS build profiles (`eas.json`)
 
-| Profile              | Purpose                                                                                                  |
-| -------------------- | -------------------------------------------------------------------------------------------------------- |
-| `development`        | dev client; Android APK, iOS **simulator** — no Apple account needed                                     |
-| `development-device` | same, but iOS for a **physical iPhone** — needs a paid Apple Developer account and the device registered |
-| `preview`            | internal testing build of the release JS                                                                 |
-| `production`         | store build, Android App Bundle, auto version increment                                                  |
+| Profile           | Purpose                                                                                                                 |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `development`     | dev client; Android APK, iOS for a **physical iPhone** — needs a paid Apple Developer account and the device registered |
+| `development-sim` | same, but iOS **simulator** — no Apple account needed                                                                   |
+| `preview`         | internal testing build of the release JS                                                                                |
+| `production`      | store build, Android App Bundle, auto version increment                                                                 |
 
 ## Starting a new app
 

@@ -449,5 +449,86 @@
     "verDesbloqueio": "See the full plan",
     "voltarInicio": "Back to My businesses",
     "bloqueadoTexto": "This part comes with the full plan, which unlocks the 4 canvases, the analysis and the PDF for all your businesses."
+  },
+  "swot": {
+    "parteDe": "Part %{atual} of %{total}",
+    "titulo": "Strengths and weaknesses",
+    "tecnico": "· SWOT",
+    "adicionar": "Add",
+    "adicionarItem": "Add item",
+    "remover": "Remove %{item}",
+    "dica": "Tip: 2 to 4 short items are enough.",
+    "verResultado": "See result",
+    "revisaoToque": "Tap a part to adjust it.",
+    "revisaoNota": "In the document, this becomes the 2×2 matrix of Strengths, Weaknesses, Opportunities and Threats.",
+    "vazia": "No items yet",
+    "forcas": {
+      "nome": "Strengths",
+      "tipo": "helps, inside the business",
+      "curto": "Strengths · help",
+      "pergunta": "What is your business already good at?",
+      "ajuda": "Think of what customers praise or what you do better than others.",
+      "placeholder": "E.g. fast delivery",
+      "exemplo": "our own sauce recipe, fast delivery, knows customers by name."
+    },
+    "fraquezas": {
+      "nome": "Weaknesses",
+      "tipo": "hurts, inside the business",
+      "curto": "Weaknesses · hurt",
+      "pergunta": "What is still missing or holding your business back?",
+      "ajuda": "No guilt: it is what you can improve. Lack of people, money, time.",
+      "placeholder": "E.g. only one person in the kitchen",
+      "exemplo": "only one person in the kitchen, little money saved, no social media."
+    },
+    "oportunidades": {
+      "nome": "Opportunities",
+      "tipo": "helps, outside the business",
+      "curto": "Opportunities · help",
+      "pergunta": "What is happening out there that could help you?",
+      "ajuda": "Changes in the neighbourhood, in people's habits or in the market.",
+      "placeholder": "E.g. new buildings nearby",
+      "exemplo": "more people working from home, new buildings, street fairs."
+    },
+    "ameacas": {
+      "nome": "Threats",
+      "tipo": "hurts, outside the business",
+      "curto": "Threats · hurt",
+      "pergunta": "What, out there, could get in the way of your plans?",
+      "ajuda": "Things you don't control but need to keep an eye on.",
+      "placeholder": "E.g. beef prices going up",
+      "exemplo": "beef prices going up, big chains on promotion, delivery app fees."
+    }
+  },
+  "persona": {
+    "tecnico": "Persona",
+    "porQueEscolhe": "Why they choose you"
+  },
+  "planoAcao": {
+    "meses": "Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec",
+    "resumoVazio": "No tasks yet. Start with the simplest one.",
+    "resumo": "%{feitas} of %{total} done",
+    "resumoProxima": "%{feitas} of %{total} done · next: %{data}",
+    "resumoEmDia": "%{feitas} of %{total} done · all caught up!",
+    "novaTarefa": "New task",
+    "placeholder": "What needs to be done?",
+    "adicionar": "Add task",
+    "semData": "No date",
+    "feitas": "Done",
+    "marcar": "Mark as done: %{nome}",
+    "desmarcar": "Unmark: %{nome}",
+    "editarDica": "Opens the task to edit it",
+    "lembreteLigado": "Reminder on",
+    "ligarLembrete": "Turn on reminder",
+    "semPermissao": "Reminders are blocked in the phone's settings. Allow notifications for Cria to get them.",
+    "editarTitulo": "Task",
+    "nome": "What needs to be done",
+    "dia": "Day",
+    "escolherDia": "Pick a day",
+    "tirarDia": "Remove the day",
+    "lembrete": "Reminder",
+    "lembreteDica": "We'll remind you at 9 a.m. that day.",
+    "lembretePrecisaDia": "Pick a day to turn the reminder on.",
+    "excluir": "Delete task",
+    "lembreteTitulo": "Action plan · %{negocio}"
   }
 }

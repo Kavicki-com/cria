@@ -449,5 +449,86 @@
     "verDesbloqueio": "Ver o plano completo",
     "voltarInicio": "Voltar para Meus negócios",
     "bloqueadoTexto": "Esta parte vem com o plano completo, que libera os 4 quadros, a análise e o PDF em todos os seus negócios."
+  },
+  "swot": {
+    "parteDe": "Parte %{atual} de %{total}",
+    "titulo": "Forças e fraquezas",
+    "tecnico": "· SWOT",
+    "adicionar": "Adicionar",
+    "adicionarItem": "Adicionar item",
+    "remover": "Remover %{item}",
+    "dica": "Dica: de 2 a 4 itens curtos já bastam.",
+    "verResultado": "Ver resultado",
+    "revisaoToque": "Toque numa parte para ajustar.",
+    "revisaoNota": "No documento, isso vira a matriz 2×2 de Forças, Fraquezas, Oportunidades e Ameaças.",
+    "vazia": "Nenhum item ainda",
+    "forcas": {
+      "nome": "Forças",
+      "tipo": "ajuda, dentro do negócio",
+      "curto": "Forças · ajudam",
+      "pergunta": "No que o seu negócio já é bom?",
+      "ajuda": "Pense no que os clientes elogiam ou no que você faz melhor que os outros.",
+      "placeholder": "Ex.: entrega rápida",
+      "exemplo": "receita própria de molho, entrega rápida, conhece os clientes pelo nome."
+    },
+    "fraquezas": {
+      "nome": "Fraquezas",
+      "tipo": "atrapalha, dentro do negócio",
+      "curto": "Fraquezas · atrapalham",
+      "pergunta": "O que ainda falta ou pesa no seu negócio?",
+      "ajuda": "Sem culpa: é o que você pode melhorar. Falta de gente, de dinheiro, de tempo.",
+      "placeholder": "Ex.: só uma pessoa na cozinha",
+      "exemplo": "só uma pessoa na cozinha, pouco dinheiro guardado, sem redes sociais."
+    },
+    "oportunidades": {
+      "nome": "Oportunidades",
+      "tipo": "ajuda, fora do negócio",
+      "curto": "Oportunidades · ajudam",
+      "pergunta": "O que está acontecendo lá fora que pode te ajudar?",
+      "ajuda": "Mudanças no bairro, no comportamento das pessoas ou no mercado.",
+      "placeholder": "Ex.: prédios novos na região",
+      "exemplo": "mais gente trabalhando de casa, prédios novos, feiras de rua."
+    },
+    "ameacas": {
+      "nome": "Ameaças",
+      "tipo": "atrapalha, fora do negócio",
+      "curto": "Ameaças · atrapalham",
+      "pergunta": "O que, lá fora, pode atrapalhar seus planos?",
+      "ajuda": "Coisas que você não controla, mas precisa ficar de olho.",
+      "placeholder": "Ex.: alta no preço da carne",
+      "exemplo": "alta no preço da carne, redes grandes com promoção, taxas dos apps."
+    }
+  },
+  "persona": {
+    "tecnico": "Persona",
+    "porQueEscolhe": "Por que ela escolhe você"
+  },
+  "planoAcao": {
+    "meses": "jan,fev,mar,abr,mai,jun,jul,ago,set,out,nov,dez",
+    "resumoVazio": "Nenhuma tarefa ainda. Comece pela mais simples.",
+    "resumo": "%{feitas} de %{total} feitas",
+    "resumoProxima": "%{feitas} de %{total} feitas · próxima: %{data}",
+    "resumoEmDia": "%{feitas} de %{total} feitas · tudo em dia!",
+    "novaTarefa": "Nova tarefa",
+    "placeholder": "O que precisa ser feito?",
+    "adicionar": "Adicionar tarefa",
+    "semData": "Sem data",
+    "feitas": "Feitas",
+    "marcar": "Marcar como feita: %{nome}",
+    "desmarcar": "Desmarcar: %{nome}",
+    "editarDica": "Abre a tarefa para editar",
+    "lembreteLigado": "Lembrete ativado",
+    "ligarLembrete": "Ativar lembrete",
+    "semPermissao": "Os lembretes estão bloqueados nos ajustes do celular. Libere as notificações do Cria para receber os avisos.",
+    "editarTitulo": "Tarefa",
+    "nome": "O que precisa ser feito",
+    "dia": "Dia",
+    "escolherDia": "Escolher um dia",
+    "tirarDia": "Tirar o dia",
+    "lembrete": "Lembrete",
+    "lembreteDica": "Avisamos às 9h do dia.",
+    "lembretePrecisaDia": "Escolha um dia para ligar o lembrete.",
+    "excluir": "Excluir tarefa",
+    "lembreteTitulo": "Plano de ação · %{negocio}"
   }
 }

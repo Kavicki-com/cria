@@ -61,6 +61,9 @@ function valueImportsOf(text, moduleName) {
 //                             requireNativeModule('ExpoNotificationsHandlerModule')
 //   expo-sqlite            -> ExpoSQLite.js ->
 //                             requireNativeModule('ExpoSQLite') at top level
+//   @react-native-community/datetimepicker
+//                          -> (android) datepicker -> specs/NativeModuleDatePicker
+//                             TurboModuleRegistry.getEnforcing('RNCDatePicker')
 //
 // expo-sqlite does ship inside Expo Go today, so its guard is precautionary —
 // but what puts a module on this list is the top-level native lookup, not a
@@ -79,6 +82,10 @@ const LAZY_ONLY_MODULES = [
   { module: 'react-native-nitro-modules', owner: 'src/core/storage/mmkv.ts' },
   { module: 'expo-notifications', owner: 'src/core/notifications/local.ts' },
   { module: 'expo-sqlite', owner: 'src/data/db.ts' },
+  {
+    module: '@react-native-community/datetimepicker',
+    owner: 'src/features/planoAcao/seletorData.tsx',
+  },
 ];
 
 for (const file of files) {

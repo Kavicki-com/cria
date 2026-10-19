@@ -10,6 +10,7 @@ import { useRegisterLaunch } from '@/core/rating';
 import { useConfigStore } from '@/core/storage';
 import { ThemeProvider, useAppFonts, useTheme } from '@/core/theme';
 import { prepararBanco } from '@/data';
+import { useAbrirLembreteTocado, useAgendadorLembretes } from '@/features/planoAcao';
 
 // Foreground behaviour must be registered before the first notification
 // arrives, so it runs at module scope rather than in an effect.
@@ -53,6 +54,10 @@ function RootNavigator() {
   usePurchasesBootstrap();
   // One launch per app start, for the rating prompt's policy.
   useRegisterLaunch();
+  // Action-plan reminders: re-planned on every write and on foreground, and a
+  // tapped one opens its plan.
+  useAgendadorLembretes();
+  useAbrirLembreteTocado();
 
   useEffect(() => {
     void ensureAndroidChannel();
@@ -78,6 +83,13 @@ function RootNavigator() {
           <Stack.Screen name="negocio/[id]/lean" />
           <Stack.Screen name="negocio/[id]/lean-revisao" />
           <Stack.Screen name="negocio/[id]/equilibrio" />
+          <Stack.Screen name="negocio/[id]/bmc" />
+          <Stack.Screen name="negocio/[id]/bmc-revisao" />
+          <Stack.Screen name="negocio/[id]/swot" />
+          <Stack.Screen name="negocio/[id]/swot-revisao" />
+          <Stack.Screen name="negocio/[id]/persona" />
+          <Stack.Screen name="negocio/[id]/persona-revisao" />
+          <Stack.Screen name="negocio/[id]/plano-acao" />
         </Stack.Protected>
 
         <Stack.Protected guard={!onboardingCompleted}>

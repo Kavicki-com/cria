@@ -449,5 +449,86 @@
     "verDesbloqueio": "Ver el plan completo",
     "voltarInicio": "Volver a Mis negocios",
     "bloqueadoTexto": "Esta parte viene con el plan completo, que desbloquea los 4 lienzos, el análisis y el PDF en todos tus negocios."
+  },
+  "swot": {
+    "parteDe": "Parte %{atual} de %{total}",
+    "titulo": "Fortalezas y debilidades",
+    "tecnico": "· FODA",
+    "adicionar": "Agregar",
+    "adicionarItem": "Agregar ítem",
+    "remover": "Quitar %{item}",
+    "dica": "Consejo: de 2 a 4 ítems cortos alcanzan.",
+    "verResultado": "Ver resultado",
+    "revisaoToque": "Toca una parte para ajustarla.",
+    "revisaoNota": "En el documento, esto se convierte en la matriz 2×2 de Fortalezas, Debilidades, Oportunidades y Amenazas.",
+    "vazia": "Ningún ítem todavía",
+    "forcas": {
+      "nome": "Fortalezas",
+      "tipo": "ayuda, dentro del negocio",
+      "curto": "Fortalezas · ayudan",
+      "pergunta": "¿En qué ya es bueno tu negocio?",
+      "ajuda": "Piensa en lo que elogian los clientes o en lo que haces mejor que los demás.",
+      "placeholder": "Ej.: reparto rápido",
+      "exemplo": "receta propia de salsa, reparto rápido, conoce a los clientes por su nombre."
+    },
+    "fraquezas": {
+      "nome": "Debilidades",
+      "tipo": "perjudica, dentro del negocio",
+      "curto": "Debilidades · perjudican",
+      "pergunta": "¿Qué falta todavía o le pesa a tu negocio?",
+      "ajuda": "Sin culpa: es lo que puedes mejorar. Falta de gente, de dinero, de tiempo.",
+      "placeholder": "Ej.: una sola persona en la cocina",
+      "exemplo": "una sola persona en la cocina, poco dinero ahorrado, sin redes sociales."
+    },
+    "oportunidades": {
+      "nome": "Oportunidades",
+      "tipo": "ayuda, fuera del negocio",
+      "curto": "Oportunidades · ayudan",
+      "pergunta": "¿Qué está pasando afuera que puede ayudarte?",
+      "ajuda": "Cambios en el barrio, en las costumbres de la gente o en el mercado.",
+      "placeholder": "Ej.: edificios nuevos en la zona",
+      "exemplo": "más gente trabajando desde casa, edificios nuevos, ferias en la calle."
+    },
+    "ameacas": {
+      "nome": "Amenazas",
+      "tipo": "perjudica, fuera del negocio",
+      "curto": "Amenazas · perjudican",
+      "pergunta": "¿Qué, afuera, puede complicar tus planes?",
+      "ajuda": "Cosas que no controlas, pero tienes que vigilar.",
+      "placeholder": "Ej.: suba del precio de la carne",
+      "exemplo": "suba del precio de la carne, grandes cadenas con promociones, comisiones de las apps."
+    }
+  },
+  "persona": {
+    "tecnico": "Persona",
+    "porQueEscolhe": "Por qué te elige"
+  },
+  "planoAcao": {
+    "meses": "ene,feb,mar,abr,may,jun,jul,ago,sept,oct,nov,dic",
+    "resumoVazio": "Ninguna tarea todavía. Empieza por la más simple.",
+    "resumo": "%{feitas} de %{total} hechas",
+    "resumoProxima": "%{feitas} de %{total} hechas · próxima: %{data}",
+    "resumoEmDia": "%{feitas} de %{total} hechas · ¡todo al día!",
+    "novaTarefa": "Nueva tarea",
+    "placeholder": "¿Qué hay que hacer?",
+    "adicionar": "Agregar tarea",
+    "semData": "Sin fecha",
+    "feitas": "Hechas",
+    "marcar": "Marcar como hecha: %{nome}",
+    "desmarcar": "Desmarcar: %{nome}",
+    "editarDica": "Abre la tarea para editarla",
+    "lembreteLigado": "Recordatorio activado",
+    "ligarLembrete": "Activar recordatorio",
+    "semPermissao": "Los recordatorios están bloqueados en los ajustes del teléfono. Permite las notificaciones de Cria para recibirlos.",
+    "editarTitulo": "Tarea",
+    "nome": "Qué hay que hacer",
+    "dia": "Día",
+    "escolherDia": "Elegir un día",
+    "tirarDia": "Quitar el día",
+    "lembrete": "Recordatorio",
+    "lembreteDica": "Te avisamos a las 9 h de ese día.",
+    "lembretePrecisaDia": "Elige un día para activar el recordatorio.",
+    "excluir": "Eliminar tarea",
+    "lembreteTitulo": "Plan de acción · %{negocio}"
   }
 }

@@ -87,6 +87,10 @@ export type ColorTokens = {
   onDangerSoft: string;
   warning: string;
 
+  /** SWOT "Ameaças" tag and quadrant (design Swot): lavender. */
+  lilasSoft: string;
+  onLilasSoft: string;
+
   /** Behind sheets and dialogs. */
   scrim: string;
   /** PDF paper and the splash. Light in both themes. */
@@ -142,6 +146,9 @@ const lightColors: ColorTokens = {
   dangerSoft: '#FBE9E7',
   onDangerSoft: '#8C1D18',
   warning: '#8A5A00',
+
+  lilasSoft: '#ECE7F5',
+  onLilasSoft: '#4B2E83',
 
   scrim: 'rgba(24, 33, 46, 0.55)',
   paper: '#FFFDF9',
@@ -199,6 +206,9 @@ const darkColors: ColorTokens = {
   dangerSoft: '#3B1714',
   onDangerSoft: '#F9DEDC',
   warning: '#F2C661',
+
+  lilasSoft: '#2A2340',
+  onLilasSoft: '#CBB8F0',
 
   scrim: 'rgba(0, 0, 0, 0.6)',
   paper: '#FFFDF9',

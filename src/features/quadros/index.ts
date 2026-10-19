@@ -9,3 +9,4 @@ export {
 export { FormularioGuiado, type FormularioGuiadoProps } from './FormularioGuiado';
 export { RevisaoScreen, type RevisaoProps } from './RevisaoScreen';
 export { chaveCampo, NOME_TECNICO, PARTE_DO_QUADRO } from './textos';
+export { RevisaoPersonaScreen } from './RevisaoPersonaScreen';

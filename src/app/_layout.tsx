@@ -84,6 +84,9 @@ function RootNavigator() {
           <Stack.Screen name="onboarding" />
         </Stack.Protected>
 
+        {/* Reachable from anywhere, onboarding included (deep links). */}
+        <Stack.Screen name="paywall" options={{ presentation: 'modal' }} />
+        <Stack.Screen name="restaurar" options={{ presentation: 'modal' }} />
         <Stack.Screen name="+not-found" />
       </Stack>
     </>

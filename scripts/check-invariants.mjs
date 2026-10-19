@@ -59,6 +59,12 @@ function valueImportsOf(text, moduleName) {
 //                             TurboModuleRegistry.getEnforcing('NitroModules')
 //   expo-notifications     -> NotificationsHandlerModule.native ->
 //                             requireNativeModule('ExpoNotificationsHandlerModule')
+//   expo-sqlite            -> ExpoSQLite.js ->
+//                             requireNativeModule('ExpoSQLite') at top level
+//
+// expo-sqlite does ship inside Expo Go today, so its guard is precautionary —
+// but what puts a module on this list is the top-level native lookup, not a
+// survey of which runtimes happen to carry it.
 //
 // Both are absent in Expo Go on Android (notifications are still present in
 // Expo Go on iOS, which is why that failure looks Android-only). The only legal
@@ -72,6 +78,7 @@ const LAZY_ONLY_MODULES = [
   { module: 'react-native-mmkv', owner: 'src/core/storage/mmkv.ts' },
   { module: 'react-native-nitro-modules', owner: 'src/core/storage/mmkv.ts' },
   { module: 'expo-notifications', owner: 'src/core/notifications/local.ts' },
+  { module: 'expo-sqlite', owner: 'src/data/db.ts' },
 ];
 
 for (const file of files) {
@@ -289,6 +296,27 @@ if (!isKit) {
 
   if (pkg.name === 'kavicki-starter-kit') {
     problems.push('package.json: name is still the kit\'s ("kavicki-starter-kit").');
+  }
+}
+
+// ---------------------------------------------------------------------------
+// 6. Icon packages are imported by path, never through their barrel.
+//
+// A barrel pulls every icon into the bundle: `lucide-react-native` ships all
+// ~1,900 icon modules, `@expo/vector-icons` all 11 fonts (4.4 MB) for one set
+// in use. Nothing fails — the bundle is just several MB larger. Lucide icons
+// are re-exported one by one from src/core/components/icons.ts.
+// ---------------------------------------------------------------------------
+const ICON_BARRELS = ['@expo/vector-icons', 'lucide-react-native'];
+
+for (const file of files) {
+  for (const barrel of ICON_BARRELS) {
+    for (const line of valueImportsOf(file.text, barrel)) {
+      problems.push(
+        `${file.rel}: imports the ${barrel} barrel ("${line.trim()}"). ` +
+          `Import the icon by path instead (e.g. '${barrel}/…').`,
+      );
+    }
   }
 }
 

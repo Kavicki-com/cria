@@ -1,9 +1,15 @@
-import { ActivityIndicator, Pressable, View, type ViewStyle } from 'react-native';
+import { ActivityIndicator, Pressable, View, type StyleProp, type ViewStyle } from 'react-native';
 
 import { useTheme } from '../theme';
+import type { Icon } from './icons';
 import { Text } from './Text';
 
-export type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'danger';
+/**
+ * `primary` is the blue CTA, `secondary` the outlined one on the surface,
+ * `link` the underlined text button ("Pular por enquanto"), `danger` a
+ * destructive action in a dialog.
+ */
+export type ButtonVariant = 'primary' | 'secondary' | 'link' | 'danger';
 
 export type ButtonProps = {
   /** Already-translated label. Components never hold literal copy. */
@@ -12,10 +18,18 @@ export type ButtonProps = {
   variant?: ButtonVariant;
   disabled?: boolean;
   loading?: boolean;
-  style?: ViewStyle;
+  /** Icon shown before the label. */
+  icon?: Icon;
+  /** The sticky FAB's drop shadow. */
+  elevated?: boolean;
+  style?: StyleProp<ViewStyle>;
   accessibilityLabel?: string;
+  accessibilityHint?: string;
   testID?: string;
 };
+
+/** CTA height from the handoff (54–56). */
+const ALTURA_CTA = 56;
 
 export function Button({
   label,
@@ -23,45 +37,61 @@ export function Button({
   variant = 'primary',
   disabled = false,
   loading = false,
+  icon: Glyph,
+  elevated = false,
   style,
   accessibilityLabel,
+  accessibilityHint,
   testID,
 }: ButtonProps) {
   const theme = useTheme();
   const isDisabled = disabled || loading;
+  const link = variant === 'link';
 
-  const background: Record<ButtonVariant, string> = {
+  const fundo: Record<ButtonVariant, string> = {
     primary: theme.colors.primary,
-    secondary: theme.colors.surfaceElevated,
-    ghost: 'transparent',
-    danger: theme.colors.danger,
+    secondary: theme.colors.surface,
+    link: 'transparent',
+    danger: theme.colors.dangerSoft,
   };
-
-  const labelColor =
-    variant === 'primary' || variant === 'danger'
-      ? theme.colors.onPrimary
-      : variant === 'ghost'
-        ? theme.colors.primary
-        : theme.colors.text;
+  const fundoPressionado: Record<ButtonVariant, string> = {
+    ...fundo,
+    primary: theme.colors.primaryPressed,
+    secondary: theme.colors.surfaceElevated,
+  };
+  const corTexto: Record<ButtonVariant, string> = {
+    primary: theme.colors.onPrimary,
+    secondary: theme.colors.text,
+    link: theme.colors.textMuted,
+    danger: theme.colors.onDangerSoft,
+  };
 
   return (
     <Pressable
       accessibilityRole="button"
       accessibilityLabel={accessibilityLabel ?? label}
+      accessibilityHint={accessibilityHint}
       accessibilityState={{ disabled: isDisabled, busy: loading }}
       testID={testID}
       disabled={isDisabled}
       onPress={onPress}
       style={({ pressed }) => [
         {
-          backgroundColor:
-            pressed && variant === 'primary' ? theme.colors.primaryPressed : background[variant],
-          borderRadius: theme.radius.md,
+          minHeight: link ? 44 : ALTURA_CTA,
+          justifyContent: 'center',
+          backgroundColor: pressed ? fundoPressionado[variant] : fundo[variant],
+          borderRadius: theme.radius.lg,
           borderWidth: variant === 'secondary' ? 1 : 0,
-          borderColor: theme.colors.border,
-          paddingVertical: theme.spacing.md + 2,
-          paddingHorizontal: theme.spacing.lg,
-          opacity: isDisabled ? 0.55 : 1,
+          borderColor: theme.colors.borderInput,
+          paddingHorizontal: link ? theme.spacing.xs : theme.spacing.lg,
+          opacity: isDisabled ? 0.5 : link && pressed ? 0.6 : 1,
+        },
+        elevated && {
+          shadowColor: theme.colors.primary,
+          shadowOpacity: theme.scheme === 'dark' ? 0 : 0.28,
+          shadowRadius: 12,
+          shadowOffset: { width: 0, height: 10 },
+          elevation: 6,
         },
         style,
       ]}
@@ -69,8 +99,21 @@ export function Button({
       <View
         style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8 }}
       >
-        {loading ? <ActivityIndicator size="small" color={labelColor} /> : null}
-        <Text variant="button" style={{ color: labelColor }}>
+        {loading ? (
+          <ActivityIndicator size="small" color={corTexto[variant]} />
+        ) : Glyph ? (
+          <Glyph size={20} strokeWidth={2.2} color={corTexto[variant]} />
+        ) : null}
+        <Text
+          variant="button"
+          style={[
+            { color: corTexto[variant], textAlign: 'center', flexShrink: 1 },
+            link && {
+              fontSize: 15,
+              textDecorationLine: 'underline',
+            },
+          ]}
+        >
           {label}
         </Text>
       </View>

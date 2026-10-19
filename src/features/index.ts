@@ -1,10 +1,5 @@
 /**
- * Placeholder barrel for app-specific features.
- *
- * Each app re-exports its own slices here, e.g.:
- *
- * ```ts
- * export * from './workouts';
- * ```
+ * The app's features. Routes import from each slice directly
+ * (`@/features/negocios`); this barrel only documents what exists.
  */
 export {};

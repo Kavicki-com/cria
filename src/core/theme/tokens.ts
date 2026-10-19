@@ -1,29 +1,88 @@
-import { Platform, type TextStyle } from 'react-native';
+import type { TextStyle } from 'react-native';
 
 /**
- * Design tokens for the starter kit.
+ * Design tokens — Cria.
  *
- * Each app should override the palette here (or fork this file) instead of
- * hard-coding colors in components.
+ * Values are the design handoff's (`docs/cria/design/Guia-de-estilo` and the
+ * `Escuro-*` screens). The handoff gives the dark palette for surfaces, text
+ * and the primary; the soft accent, the success seal and the error colors in
+ * dark were checked against the `Escuro-*` screens where they appear and
+ * derived where they do not, keeping text/background pairs at WCAG AA.
+ *
+ * Rules from the handoff: cards use the light blue tint, never black; the
+ * "Plano liberado" seal and the break-even card are green (success), never
+ * red; the PDF is always light (`paper`), whatever the app theme.
  */
 
 export type ColorScheme = 'light' | 'dark';
 
 export type ColorTokens = {
+  /** Screen background (warm paper in light). */
   background: string;
+  /** Cards, inputs, list groups. */
   surface: string;
+  /** Pressed rows, the segmented control's track. */
   surfaceElevated: string;
+  /** Card border. */
   border: string;
+  /** Input, chip and secondary-button border at rest. */
+  borderInput: string;
+  /** Hairline between rows inside one card. */
+  divider: string;
+  /** Progress-bar track. */
+  track: string;
+  /** Empty-state circle, the quiet fill behind an illustration. */
+  neutralFill: string;
+
+  /** Titles and main text. */
   text: string;
+  /** Paragraph text inside cards. */
+  textBody: string;
+  /** Support text and captions. */
   textMuted: string;
+  /** Chevrons, placeholders. */
+  textFaint: string;
+  /** Text on `text` used as a background. */
   textInverted: string;
+
+  /** CTAs and the progress fill. */
   primary: string;
   primaryPressed: string;
+  /** Text and icons on `primary`. */
   onPrimary: string;
+  /** The primary used as a FOREGROUND (links, percentages, labels). */
+  primaryText: string;
+  /** Card tint, selected chips, the "Grátis" pill. */
+  primarySoft: string;
+  /** Border of a `primarySoft` card. */
+  primarySoftBorder: string;
+  /** Muted text on `primary` (the unlock card in Ajustes). */
+  onPrimaryMuted: string;
+
+  /** Goiaba: the "current" segment, achievement moments, the logo dot. */
   accent: string;
+  /** Text on `accent` (the "Mais vantajoso" pill). */
+  onAccent: string;
+  accentSoft: string;
+  /** Text on `accentSoft` (notices). */
+  onAccentSoft: string;
+
   success: string;
-  warning: string;
+  successSoft: string;
+  /** Text on `successSoft` (the "Plano liberado" seal). */
+  onSuccessSoft: string;
+
   danger: string;
+  dangerSoft: string;
+  onDangerSoft: string;
+  warning: string;
+
+  /** Behind sheets and dialogs. */
+  scrim: string;
+  /** PDF paper and the splash. Light in both themes. */
+  paper: string;
+
+  // Kept for the kit's core components.
   overlay: string;
   tabBar: string;
   tabActive: string;
@@ -31,45 +90,100 @@ export type ColorTokens = {
 };
 
 const lightColors: ColorTokens = {
-  background: '#F7F8FA',
+  background: '#FAF7F2',
   surface: '#FFFFFF',
-  surfaceElevated: '#FFFFFF',
-  border: '#E3E6EC',
-  text: '#11131A',
-  textMuted: '#5B6376',
+  surfaceElevated: '#EDE8DF',
+  border: '#E7E1D7',
+  borderInput: '#D6CFC3',
+  divider: '#EFEAE1',
+  track: '#EDE8DF',
+  neutralFill: '#EFEAE1',
+
+  text: '#18212E',
+  textBody: '#3A4555',
+  textMuted: '#545F6E',
+  textFaint: '#8A93A0',
   textInverted: '#FFFFFF',
-  primary: '#2563EB',
-  primaryPressed: '#1D4ED8',
+
+  primary: '#1F4F8F',
+  primaryPressed: '#173B6C',
   onPrimary: '#FFFFFF',
-  accent: '#7C3AED',
-  success: '#15803D',
-  warning: '#B45309',
-  danger: '#B91C1C',
-  overlay: 'rgba(17, 19, 26, 0.45)',
+  primaryText: '#1F4F8F',
+  primarySoft: '#E4ECF7',
+  primarySoftBorder: '#C9D7EE',
+  onPrimaryMuted: '#D3E0F2',
+
+  accent: '#EF6F7A',
+  onAccent: '#3A0E14',
+  accentSoft: '#FCE3E5',
+  onAccentSoft: '#8A2433',
+
+  success: '#1D7A52',
+  successSoft: '#DDF3E7',
+  onSuccessSoft: '#145C3D',
+
+  danger: '#B3261E',
+  dangerSoft: '#FBE9E7',
+  onDangerSoft: '#8C1D18',
+  warning: '#8A5A00',
+
+  scrim: 'rgba(24, 33, 46, 0.55)',
+  paper: '#FFFDF9',
+
+  overlay: 'rgba(24, 33, 46, 0.55)',
   tabBar: '#FFFFFF',
-  tabActive: '#2563EB',
-  tabInactive: '#8A91A3',
+  tabActive: '#1F4F8F',
+  tabInactive: '#545F6E',
 };
 
 const darkColors: ColorTokens = {
-  background: '#0B0B0F',
-  surface: '#15161C',
-  surfaceElevated: '#1D1F27',
-  border: '#2A2D38',
-  text: '#F4F5F7',
-  textMuted: '#9BA2B2',
-  textInverted: '#11131A',
-  primary: '#60A5FA',
-  primaryPressed: '#3B82F6',
-  onPrimary: '#0B0B0F',
-  accent: '#A78BFA',
-  success: '#4ADE80',
-  warning: '#FBBF24',
-  danger: '#F87171',
+  background: '#10151D',
+  surface: '#19212C',
+  surfaceElevated: '#222C39',
+  border: '#2A3442',
+  borderInput: '#3A4556',
+  divider: '#2A3442',
+  track: '#2A3442',
+  neutralFill: '#19212C',
+
+  text: '#ECF0F5',
+  textBody: '#C3CBD6',
+  textMuted: '#A6B0BE',
+  textFaint: '#7D8796',
+  textInverted: '#10151D',
+
+  primary: '#8DB6EE',
+  primaryPressed: '#B5D0F5',
+  onPrimary: '#0D1A2E',
+  primaryText: '#8DB6EE',
+  primarySoft: '#1E2E47',
+  primarySoftBorder: '#2A3F5C',
+  onPrimaryMuted: '#1E3A61',
+
+  accent: '#EF6F7A',
+  onAccent: '#3A0E14',
+  // Not in the handoff: a deep goiaba under the light pink text, 9.6:1.
+  accentSoft: '#3A1F26',
+  onAccentSoft: '#F6B3BA',
+
+  success: '#7FD3A8',
+  successSoft: '#163527',
+  onSuccessSoft: '#9FE0BE',
+
+  // Not in the handoff (its error swatch is the light one). Material's dark
+  // error pair, 8.9:1 on `dangerSoft`.
+  danger: '#F2B8B5',
+  dangerSoft: '#3B1714',
+  onDangerSoft: '#F9DEDC',
+  warning: '#F2C661',
+
+  scrim: 'rgba(0, 0, 0, 0.6)',
+  paper: '#FFFDF9',
+
   overlay: 'rgba(0, 0, 0, 0.6)',
-  tabBar: '#15161C',
-  tabActive: '#60A5FA',
-  tabInactive: '#6F7687',
+  tabBar: '#19212C',
+  tabActive: '#8DB6EE',
+  tabInactive: '#A6B0BE',
 };
 
 export const palettes: Record<ColorScheme, ColorTokens> = {
@@ -86,33 +200,86 @@ export const spacing = {
   xl: 24,
   xxl: 32,
   xxxl: 48,
+  /** Horizontal screen padding (the handoff's 20). */
+  tela: 20,
 } as const;
 
+/** Radii from the handoff, by the component that uses them. */
 export const radius = {
   sm: 6,
+  /** Small buttons, the segmented control's thumb. */
   md: 10,
+  /** Inputs, the segmented control. */
+  input: 14,
+  /** Buttons (14–16), list groups. */
   lg: 16,
+  /** Price cards. */
+  price: 18,
+  /** Cards. */
+  card: 20,
   xl: 24,
+  /** Top of sheets and dialogs. */
+  sheet: 28,
   pill: 999,
 } as const;
 
-const fontFamily = Platform.select({
-  ios: 'System',
-  android: 'sans-serif',
-  default: 'System',
-});
+/**
+ * Font family names as registered by `useAppFonts` (src/core/theme/fonts.ts).
+ *
+ * One family PER WEIGHT, and never a `fontWeight` next to it: on Android a
+ * custom font's weight is chosen by the file, not by `fontWeight`, so
+ * `{ fontFamily: 'Roboto', fontWeight: '700' }` renders the regular file (or a
+ * synthesized bold) instead of Roboto Bold.
+ *
+ * The handoff's "600" on Roboto text resolves to Bold, as it does in the
+ * browser the design was drawn in: only 400, 500 and 700 are loaded.
+ */
+export const fonts = {
+  display: 'Poppins_600SemiBold',
+  regular: 'Roboto_400Regular',
+  medium: 'Roboto_500Medium',
+  bold: 'Roboto_700Bold',
+} as const;
 
 export type TypographyVariant =
-  'display' | 'title' | 'heading' | 'body' | 'bodyStrong' | 'caption' | 'button';
+  | 'display'
+  | 'title'
+  | 'question'
+  | 'heading'
+  | 'subheading'
+  | 'body'
+  | 'bodyStrong'
+  | 'support'
+  | 'caption'
+  | 'captionStrong'
+  | 'label'
+  | 'button';
 
+/**
+ * From the style guide: screen title Poppins 600 30–34/1.08, form question
+ * 28/1.15, card title 20; text and answers Roboto 17/1.5, support 15/1.45,
+ * block label Roboto 700 13 in caps. One-off sizes override `fontSize` on top
+ * of a variant rather than growing this list.
+ */
 export const typography: Record<TypographyVariant, TextStyle> = {
-  display: { fontFamily, fontSize: 32, lineHeight: 38, fontWeight: '700' },
-  title: { fontFamily, fontSize: 24, lineHeight: 30, fontWeight: '700' },
-  heading: { fontFamily, fontSize: 18, lineHeight: 24, fontWeight: '600' },
-  body: { fontFamily, fontSize: 16, lineHeight: 22, fontWeight: '400' },
-  bodyStrong: { fontFamily, fontSize: 16, lineHeight: 22, fontWeight: '600' },
-  caption: { fontFamily, fontSize: 13, lineHeight: 18, fontWeight: '400' },
-  button: { fontFamily, fontSize: 16, lineHeight: 20, fontWeight: '600' },
+  display: { fontFamily: fonts.display, fontSize: 34, lineHeight: 37, letterSpacing: -0.68 },
+  title: { fontFamily: fonts.display, fontSize: 30, lineHeight: 34, letterSpacing: -0.6 },
+  question: { fontFamily: fonts.display, fontSize: 28, lineHeight: 32, letterSpacing: -0.42 },
+  heading: { fontFamily: fonts.display, fontSize: 20, lineHeight: 25 },
+  subheading: { fontFamily: fonts.display, fontSize: 17, lineHeight: 22 },
+  body: { fontFamily: fonts.regular, fontSize: 17, lineHeight: 25 },
+  bodyStrong: { fontFamily: fonts.bold, fontSize: 17, lineHeight: 25 },
+  support: { fontFamily: fonts.regular, fontSize: 15, lineHeight: 22 },
+  caption: { fontFamily: fonts.regular, fontSize: 14, lineHeight: 19 },
+  captionStrong: { fontFamily: fonts.bold, fontSize: 13, lineHeight: 18 },
+  label: {
+    fontFamily: fonts.bold,
+    fontSize: 13,
+    lineHeight: 17,
+    letterSpacing: 0.78,
+    textTransform: 'uppercase',
+  },
+  button: { fontFamily: fonts.bold, fontSize: 17, lineHeight: 21 },
 };
 
 export type Theme = {
@@ -120,9 +287,10 @@ export type Theme = {
   colors: ColorTokens;
   spacing: typeof spacing;
   radius: typeof radius;
+  fonts: typeof fonts;
   typography: typeof typography;
 };
 
 export function buildTheme(scheme: ColorScheme): Theme {
-  return { scheme, colors: palettes[scheme], spacing, radius, typography };
+  return { scheme, colors: palettes[scheme], spacing, radius, fonts, typography };
 }

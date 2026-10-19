@@ -1,7 +1,9 @@
 export { ThemeProvider } from './ThemeProvider';
 export { useTheme } from './useTheme';
+export { fontFiles, useAppFonts } from './fonts';
 export {
   buildTheme,
+  fonts,
   palettes,
   radius,
   spacing,

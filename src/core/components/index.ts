@@ -1,7 +1,13 @@
-export { Badge, type BadgeProps } from './Badge';
+export { Badge, useBadgeColor, type BadgeProps, type BadgeTone } from './Badge';
 export { Button, type ButtonProps, type ButtonVariant } from './Button';
 export { Card, type CardProps } from './Card';
+export { Chip, type ChipProps } from './Chip';
+export { Dialog, type DialogProps } from './Dialog';
+export { IconButton, type IconButtonProps } from './IconButton';
+export * from './icons';
 export { Screen, type ScreenProps } from './Screen';
+export { Segmented, type SegmentedOption, type SegmentedProps } from './Segmented';
 export { SettingsRow, type SettingsRowProps } from './SettingsRow';
 export { SettingsSection, type SettingsSectionProps } from './SettingsSection';
 export { Text, type TextProps } from './Text';
+export { TextField, type TextFieldProps } from './TextField';

@@ -1,11 +1,18 @@
 /**
- * Placeholder barrel for the app-specific data layer.
+ * The app's data layer: a local SQLite database of business plans.
  *
- * Each app exports its database handle and repositories here, e.g.:
+ * The unlock is NOT here: it is the kit's entitlement flag in MMKV, the one
+ * thing that decides whether the app is paid for, and holding it twice would
+ * be two sources of truth.
  *
- * ```ts
- * export { getDatabase } from './db';
- * export * from './repositories/workoutsRepository';
- * ```
+ * The barrel exports implementations; the implementations never import back
+ * through it (invariant 2).
  */
-export {};
+export { getDatabase, isDatabaseAvailable } from './db';
+export * from './types';
+export { assinarMudancas, versaoDosDados } from './mudancas';
+export * from './negociosRepository';
+export * from './respostasRepository';
+export * from './swotRepository';
+export * from './numerosRepository';
+export * from './tarefasRepository';

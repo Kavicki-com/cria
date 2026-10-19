@@ -41,7 +41,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   android: {
     package: BUNDLE_ID,
     adaptiveIcon: {
-      backgroundColor: '#E6F4FE',
+      backgroundColor: '#1F4F8F',
       foregroundImage: './assets/images/android-icon-foreground.png',
       backgroundImage: './assets/images/android-icon-background.png',
       monochromeImage: './assets/images/android-icon-monochrome.png',
@@ -71,18 +71,30 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     [
       'expo-splash-screen',
       {
+        // design/Splash: logo, name and tagline on the PDF's paper. Light in
+        // both themes — the text is ink-coloured, and the brand is not themed.
         image: './assets/images/splash-icon.png',
+        imageWidth: 220,
         resizeMode: 'contain',
-        backgroundColor: '#FFFFFF',
-        dark: {
-          backgroundColor: '#0B0B0F',
+        backgroundColor: '#FFFDF9',
+        dark: { backgroundColor: '#FFFDF9' },
+        // Android 12+ draws the splash image as an icon inside a circular
+        // mask, which would clip the name and tagline: the logo alone there.
+        android: {
+          image: './assets/images/splash-icon-android.png',
+          imageWidth: 160,
+          backgroundColor: '#FFFDF9',
+          dark: { backgroundColor: '#FFFDF9' },
         },
       },
     ],
     [
       'expo-notifications',
       {
-        color: '#2563EB',
+        color: '#1F4F8F',
+        // Android draws the small icon as a silhouette: an all-white 96x96 PNG.
+        // Without one, the reminder shows a grey square.
+        icon: './assets/images/notification-icon.png',
         // Local notifications only — no FCM / APNs remote push is configured.
         mode: 'development',
         enableBackgroundRemoteNotifications: false,

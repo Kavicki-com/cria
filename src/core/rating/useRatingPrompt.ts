@@ -19,14 +19,24 @@ export type UseRatingPrompt = {
   dismissedForever: boolean;
 };
 
-/** Counts this launch once and exposes the prompt actions. */
-export function useRatingPrompt(): UseRatingPrompt {
+/**
+ * Counts one app launch. Mount it ONCE, in the root layout.
+ *
+ * `useRatingPrompt` used to do this itself, so every screen that showed a
+ * "Rate the app" row counted a "launch" each time it mounted — opening
+ * Settings five times met `minLaunches: 5` on the first day.
+ */
+export function useRegisterLaunch(): void {
   const registerLaunch = useConfigStore((state) => state.registerLaunch);
-  const dismissedForever = useConfigStore((state) => state.ratingPromptDismissedForever);
 
   useEffect(() => {
     registerLaunch();
   }, [registerLaunch]);
+}
+
+/** Exposes the prompt actions. Launches are counted by `useRegisterLaunch`. */
+export function useRatingPrompt(): UseRatingPrompt {
+  const dismissedForever = useConfigStore((state) => state.ratingPromptDismissedForever);
 
   const maybeAsk = useCallback(
     (policy: RatingPolicy = DEFAULT_RATING_POLICY) => maybeRequestRating(policy),

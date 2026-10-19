@@ -238,3 +238,44 @@ export async function cancelAllReminders(): Promise<void> {
 export async function listScheduledReminders(): Promise<NotificationsModule.NotificationRequest[]> {
   return (await notifications()?.getAllScheduledNotificationsAsync()) ?? [];
 }
+
+/** The `data` a reminder was scheduled with, as handed back on a tap. */
+export type ReminderTapData = Record<string, unknown>;
+
+function dataOf(response: NotificationsModule.NotificationResponse): ReminderTapData {
+  return (response.notification.request.content.data ?? {}) as ReminderTapData;
+}
+
+/**
+ * Calls `listener` with a reminder's `data` when the user taps it while the
+ * app is running. Returns the unsubscribe; a no-op where the module is absent.
+ */
+export function addReminderTapListener(listener: (data: ReminderTapData) => void): () => void {
+  const api = notifications();
+  if (!api) return () => {};
+  try {
+    const subscription = api.addNotificationResponseReceivedListener((response) =>
+      listener(dataOf(response)),
+    );
+    return () => subscription.remove();
+  } catch {
+    return () => {};
+  }
+}
+
+/**
+ * The tap that launched the app from a cold start, if any — returned once:
+ * it is cleared after reading, so a reload does not handle it again.
+ */
+export async function consumeLaunchReminderTap(): Promise<ReminderTapData | null> {
+  const api = notifications();
+  if (!api) return null;
+  try {
+    const response = await api.getLastNotificationResponseAsync();
+    if (!response) return null;
+    await api.clearLastNotificationResponseAsync();
+    return dataOf(response);
+  } catch {
+    return null;
+  }
+}

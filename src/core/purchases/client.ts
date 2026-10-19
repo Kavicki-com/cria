@@ -1,5 +1,6 @@
 import Purchases, {
   LOG_LEVEL,
+  PURCHASES_ERROR_CODE,
   type CustomerInfo,
   type PurchasesOffering,
   type PurchasesPackage,
@@ -26,6 +27,8 @@ import { hasNativeModule } from '../runtime';
 export type UnlockOutcome =
   | { status: 'unlocked' }
   | { status: 'cancelled' }
+  /** Android "slow" payment (boleto, cash): not unlocked until the store confirms. */
+  | { status: 'pending' }
   | { status: 'not-configured' }
   | { status: 'native-unavailable' }
   | { status: 'no-offering' }
@@ -127,6 +130,20 @@ function isUserCancellation(error: unknown): boolean {
   );
 }
 
+/**
+ * A purchase awaiting payment (Play's pending transactions) comes back as an
+ * error. It is not a failure: the entitlement arrives later through the
+ * customer-info listener, so the paywall says "em análise" instead.
+ */
+function isPaymentPending(error: unknown): boolean {
+  return Boolean(
+    error &&
+    typeof error === 'object' &&
+    'code' in error &&
+    (error as { code?: unknown }).code === PURCHASES_ERROR_CODE.PAYMENT_PENDING_ERROR,
+  );
+}
+
 function errorDetail(error: unknown): string | undefined {
   if (error && typeof error === 'object' && 'message' in error) {
     const message = (error as { message?: unknown }).message;
@@ -149,6 +166,7 @@ export async function purchaseUnlock(pkg?: PurchasesPackage | null): Promise<Unl
       : { status: 'error', detail: 'entitlement-not-active' };
   } catch (error) {
     if (isUserCancellation(error)) return { status: 'cancelled' };
+    if (isPaymentPending(error)) return { status: 'pending' };
     return { status: 'error', detail: errorDetail(error) };
   }
 }

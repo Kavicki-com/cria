@@ -41,6 +41,11 @@ jobs:
       - name: Invariants
         run: npm run check:invariants
 
+      # Pure modules only (break-even, plural, progress, analysis, PDF): the
+      # numbers the person takes to the bank.
+      - name: Tests
+        run: npm test
+
   bundle:
     name: Metro bundle
     runs-on: ubuntu-latest

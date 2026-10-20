@@ -14,8 +14,8 @@ import { INSIGHTS_PREVIA } from '../plano';
 /**
  * The analysis card on the hub (design Hub / Hub-gratis): with the unlock, a
  * link to "Sua análise"; on the free tier, the preview — the whole analysis
- * is computed, but only the first point of attention is shown in full and
- * the rest are skeleton bars with no real text (no BlurView: a blur on
+ * is computed, but only one finding is shown in full and the rest are
+ * skeleton bars with no real text (no BlurView: a blur on
  * Android is not reliable, and blurred text could still be read).
  */
 export function CardAnalise({ dados }: { dados: DadosNegocio }) {
@@ -65,8 +65,15 @@ export function CardAnalise({ dados }: { dados: DadosNegocio }) {
     );
   }
 
-  const visiveis = analise.atencao.slice(0, INSIGHTS_PREVIA);
-  const ocultos = Math.max(0, analise.atencao.length - INSIGHTS_PREVIA) + analise.passos.length;
+  // One finding in full: the first point of attention or, when the answers
+  // raise none, the first thing that is good. Without one there is nothing
+  // to preview, so no skeleton either — bars alone read as a stuck loading.
+  const achados = analise.atencao.length > 0 ? analise.atencao : analise.bom;
+  const visiveis = achados.slice(0, INSIGHTS_PREVIA);
+  const ocultos =
+    visiveis.length > 0
+      ? analise.atencao.length + analise.bom.length + analise.passos.length - visiveis.length
+      : 0;
 
   return (
     <View
@@ -86,7 +93,9 @@ export function CardAnalise({ dados }: { dados: DadosNegocio }) {
         <Text variant="subheading" style={{ lineHeight: 23 }}>
           {analise.atencao.length > 0
             ? t('analise.previaResumo', resumo)
-            : t('analise.previaVazia')}
+            : visiveis.length > 0
+              ? t('analise.previaSoBom')
+              : t('analise.previaVazia')}
         </Text>
       </View>
 

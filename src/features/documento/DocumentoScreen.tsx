@@ -1,6 +1,6 @@
 import { router } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
-import { ActivityIndicator, Pressable, View } from 'react-native';
+import { ActivityIndicator, Platform, Pressable, View } from 'react-native';
 
 import {
   Button,
@@ -25,6 +25,7 @@ import { useAnalise } from '../analise/useAnalise';
 import { useUnidade } from '../equilibrio/useUnidade';
 import type { DadosNegocio } from '../negocios/useDados';
 import { CAMPO_ILUSTRACAO, ILUSTRACAO_PADRAO, type Ilustracao } from '../quadros/definicoes';
+import { salvarPdfEmPasta } from './arquivos';
 import { fontesCss } from './fontes';
 import { abrirPdf, compartilharPdf, gerarPdf } from './gerar';
 import { slug } from './html';
@@ -60,6 +61,7 @@ export function DocumentoScreen({ dados }: { dados: DadosNegocio }) {
   const unidade = useUnidade(dados.numeros);
   const [estado, setEstado] = useState<Estado>({ tipo: 'gerando', etapa: 0 });
   const [tentativa, setTentativa] = useState(0);
+  const [aviso, setAviso] = useState<{ tipo: 'ok' | 'erro'; texto: string } | null>(null);
   const vivo = useRef(true);
 
   useEffect(() => {
@@ -228,6 +230,28 @@ export function DocumentoScreen({ dados }: { dados: DadosNegocio }) {
     );
   }
 
+  const { uri, nome } = estado;
+
+  async function compartilhar(titulo: string) {
+    setAviso(null);
+    const r = await compartilharPdf(uri, titulo);
+    if (r.ok || !vivo.current) return;
+    // The native reason only in development, to tell an Expo Go limit from a bug.
+    const detalhe = __DEV__ && r.detalhe ? ` (${r.detalhe})` : '';
+    setAviso({ tipo: 'erro', texto: t('documento.erroCompartilhar') + detalhe });
+  }
+
+  async function salvar() {
+    setAviso(null);
+    const r = await salvarPdfEmPasta(uri, nome);
+    if (!vivo.current || r === 'cancelado') return;
+    setAviso(
+      r === 'ok'
+        ? { tipo: 'ok', texto: t('documento.salvoAparelho', { nome }) }
+        : { tipo: 'erro', texto: t('documento.erroSalvar') },
+    );
+  }
+
   return (
     <Screen
       scroll
@@ -286,19 +310,28 @@ export function DocumentoScreen({ dados }: { dados: DadosNegocio }) {
         <Acao
           icone={IconShare}
           rotulo={t('documento.compartilhar')}
-          onPress={() => void compartilharPdf(estado.uri, t('documento.compartilhar'))}
+          onPress={() => void compartilhar(t('documento.compartilhar'))}
         />
         <Acao
           icone={IconSmartphone}
-          rotulo={t('documento.salvar')}
-          onPress={() => void compartilharPdf(estado.uri, t('documento.salvar'))}
+          rotulo={Platform.OS === 'android' ? t('documento.salvarAparelho') : t('documento.salvar')}
+          onPress={() =>
+            void (Platform.OS === 'android' ? salvar() : compartilhar(t('documento.salvar')))
+          }
         />
-        <Acao
-          icone={IconEye}
-          rotulo={t('documento.abrir')}
-          onPress={() => void abrirPdf(estado.uri)}
-        />
+        <Acao icone={IconEye} rotulo={t('documento.abrir')} onPress={() => void abrirPdf(uri)} />
       </View>
+
+      {aviso ? (
+        <Text
+          variant="support"
+          center
+          accessibilityLiveRegion="polite"
+          style={{ color: aviso.tipo === 'erro' ? theme.colors.danger : theme.colors.success }}
+        >
+          {aviso.texto}
+        </Text>
+      ) : null}
 
       <View
         style={{

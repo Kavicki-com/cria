@@ -557,6 +557,7 @@
     "umPasso": "1 próximo passo",
     "passosN": "%{n} próximos passos",
     "previaVazia": "Responda mais algumas perguntas para ver a prévia da análise.",
+    "previaSoBom": "Nenhum ponto de atenção até aqui. Veja o que já está bom:",
     "borrado": "Conteúdo da análise completa, liberado com o plano completo",
     "regras": {
       "sem_numeros": {
@@ -779,7 +780,11 @@
     "capaSub": "%{segmento}",
     "compartilhar": "Compartilhar",
     "salvar": "Salvar em Arquivos",
+    "salvarAparelho": "Salvar no aparelho",
     "abrir": "Abrir",
+    "salvoAparelho": "%{nome} foi salvo na pasta escolhida.",
+    "erroCompartilhar": "Não deu para abrir o compartilhamento. Tente de novo.",
+    "erroSalvar": "Não deu para salvar nessa pasta. Tente outra, como Downloads.",
     "notaTitulo": "Mudou alguma coisa? Sem problema.",
     "notaTexto": "Edite as respostas e gere o documento de novo quantas vezes quiser, sem novo custo.",
     "voltar": "Voltar ao negócio",

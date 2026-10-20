@@ -24,18 +24,24 @@ export async function gerarPdf(html: string, nomeArquivo: string): Promise<Resul
   }
 }
 
-/** The share sheet — which on iOS also offers "Salvar em Arquivos". */
-export async function compartilharPdf(uri: string, titulo: string): Promise<boolean> {
+export type ResultadoCompartilhar = { ok: true } | { ok: false; detalhe?: string };
+
+/**
+ * The share sheet — which on iOS also offers "Salvar em Arquivos". A failure
+ * comes back with the native message, so the screen can say the sheet did
+ * not open instead of the button silently doing nothing.
+ */
+export async function compartilharPdf(uri: string, titulo: string): Promise<ResultadoCompartilhar> {
   try {
-    if (!(await Sharing.isAvailableAsync())) return false;
+    if (!(await Sharing.isAvailableAsync())) return { ok: false, detalhe: 'unavailable' };
     await Sharing.shareAsync(uri, {
       mimeType: 'application/pdf',
       UTI: 'com.adobe.pdf',
       dialogTitle: titulo,
     });
-    return true;
-  } catch {
-    return false;
+    return { ok: true };
+  } catch (error) {
+    return { ok: false, detalhe: error instanceof Error ? error.message : undefined };
   }
 }
 

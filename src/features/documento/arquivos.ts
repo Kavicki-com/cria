@@ -57,6 +57,32 @@ export async function lerAssetBase64(modulo: number): Promise<string | null> {
   }
 }
 
+export type ResultadoSalvar = 'ok' | 'cancelado' | 'erro';
+
+/**
+ * Android's "Salvar no aparelho": the share sheet there has no save target of
+ * its own (unlike iOS's "Salvar em Arquivos"), so the system folder picker
+ * asks where, and a copy of the PDF is written into that folder.
+ */
+export async function salvarPdfEmPasta(uri: string, nome: string): Promise<ResultadoSalvar> {
+  const f = carregarFs();
+  if (!f) return 'erro';
+  let pasta: InstanceType<FileSystem['Directory']>;
+  try {
+    pasta = await f.Directory.pickDirectoryAsync();
+  } catch {
+    // The picker rejects when the person backs out.
+    return 'cancelado';
+  }
+  try {
+    const destino = pasta.createFile(nome, 'application/pdf');
+    destino.write(await new f.File(uri).bytes());
+    return 'ok';
+  } catch {
+    return 'erro';
+  }
+}
+
 /**
  * Moves the printed PDF (a random name in the cache) to `nome` in the cache,
  * replacing an older copy, so the share sheet shows "Plano-Lanches-da-Vila.pdf".

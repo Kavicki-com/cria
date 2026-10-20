@@ -557,6 +557,7 @@
     "umPasso": "1 next step",
     "passosN": "%{n} next steps",
     "previaVazia": "Answer a few more questions to see the analysis preview.",
+    "previaSoBom": "No points of attention so far. Here is what is already working:",
     "borrado": "Full analysis content, unlocked with the full plan",
     "regras": {
       "sem_numeros": {
@@ -779,7 +780,11 @@
     "capaSub": "%{segmento}",
     "compartilhar": "Share",
     "salvar": "Save to Files",
+    "salvarAparelho": "Save to device",
     "abrir": "Open",
+    "salvoAparelho": "%{nome} was saved to the folder you chose.",
+    "erroCompartilhar": "Could not open the share sheet. Try again.",
+    "erroSalvar": "Could not save to that folder. Try another one, such as Downloads.",
     "notaTitulo": "Changed something? No problem.",
     "notaTexto": "Edit your answers and generate the document again as often as you like, at no extra cost.",
     "voltar": "Back to the business",

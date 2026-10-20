@@ -557,6 +557,7 @@
     "umPasso": "1 próximo paso",
     "passosN": "%{n} próximos pasos",
     "previaVazia": "Responde algunas preguntas más para ver la vista previa del análisis.",
+    "previaSoBom": "Ningún punto de atención por ahora. Mira lo que ya está bien:",
     "borrado": "Contenido del análisis completo, desbloqueado con el plan completo",
     "regras": {
       "sem_numeros": {
@@ -779,7 +780,11 @@
     "capaSub": "%{segmento}",
     "compartilhar": "Compartir",
     "salvar": "Guardar en Archivos",
+    "salvarAparelho": "Guardar en el dispositivo",
     "abrir": "Abrir",
+    "salvoAparelho": "%{nome} se guardó en la carpeta elegida.",
+    "erroCompartilhar": "No se pudo abrir el menú para compartir. Inténtalo de nuevo.",
+    "erroSalvar": "No se pudo guardar en esa carpeta. Prueba otra, como Descargas.",
     "notaTitulo": "¿Cambiaste algo? No hay problema.",
     "notaTexto": "Edita las respuestas y genera el documento de nuevo todas las veces que quieras, sin costo extra.",
     "voltar": "Volver al negocio",

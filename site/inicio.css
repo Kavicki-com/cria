@@ -1,0 +1,1175 @@
+/* Cria — the home page. Built on the Churrapp v4 motion (Lenis + GSAP), in
+   Cria's own type (Poppins for titles, Roboto for the rest) and palette
+   (src/core/theme/tokens.ts): paper for the light sections, the pressed
+   primary blue for the dark ones, and goiaba as the accent. The page fades
+   from one to the other as you scroll. The pictures are the app's real
+   screens, the real PDF pages (Lanches da Vila) and vector illustrations in
+   the persona's style; there are no photos. The legal pages keep estilo.css. */
+
+:root {
+  --papel: #faf7f2; /* background */
+  --folha: #fffdf9; /* paper (PDF) */
+  --branco: #ffffff;
+  --tinta: #18212e; /* ink */
+  --azul: #1f4f8f; /* primary */
+  --noite: #173b6c; /* primary pressed: the dark sections */
+  --azul-suave: #e4ecf7; /* primarySoft */
+  --azul-borda: #c9d7ee;
+  --goiaba: #ef6f7a; /* accent */
+  --goiaba-suave: #fce3e5;
+  --goiaba-texto: #8a2433;
+  --verde: #1d7a52; /* success */
+  --verde-suave: #ddf3e7;
+  --display: 'Poppins', system-ui, sans-serif;
+  --sans: 'Roboto', system-ui, sans-serif;
+  --suave: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* The page's current colours; inicio.js swaps the theme class on <body>. */
+  --fundo: var(--noite);
+  --texto: var(--branco);
+  --corpo: #d5e0f0;
+  --apagado: #9fb4d3;
+  --linha: rgba(255, 255, 255, 0.16);
+  --enfase: var(--goiaba);
+  --rotulo: #f6a9b0;
+  --botao-fundo: var(--branco);
+  --botao-texto: var(--noite);
+}
+
+body.claro {
+  --fundo: var(--papel);
+  --texto: var(--tinta);
+  --corpo: #3a4555;
+  --apagado: #545f6e;
+  --linha: #e7e1d7;
+  --enfase: var(--azul);
+  --rotulo: var(--azul);
+  --botao-fundo: var(--azul);
+  --botao-texto: var(--branco);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+body {
+  margin: 0;
+  background: var(--fundo);
+  color: var(--texto);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  transition:
+    background-color 0.9s var(--suave),
+    color 0.9s var(--suave);
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--display);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+h1 em,
+h2 em {
+  font-style: normal;
+  color: var(--enfase);
+  transition: color 0.9s var(--suave);
+}
+
+p {
+  margin: 0;
+}
+
+figure {
+  margin: 0;
+}
+
+.miolo {
+  width: min(1180px, 100% - 40px);
+  margin-inline: auto;
+}
+
+.estreito {
+  width: min(760px, 100% - 40px);
+}
+
+.pular-conteudo {
+  position: absolute;
+  left: -9999px;
+}
+
+.pular-conteudo:focus {
+  left: 16px;
+  top: 16px;
+  z-index: 100;
+  background: var(--branco);
+  color: var(--tinta);
+  padding: 10px 16px;
+  border-radius: 999px;
+}
+
+/* The app's own section label: small, bold, spaced capitals. */
+.sobrelinha {
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rotulo);
+  margin-bottom: 18px;
+  transition: color 0.9s var(--suave);
+}
+
+.lead {
+  font-size: clamp(17px, 1.5vw, 20px);
+  color: var(--corpo);
+  max-width: 34em;
+  margin-top: 24px;
+}
+
+/* ---------- Text that rises out of a blur ----------
+   Without JS everything simply shows; inicio.js adds .anima to <html>. */
+
+.anima .revela {
+  opacity: 0;
+  transform: translateY(28px);
+  filter: blur(8px);
+}
+
+.anima .linhas .palavra {
+  display: inline-block;
+}
+
+.anima .linhas .palavra > span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.5em) rotate(2deg);
+  filter: blur(10px);
+}
+
+/* ---------- Bar ---------- */
+
+.barra {
+  position: fixed;
+  z-index: 50;
+  top: 16px;
+  left: 50%;
+  width: min(1180px, 100% - 32px);
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 8px 8px 12px;
+  border-radius: 999px;
+  background: rgba(18, 48, 90, 0.55);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  color: var(--branco);
+  transition:
+    background-color 0.9s var(--suave),
+    color 0.9s var(--suave),
+    transform 0.6s var(--suave);
+}
+
+body.claro .barra {
+  background: rgba(255, 253, 249, 0.7);
+  color: var(--tinta);
+  box-shadow: 0 0 0 1px rgba(24, 33, 46, 0.06);
+}
+
+.barra.escondida {
+  transform: translate(-50%, -140%);
+}
+
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.marca svg {
+  width: 32px;
+  height: 32px;
+}
+
+.baixar,
+.botao {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  background: var(--botao-fundo);
+  color: var(--botao-texto);
+  font-weight: 700;
+  font-size: 15px;
+  padding: 11px 20px;
+  transition:
+    background-color 0.9s var(--suave),
+    color 0.9s var(--suave),
+    transform 0.5s var(--suave),
+    box-shadow 0.5s var(--suave);
+}
+
+.baixar:hover,
+.botao:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -12px rgba(18, 48, 90, 0.6);
+}
+
+.botao {
+  padding: 16px 28px;
+  font-size: 16px;
+}
+
+/* ---------- Opening ---------- */
+
+.abertura {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  color: var(--branco);
+  padding: 120px 0 80px;
+}
+
+/* The logo's steps, drawn large across the opening and the closing. */
+.degraus {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.degraus path {
+  fill: none;
+  stroke: rgba(141, 182, 238, 0.32);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.degraus circle {
+  fill: var(--goiaba);
+}
+
+.abertura-grade {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: clamp(32px, 6vw, 80px);
+  align-items: center;
+}
+
+.abertura h1 {
+  font-size: clamp(40px, 5.8vw, 84px);
+  max-width: 11ch;
+}
+
+.abertura-sub {
+  font-size: clamp(17px, 1.6vw, 21px);
+  color: #d5e0f0;
+  max-width: 30em;
+  margin-top: 28px;
+}
+
+.abertura-acoes {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px 22px;
+  margin-top: 36px;
+  font-size: 14px;
+  color: #b9c9e2;
+}
+
+.vitrine {
+  position: relative;
+  width: min(480px, 100%);
+  margin-inline: auto;
+  aspect-ratio: 1 / 1.08;
+}
+
+.vitrine .capa {
+  position: absolute;
+  left: 0;
+  top: 6%;
+  width: 62%;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 40px 80px -30px rgba(5, 15, 35, 0.7);
+  transform: rotate(-7deg);
+}
+
+.vitrine .celular {
+  right: 2%;
+  bottom: 0;
+  width: 50%;
+}
+
+.role {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  bottom: 28px;
+  width: 1px;
+  height: 56px;
+  background: rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+}
+
+.role i {
+  position: absolute;
+  inset: 0;
+  background: var(--branco);
+  animation: role 2.4s var(--suave) infinite;
+}
+
+@keyframes role {
+  0% {
+    transform: translateY(-100%);
+  }
+  60%,
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@media (max-width: 860px) {
+  .abertura {
+    padding-top: 112px;
+  }
+  .abertura-grade {
+    grid-template-columns: 1fr;
+  }
+  .vitrine {
+    width: min(380px, 92%);
+  }
+  .role {
+    display: none;
+  }
+}
+
+/* ---------- Phone ---------- */
+
+.celular {
+  position: absolute;
+  padding: 7px;
+  border-radius: 36px;
+  background: #0d1a2e;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset,
+    0 50px 80px -30px rgba(5, 15, 35, 0.6);
+}
+
+.celular img {
+  border-radius: 29px;
+  width: 100%;
+}
+
+/* ---------- Manifesto ---------- */
+
+.manifesto {
+  position: relative;
+  padding: clamp(150px, 24vh, 260px) 20px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.acende {
+  position: relative;
+  z-index: 1;
+  max-width: 21ch;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: clamp(22px, 2.6vw, 38px);
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  text-align: center;
+}
+
+.acende em {
+  font-style: normal;
+  color: var(--enfase);
+}
+
+.anima .acende .palavra {
+  opacity: 0.16;
+}
+
+.flutua {
+  position: absolute;
+  width: clamp(112px, 14vw, 200px);
+}
+
+.flutua svg {
+  width: 100%;
+  border-radius: 22px;
+  box-shadow: 0 30px 60px -30px rgba(24, 33, 46, 0.35);
+}
+
+.flutua figcaption {
+  margin-top: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--apagado);
+  text-align: center;
+}
+
+.f1 {
+  left: 6%;
+  top: 9%;
+  transform: rotate(-5deg);
+}
+
+.f2 {
+  right: 6%;
+  top: 20%;
+  transform: rotate(4deg);
+}
+
+.f3 {
+  left: 10%;
+  bottom: 5%;
+  transform: rotate(3deg);
+}
+
+@media (max-width: 760px) {
+  .manifesto {
+    padding-top: 230px;
+    padding-bottom: 230px;
+  }
+  .f1 {
+    top: 32px;
+    left: -12px;
+  }
+  .f2 {
+    top: 64px;
+    right: -14px;
+  }
+  .f3 {
+    bottom: 28px;
+    left: auto;
+    right: 22%;
+  }
+  .flutua figcaption {
+    display: none;
+  }
+}
+
+/* ---------- The running band ---------- */
+
+.faixa {
+  overflow: hidden;
+  padding: 20px 0 clamp(80px, 12vh, 140px);
+}
+
+.faixa-trilho {
+  display: flex;
+  width: max-content;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: clamp(32px, 5vw, 72px);
+  line-height: 1.1;
+  white-space: nowrap;
+  color: var(--enfase);
+  transition: color 0.9s var(--suave);
+}
+
+.faixa-trilho span {
+  padding-right: 0.3em;
+}
+
+/* ---------- Two-column blocks ---------- */
+
+.bloco {
+  padding: clamp(100px, 16vh, 180px) 0;
+}
+
+.dupla {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 7vw, 110px);
+  align-items: center;
+}
+
+.bloco h2,
+.documento h2,
+.preco h2 {
+  font-size: clamp(30px, 3.8vw, 54px);
+}
+
+.cena {
+  position: relative;
+  padding: 0 0 12% 0;
+}
+
+.cena-quadro {
+  border-radius: 28px;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+}
+
+.cena-quadro svg {
+  width: 100%;
+  height: 100%;
+}
+
+.cena.so-quadro {
+  padding-bottom: 0;
+}
+
+.cena .celular {
+  right: -6%;
+  bottom: 0;
+  width: 46%;
+}
+
+.invertida .cena .celular {
+  right: auto;
+  left: -6%;
+}
+
+/* The boards, one per line, like the app's hub. */
+.quadros {
+  list-style: none;
+  padding: 0;
+  margin: 36px 0 0;
+  max-width: 30em;
+}
+
+.quadros li {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--linha);
+}
+
+.quadros strong {
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.quadros small {
+  color: var(--apagado);
+  font-size: 14px;
+}
+
+.quadros .selo {
+  margin-left: auto;
+  flex: none;
+}
+
+.selo {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 3px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  background: var(--verde-suave);
+  color: var(--verde);
+}
+
+.selo.completo {
+  background: var(--azul-suave);
+  color: var(--azul);
+}
+
+.destaque {
+  margin-top: 36px;
+  font-size: 17px;
+  color: var(--corpo);
+  max-width: 26em;
+}
+
+.destaque span {
+  display: block;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: clamp(40px, 5vw, 72px);
+  line-height: 1;
+  color: var(--texto);
+  margin-bottom: 10px;
+}
+
+.destaque span small {
+  font-size: 0.4em;
+  font-weight: 600;
+  color: var(--corpo);
+  letter-spacing: 0;
+}
+
+.contas {
+  margin: 28px 0 0;
+  max-width: 28em;
+}
+
+.contas div {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--linha);
+}
+
+.contas dt {
+  color: var(--corpo);
+}
+
+.contas dd {
+  margin: 0 0 0 auto;
+  font-weight: 700;
+}
+
+@media (max-width: 860px) {
+  .dupla {
+    grid-template-columns: 1fr;
+  }
+  .invertida .cena {
+    order: 2;
+  }
+  .cena {
+    width: min(460px, 100%);
+    margin-inline: auto;
+  }
+  .cena .celular {
+    right: -2%;
+  }
+  .invertida .cena .celular {
+    left: -2%;
+  }
+}
+
+/* ---------- The break-even chart ---------- */
+
+.grafico .eixo {
+  stroke: #c9c1b4;
+  stroke-width: 1.5;
+}
+
+.grafico .grade-linha {
+  stroke: #ece6dc;
+  stroke-width: 1;
+}
+
+.grafico .receita,
+.grafico .custo {
+  fill: none;
+  stroke-width: 5;
+  stroke-linecap: round;
+}
+
+.grafico .receita {
+  stroke: var(--azul);
+}
+
+.grafico .custo {
+  stroke: var(--goiaba);
+}
+
+.grafico text {
+  font-family: var(--sans);
+  fill: #545f6e;
+}
+
+.grafico .rotulo-forte {
+  font-family: var(--display);
+  font-weight: 600;
+  fill: var(--tinta);
+}
+
+/* ---------- The analysis, point by point ---------- */
+
+.pontos {
+  list-style: none;
+  padding: 0;
+  margin: 32px 0 0;
+  max-width: 30em;
+}
+
+.pontos li {
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  gap: 14px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--linha);
+}
+
+.pontos b {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.pontos span {
+  color: var(--corpo);
+  font-size: 16px;
+}
+
+.pontos i {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  transform: scale(var(--marca, 0));
+  transition: transform 0.7s var(--suave);
+}
+
+.pontos .atencao i {
+  background: var(--goiaba-suave);
+  color: var(--goiaba-texto);
+}
+
+.pontos .bom i {
+  background: var(--verde-suave);
+  color: var(--verde);
+}
+
+.pontos .passo i {
+  background: var(--azul);
+  color: var(--branco);
+}
+
+html:not(.anima) .pontos i,
+.pontos.visto i {
+  --marca: 1;
+}
+
+.pontos.visto li:nth-child(2) i {
+  transition-delay: 0.2s;
+}
+
+.pontos.visto li:nth-child(3) i {
+  transition-delay: 0.4s;
+}
+
+/* ---------- The document, a gallery that moves sideways ---------- */
+
+.documento {
+  overflow: hidden;
+}
+
+.doc-pino {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(24px, 4vh, 48px);
+  padding: 96px 0 40px;
+}
+
+.doc-cabeca {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px 40px;
+}
+
+.doc-cabeca .lead {
+  margin-top: 0;
+  max-width: 26em;
+}
+
+.trilha {
+  display: flex;
+  align-items: flex-end;
+  gap: clamp(18px, 2.4vw, 32px);
+  padding-left: max(20px, calc((100vw - 1180px) / 2));
+  padding-right: 20px;
+  width: max-content;
+  will-change: transform;
+}
+
+.pagina {
+  flex: none;
+}
+
+.pagina figure {
+  /* Sized by the screen's height, so the caption below always fits on the
+     pinned screen with the heading above. */
+  height: clamp(240px, calc(100svh - 400px), 520px);
+  aspect-ratio: 210 / 297;
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--folha);
+  box-shadow: 0 30px 60px -30px rgba(5, 15, 35, 0.65);
+  margin-bottom: 16px;
+}
+
+.pagina.paisagem figure {
+  aspect-ratio: 297 / 210;
+}
+
+.pagina img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pagina p {
+  font-size: 15px;
+  color: var(--corpo);
+}
+
+.pagina p b {
+  color: var(--enfase);
+  font-weight: 700;
+  margin-right: 6px;
+}
+
+/* Without the pinned animation (no JS, reduced motion) the document is a
+   row you scroll by hand. */
+html:not(.anima) .documento .trilha {
+  overflow-x: auto;
+  width: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 12px;
+}
+
+html:not(.anima) .pagina {
+  scroll-snap-align: start;
+}
+
+/* ---------- Price ---------- */
+
+.preco {
+  padding: clamp(80px, 12vh, 140px) 0;
+  text-align: center;
+}
+
+.preco .lead {
+  margin-inline: auto;
+}
+
+.preco h2 {
+  font-size: clamp(42px, 6.6vw, 100px);
+}
+
+.planos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 64px;
+  text-align: left;
+}
+
+.plano {
+  /* Paper cards with their own colours, so they stay readable while the page
+     is still fading from blue. */
+  --linha: #e7e1d7;
+  padding: clamp(28px, 4vw, 44px);
+  border-radius: 28px;
+  border: 1px solid var(--linha);
+  background: var(--branco);
+  color: var(--tinta);
+}
+
+.plano.cheio {
+  background: var(--azul-suave);
+  border-color: var(--azul-borda);
+}
+
+.plano h3 {
+  font-size: 22px;
+  margin-bottom: 18px;
+}
+
+.plano h3 small {
+  display: block;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: #545f6e;
+  margin-top: 6px;
+}
+
+.plano ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.plano li {
+  padding: 10px 0 10px 28px;
+  position: relative;
+  border-top: 1px solid var(--linha);
+}
+
+.plano.cheio li {
+  border-color: var(--azul-borda);
+}
+
+.plano li::before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 19px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--goiaba);
+}
+
+.plano.cheio li::before {
+  background: var(--azul);
+}
+
+@media (max-width: 760px) {
+  .planos {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Questions ---------- */
+
+.perguntas {
+  padding: clamp(60px, 10vh, 120px) 0 clamp(100px, 16vh, 180px);
+}
+
+.perguntas h2 {
+  font-size: clamp(30px, 3.6vw, 46px);
+  margin-bottom: 32px;
+}
+
+details {
+  border-bottom: 1px solid var(--linha);
+}
+
+summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 0;
+  font-weight: 500;
+  font-size: clamp(17px, 1.6vw, 20px);
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary::after {
+  content: '';
+  flex: none;
+  width: 14px;
+  height: 14px;
+  background:
+    linear-gradient(currentColor, currentColor) center / 100% 1.5px no-repeat,
+    linear-gradient(currentColor, currentColor) center / 1.5px 100% no-repeat;
+  transition: transform 0.6s var(--suave);
+}
+
+details[open] summary::after {
+  transform: rotate(135deg);
+}
+
+.resposta {
+  overflow: hidden;
+}
+
+.resposta p {
+  padding-bottom: 24px;
+  color: var(--corpo);
+  max-width: 36em;
+}
+
+/* ---------- Closing ---------- */
+
+.fecho {
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  overflow: hidden;
+  color: var(--branco);
+}
+
+.fecho-texto {
+  position: relative;
+  z-index: 1;
+  padding: 120px 20px;
+}
+
+.fecho-icone {
+  width: 76px;
+  height: 76px;
+  margin: 0 auto 28px;
+}
+
+.fecho h2 {
+  font-size: clamp(32px, 4.6vw, 68px);
+  max-width: 15ch;
+  margin-inline: auto;
+}
+
+.lojas {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 44px;
+}
+
+.loja {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 180px;
+  padding: 12px 24px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 1.2;
+  text-align: left;
+  transition: transform 0.5s var(--suave);
+}
+
+.loja:hover {
+  transform: translateY(-2px);
+}
+
+.loja small {
+  font-weight: 400;
+  font-size: 12px;
+  opacity: 0.75;
+}
+
+.loja.cheia {
+  background: var(--branco);
+  color: var(--noite);
+  border-color: transparent;
+}
+
+/* ---------- Footer ---------- */
+
+.rodape {
+  padding: 36px 0 48px;
+  font-size: 14px;
+  color: var(--apagado);
+}
+
+.rodape-linhas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.inteiro {
+  white-space: nowrap;
+}
+
+.rodape nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.rodape a:hover {
+  color: var(--texto);
+}
+
+/* ---------- Phone spacing ----------
+   The desktop rhythm (up to 180px a side, full-screen closing) reads as
+   empty screens on a phone; the sections sit closer there. */
+
+@media (max-width: 760px) {
+  .abertura {
+    min-height: auto;
+    padding-bottom: 56px;
+  }
+  .manifesto {
+    padding-top: 170px;
+    padding-bottom: 170px;
+  }
+  .flutua {
+    width: 96px;
+  }
+  .faixa {
+    padding: 0 0 32px;
+  }
+  .bloco {
+    padding: 64px 0;
+  }
+  .doc-pino {
+    padding-top: 72px;
+  }
+  .preco {
+    padding: 64px 0 40px;
+  }
+  .planos {
+    margin-top: 40px;
+  }
+  .perguntas {
+    padding: 32px 0 72px;
+  }
+  .fecho {
+    min-height: auto;
+  }
+  .fecho-texto {
+    padding: 96px 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body,
+  .barra,
+  .role i {
+    transition: none;
+    animation: none;
+  }
+}

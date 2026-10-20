@@ -3,6 +3,22 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Cria — Meu plano de negócios</title>
+    <meta
+      name="description"
+      content="Monte o plano do seu pequeno negócio uma pergunta por vez: Lean Canvas, ponto de equilíbrio, SWOT, persona e plano de ação, num PDF de 9 páginas. Sem cadastro, funciona offline."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:title" content="Cria — seu plano de negócio, uma pergunta por vez" />
+    <meta
+      property="og:description"
+      content="Responda o que você já sabe do seu negócio e saia com um PDF de 9 páginas pra mostrar ao sócio, ao banco ou ao Sebrae. Sem cadastro, sem internet."
+    />
+    <meta property="og:image" content="https://cria.kavicki.com/assets/og.jpg" />
+    <meta property="og:url" content="https://cria.kavicki.com/" />
+    <link rel="canonical" href="https://cria.kavicki.com/" />
+    <meta name="theme-color" content="#173B6C" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png" />
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
@@ -12,119 +28,867 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@400;500;700&display=swap"
     />
-    <link rel="stylesheet" href="estilo.css" />
-    <title>Cria — Meu plano de negócios</title>
-    <meta
-      name="description"
-      content="Monte o plano de negócio do seu pequeno negócio, uma pergunta por vez, e gere um PDF de 9 páginas para mostrar a sócio, banco ou Sebrae. Funciona offline."
-    />
-    <link rel="canonical" href="https://cria.kavicki.com/" />
+    <link rel="stylesheet" href="inicio.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+      defer
+    ></script>
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js" defer></script>
+    <script src="inicio.js" defer></script>
   </head>
   <body>
-    <header class="miolo topo">
-      <a class="logo" href="./" aria-label="Cria — início"
-        ><img src="assets/logo-cria.png" alt="" width="36" height="36" />Cria</a
-      >
-      <nav aria-label="Seções">
-        <a href="privacidade.html">Privacidade</a>
-        <a href="termos.html">Termos de uso</a>
-        <a class="cheio" href="./#baixar">Baixar grátis</a>
-      </nav>
+    <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
+
+    <!-- The logo B (design/Logo), reused by the bar and the closing. -->
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <symbol id="logo" viewBox="0 0 64 64">
+        <rect width="64" height="64" rx="18" fill="#1F4F8F" />
+        <path
+          d="M15 47h11V37h11V27h11"
+          fill="none"
+          stroke="#fff"
+          stroke-width="4.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <circle cx="48" cy="17" r="5.5" fill="#EF6F7A" />
+      </symbol>
+    </svg>
+
+    <header class="barra">
+      <a class="marca" href="./" aria-label="Cria — início">
+        <svg aria-hidden="true"><use href="#logo" /></svg>
+        <span>Cria</span>
+      </a>
+      <a class="baixar" href="#baixar">Baixar grátis</a>
     </header>
 
-    <main>
-      <section class="miolo heroi">
-        <div>
-          <h1>Seu plano de negócio, uma pergunta por vez</h1>
-          <span class="traco" aria-hidden="true"></span>
-          <p>
-            O Cria guia você pelos quadros que sócio, banco e Sebrae costumam pedir — em português
-            claro, sem jargão. No fim, sai um documento em PDF de 9 páginas, com cara de
-            profissional.
+    <main id="conteudo">
+      <!-- Abertura -->
+      <section class="abertura" data-tema="azul">
+        <svg
+          class="degraus"
+          viewBox="0 0 1440 900"
+          preserveAspectRatio="xMidYMid slice"
+          aria-hidden="true"
+        >
+          <path d="M640 960V820H860V660H1080V500H1300V340H1400" />
+          <circle cx="1400" cy="226" r="54" />
+        </svg>
+        <div class="miolo abertura-grade">
+          <div class="abertura-texto">
+            <p class="sobrelinha revela">Meu plano de negócios</p>
+            <h1 class="linhas">Seu plano de negócio, <em>uma pergunta por vez.</em></h1>
+            <p class="abertura-sub revela">
+              Responda o que você já sabe do seu negócio. O Cria monta os quadros, faz as contas e
+              entrega um PDF de 9 páginas pra mostrar ao sócio, ao banco ou ao Sebrae.
+            </p>
+            <div class="abertura-acoes revela">
+              <a class="botao" href="#baixar">Baixar grátis</a>
+              <span>Sem cadastro, funciona sem internet</span>
+            </div>
+          </div>
+          <div class="vitrine">
+            <img
+              class="capa"
+              src="assets/documento/pagina-1.webp"
+              alt="Capa do plano de negócio da Lanches da Vila, em PDF"
+              width="900"
+              height="1273"
+              fetchpriority="high"
+            />
+            <div class="celular">
+              <img
+                src="assets/telas/hub.webp"
+                alt="Tela do negócio Lanches da Vila no Cria, com os quadros e o progresso de 43%"
+                width="640"
+                height="1391"
+                fetchpriority="high"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="role" aria-hidden="true"><i></i></div>
+      </section>
+
+      <!-- Manifesto: as palavras acendem com a rolagem -->
+      <section class="manifesto" data-tema="claro">
+        <figure class="flutua f1" data-vel="-18">
+          <!-- Doceira: o traço da persona do app, num quadro 4:5. -->
+          <svg viewBox="0 0 64 80" aria-hidden="true">
+            <rect width="64" height="80" fill="#FCE3E5" />
+            <g transform="translate(0 12)">
+              <circle cx="32" cy="14" r="6.5" fill="#3A2418" />
+              <rect x="27" y="37" width="10" height="16" rx="4" fill="#C98B67" />
+              <path d="M5 80c0-19 12-28 27-28s27 9 27 28z" fill="#1F4F8F" />
+              <path d="M21 53.5c3 1.2 7 1.8 11 1.8s8-.6 11-1.8V80H21z" fill="#FFFDF9" />
+              <ellipse cx="32" cy="29" rx="10.5" ry="12.5" fill="#E0A986" />
+              <path
+                d="M21 28c1-10 6-14 11.5-14 6.5 0 10.5 5 11 12-5-1-9-4-11.5-8-2 5-6 8.5-11 10z"
+                fill="#3A2418"
+              />
+              <circle cx="28" cy="30" r="1.3" fill="#2B1D16" />
+              <circle cx="36" cy="30" r="1.3" fill="#2B1D16" />
+              <path
+                d="M28.5 35.5c2 1.6 5 1.6 7 0"
+                fill="none"
+                stroke="#7A3E2A"
+                stroke-width="1.4"
+                stroke-linecap="round"
+              />
+              <circle cx="42.5" cy="33" r="1.6" fill="#EF6F7A" />
+              <ellipse cx="17" cy="61" rx="4" ry="3.4" fill="#E0A986" />
+              <ellipse cx="47" cy="61" rx="4" ry="3.4" fill="#E0A986" />
+              <rect x="18" y="57" width="28" height="11" rx="2.5" fill="#F6B6BC" />
+              <rect x="18" y="55" width="28" height="5" rx="2.5" fill="#FFFFFF" />
+              <circle cx="32" cy="52.6" r="2.4" fill="#EF6F7A" />
+            </g>
+          </svg>
+          <figcaption>Doceria da Rosa</figcaption>
+        </figure>
+        <figure class="flutua f2" data-vel="22">
+          <!-- Barbeiro -->
+          <svg viewBox="0 0 64 80" aria-hidden="true">
+            <rect width="64" height="80" fill="#E4ECF7" />
+            <g
+              transform="translate(51 14) rotate(-30)"
+              fill="none"
+              stroke="#1F4F8F"
+              stroke-width="1.6"
+              stroke-linecap="round"
+            >
+              <circle cx="-3" cy="6" r="2.4" />
+              <circle cx="3" cy="6" r="2.4" />
+              <path d="M-1.6 3.8L3-7.5M1.6 3.8L-3-7.5" />
+            </g>
+            <g transform="translate(0 12)">
+              <rect x="27" y="37" width="10" height="16" rx="4" fill="#8E5A3E" />
+              <path d="M5 80c0-19 12-28 27-28s27 9 27 28z" fill="#173B6C" />
+              <path d="M26 52l6 7 6-7" fill="#FFFFFF" />
+              <ellipse cx="21.5" cy="30" rx="2" ry="3" fill="#A86B4C" />
+              <ellipse cx="42.5" cy="30" rx="2" ry="3" fill="#A86B4C" />
+              <ellipse cx="32" cy="29.5" rx="10.5" ry="12.5" fill="#A86B4C" />
+              <path
+                d="M22.5 31c.5 8 4.5 11.5 9.5 11.5s9-3.5 9.5-11.5c-1.6 3.4-4.6 5.4-9.5 5.4s-7.9-2-9.5-5.4z"
+                fill="#1E1612"
+              />
+              <path
+                d="M21.5 27c-.5-9 4.5-14.5 10.5-14.5S43 18 42.5 27c-1.6-3.6-3.6-6-6.5-6.6-2 1.6-5.6 2.4-9.6 1.6-2.4 1-4 2.8-4.9 5z"
+                fill="#1E1612"
+              />
+              <circle cx="28" cy="29.5" r="1.3" fill="#1E1612" />
+              <circle cx="36" cy="29.5" r="1.3" fill="#1E1612" />
+              <path
+                d="M29 36.4c1.8 1.2 4.2 1.2 6 0"
+                fill="none"
+                stroke="#F3E3D6"
+                stroke-width="1.4"
+                stroke-linecap="round"
+              />
+            </g>
+          </svg>
+          <figcaption>Barbearia do Léo</figcaption>
+        </figure>
+        <figure class="flutua f3" data-vel="-30">
+          <!-- Costureira -->
+          <svg viewBox="0 0 64 80" aria-hidden="true">
+            <rect width="64" height="80" fill="#DDF3E7" />
+            <g transform="translate(0 12)">
+              <path
+                d="M19 36c-2-15 5-22 13-22s15 7 13 22c-2-2-3-6-3-9-5 2-15 2-20 0 0 3-1 7-3 9z"
+                fill="#B9BEC6"
+              />
+              <rect x="27" y="37" width="10" height="16" rx="4" fill="#DDA987" />
+              <path d="M5 80c0-19 12-28 27-28s27 9 27 28z" fill="#EF6F7A" />
+              <ellipse cx="32" cy="29" rx="10.5" ry="12.5" fill="#F1C7A8" />
+              <path
+                d="M21.5 26c1-8 5-12 10.5-12s9.5 4 10.5 12c-4-3-7-6-10.5-6S25 23 21.5 26z"
+                fill="#B9BEC6"
+              />
+              <g fill="none" stroke="#18212E" stroke-width="1.1">
+                <circle cx="27.6" cy="30" r="3.1" />
+                <circle cx="36.4" cy="30" r="3.1" />
+                <path d="M30.7 30h2.6" />
+              </g>
+              <circle cx="27.6" cy="30" r="1.1" fill="#18212E" />
+              <circle cx="36.4" cy="30" r="1.1" fill="#18212E" />
+              <path
+                d="M28.5 36c2 1.4 5 1.4 7 0"
+                fill="none"
+                stroke="#9A5A48"
+                stroke-width="1.4"
+                stroke-linecap="round"
+              />
+              <path
+                d="M25 51c2 8 2.5 18 2 29M39 51c-2 8-2.5 18-2 29"
+                fill="none"
+                stroke="#E9B949"
+                stroke-width="3"
+              />
+              <path
+                d="M25.4 55h2.2M26.4 60h2.2M27 65h2.2M38.6 55h-2.2M37.6 60h-2.2M37 65h-2.2"
+                stroke="#18212E"
+                stroke-width=".7"
+              />
+            </g>
+          </svg>
+          <figcaption>Ateliê da Dona Ana</figcaption>
+        </figure>
+        <p class="acende">
+          Quem abre um negócio, cedo ou tarde, ouve: <em>“cadê o plano?”</em> O Cria faz as
+          perguntas certas, em português claro, e transforma as suas respostas num plano que dá pra
+          mostrar.
+        </p>
+      </section>
+
+      <!-- Faixa de palavras que corre com a rolagem -->
+      <div class="faixa" data-tema="claro" aria-hidden="true">
+        <div class="faixa-trilho">
+          <span
+            >Lanchonete · Doceria · Salão · Barbearia · Ateliê · Marmitaria · Pet shop · Mercadinho
+            · Food truck ·
+          </span>
+          <span
+            >Lanchonete · Doceria · Salão · Barbearia · Ateliê · Marmitaria · Pet shop · Mercadinho
+            · Food truck ·
+          </span>
+        </div>
+      </div>
+
+      <!-- As perguntas -->
+      <section class="bloco" id="perguntas" data-tema="claro">
+        <div class="miolo dupla">
+          <div class="texto">
+            <p class="sobrelinha revela">Primeiro</p>
+            <h2 class="linhas">Uma pergunta por vez. <em>Do seu jeito.</em></h2>
+            <p class="lead revela">
+              Cada pergunta diz por que importa e traz um exemplo. Não sabe agora? Pule e volte
+              depois: tudo fica salvo no celular.
+            </p>
+            <ul class="quadros">
+              <li>
+                <span><strong>Sua ideia em uma página</strong><br /><small>Lean Canvas</small></span
+                ><span class="selo">Grátis</span>
+              </li>
+              <li>
+                <span><strong>Ponto de equilíbrio</strong><br /><small>Calculadora</small></span
+                ><span class="selo">Grátis</span>
+              </li>
+              <li>
+                <span
+                  ><strong>Como o negócio funciona</strong><br /><small
+                    >Business Model Canvas</small
+                  ></span
+                ><span class="selo completo">Completo</span>
+              </li>
+              <li>
+                <span><strong>Forças e fraquezas</strong><br /><small>SWOT</small></span
+                ><span class="selo completo">Completo</span>
+              </li>
+              <li>
+                <span
+                  ><strong>Seu cliente ideal</strong><br /><small
+                    >Persona e proposta de valor</small
+                  ></span
+                ><span class="selo completo">Completo</span>
+              </li>
+              <li>
+                <span><strong>Plano de ação</strong><br /><small>Tarefas com lembrete</small></span
+                ><span class="selo completo">Completo</span>
+              </li>
+            </ul>
+          </div>
+          <div class="cena">
+            <figure class="cena-quadro">
+              <!-- A fachada da Lanches da Vila, o negócio de exemplo do app. -->
+              <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                <defs>
+                  <pattern
+                    id="listras"
+                    width="85"
+                    height="40"
+                    patternUnits="userSpaceOnUse"
+                    x="30"
+                    y="216"
+                  >
+                    <rect width="42.5" height="40" fill="#EF6F7A" />
+                    <rect x="42.5" width="42.5" height="40" fill="#FFFFFF" />
+                  </pattern>
+                  <clipPath id="vidro">
+                    <rect x="56" y="290" width="196" height="150" rx="8" />
+                  </clipPath>
+                </defs>
+                <rect width="400" height="500" fill="#E4ECF7" />
+                <circle cx="334" cy="78" r="38" fill="#EF6F7A" />
+                <rect x="46" y="62" width="74" height="18" rx="9" fill="#FFFFFF" opacity=".85" />
+                <rect x="70" y="50" width="40" height="18" rx="9" fill="#FFFFFF" opacity=".85" />
+                <rect x="30" y="120" width="340" height="350" fill="#FFFDF9" />
+                <rect x="22" y="108" width="356" height="18" rx="4" fill="#1F4F8F" />
+                <rect x="70" y="146" width="260" height="52" rx="10" fill="#173B6C" />
+                <text
+                  x="200"
+                  y="180"
+                  text-anchor="middle"
+                  fill="#FFFFFF"
+                  font-family="Poppins, system-ui, sans-serif"
+                  font-weight="600"
+                  font-size="22"
+                >
+                  Lanches da Vila
+                </text>
+                <rect x="30" y="216" width="340" height="40" fill="url(#listras)" />
+                <g>
+                  <circle cx="51.25" cy="256" r="21.25" fill="#EF6F7A" />
+                  <circle cx="93.75" cy="256" r="21.25" fill="#FFFFFF" />
+                  <circle cx="136.25" cy="256" r="21.25" fill="#EF6F7A" />
+                  <circle cx="178.75" cy="256" r="21.25" fill="#FFFFFF" />
+                  <circle cx="221.25" cy="256" r="21.25" fill="#EF6F7A" />
+                  <circle cx="263.75" cy="256" r="21.25" fill="#FFFFFF" />
+                  <circle cx="306.25" cy="256" r="21.25" fill="#EF6F7A" />
+                  <circle cx="348.75" cy="256" r="21.25" fill="#FFFFFF" />
+                </g>
+                <rect x="56" y="290" width="196" height="150" rx="8" fill="#C9D7EE" />
+                <g clip-path="url(#vidro)">
+                  <g transform="translate(118 318) scale(1.15)">
+                    <path d="M13 40c0-17 8-27 19-27s19 10 19 27v14H13z" fill="#2B1D16" />
+                    <path d="M8 66c0-13 11-20 24-20s24 7 24 20z" fill="#1F4F8F" />
+                    <rect x="27" y="37" width="10" height="11" rx="4" fill="#B97A57" />
+                    <ellipse cx="32" cy="29" rx="10.5" ry="12.5" fill="#C98B67" />
+                    <path
+                      d="M21 28c1-10 6-14 11.5-14 6.5 0 10.5 5 11 12-5-1-9-4-11.5-8-2 5-6 8.5-11 10z"
+                      fill="#2B1D16"
+                    />
+                    <circle cx="28" cy="30" r="1.3" fill="#2B1D16" />
+                    <circle cx="36" cy="30" r="1.3" fill="#2B1D16" />
+                    <path
+                      d="M28.5 35.5c2 1.6 5 1.6 7 0"
+                      fill="none"
+                      stroke="#7A3E2A"
+                      stroke-width="1.4"
+                      stroke-linecap="round"
+                    />
+                    <circle cx="42.5" cy="33" r="1.6" fill="#EF6F7A" />
+                  </g>
+                  <rect x="56" y="396" width="196" height="44" fill="#E9C9A0" />
+                  <rect x="56" y="396" width="196" height="6" fill="#D9B385" />
+                  <g transform="translate(78 368)">
+                    <path d="M2 18c0-10 8-16 18-16s18 6 18 16z" fill="#E9A65A" />
+                    <rect x="0" y="18" width="40" height="4" rx="2" fill="#6BB36B" />
+                    <rect x="1" y="21" width="38" height="6" rx="3" fill="#6B3B2A" />
+                    <rect x="2" y="26" width="36" height="5" rx="2.5" fill="#E9A65A" />
+                  </g>
+                  <g transform="translate(206 362)">
+                    <path d="M2 4h20l-3 30H5z" fill="#FFFFFF" />
+                    <rect x="2" y="12" width="20" height="6" fill="#EF6F7A" />
+                    <path
+                      d="M14 4l4-12"
+                      stroke="#1F4F8F"
+                      stroke-width="2.4"
+                      stroke-linecap="round"
+                    />
+                  </g>
+                </g>
+                <rect
+                  x="56"
+                  y="290"
+                  width="196"
+                  height="150"
+                  rx="8"
+                  fill="none"
+                  stroke="#1F4F8F"
+                  stroke-width="6"
+                />
+                <rect x="276" y="290" width="74" height="180" rx="6" fill="#1F4F8F" />
+                <rect x="286" y="302" width="54" height="84" rx="4" fill="#C9D7EE" />
+                <rect x="294" y="318" width="38" height="16" rx="3" fill="#FFFFFF" />
+                <text
+                  x="313"
+                  y="330"
+                  text-anchor="middle"
+                  fill="#1D7A52"
+                  font-family="Roboto, system-ui, sans-serif"
+                  font-weight="700"
+                  font-size="9"
+                  letter-spacing=".6"
+                >
+                  ABERTO
+                </text>
+                <circle cx="337" cy="404" r="4.5" fill="#FCE3E5" />
+                <rect x="0" y="462" width="400" height="38" fill="#E7E1D7" />
+                <rect x="0" y="462" width="400" height="5" fill="#D8D0C3" />
+                <ellipse cx="263" cy="420" rx="9" ry="16" fill="#5FA77F" />
+                <ellipse cx="256" cy="430" rx="8" ry="12" fill="#1D7A52" />
+                <ellipse cx="271" cy="432" rx="7" ry="11" fill="#1D7A52" />
+                <path d="M254 440h18l-2 24h-14z" fill="#EF6F7A" />
+              </svg>
+            </figure>
+            <div class="celular" data-vel="-14" data-gira="6">
+              <img
+                src="assets/telas/formulario.webp"
+                alt="Tela de pergunta: “Como você cuida do cliente para ele voltar?”, com a explicação e um exemplo"
+                width="640"
+                height="1391"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Os números -->
+      <section class="bloco" id="numeros" data-tema="azul">
+        <div class="miolo dupla invertida">
+          <div class="cena so-quadro">
+            <figure class="cena-quadro">
+              <!-- O ponto de equilíbrio da Lanches da Vila: R$ 6.240 fixos,
+                   R$ 12 de custo e R$ 32 de preço, empate em 312 por mês. -->
+              <svg class="grafico" viewBox="0 0 400 500" aria-hidden="true">
+                <rect width="400" height="500" fill="#FFFDF9" />
+                <text class="rotulo-forte" x="32" y="56" font-size="22">Ponto de equilíbrio</text>
+                <text x="32" y="80" font-size="13">Lanches da Vila · por mês</text>
+                <rect x="32" y="98" width="16" height="4" rx="2" fill="#1F4F8F" />
+                <text x="54" y="104" font-size="12">Faturamento</text>
+                <rect x="140" y="98" width="16" height="4" rx="2" fill="#EF6F7A" />
+                <text x="162" y="104" font-size="12">Custos</text>
+                <line class="grade-linha" x1="48" y1="345" x2="368" y2="345" />
+                <line class="grade-linha" x1="48" y1="270" x2="368" y2="270" />
+                <line class="grade-linha" x1="48" y1="195" x2="368" y2="195" />
+                <line class="grade-linha" x1="48" y1="120" x2="368" y2="120" />
+                <polygon class="area" points="48,303 247.7,232.8 48,420" fill="#FCE3E5" />
+                <polygon class="area" points="247.7,232.8 368,120 368,190.5" fill="#DDF3E7" />
+                <text class="area" x="58" y="372" font-size="12" style="fill: #8a2433">
+                  prejuízo
+                </text>
+                <text
+                  class="area"
+                  x="358"
+                  y="182"
+                  font-size="12"
+                  text-anchor="end"
+                  style="fill: #145c3d"
+                >
+                  lucro
+                </text>
+                <line class="eixo" x1="48" y1="420" x2="372" y2="420" />
+                <line class="eixo" x1="48" y1="114" x2="48" y2="420" />
+                <path class="custo" d="M48 303L368 190.5" />
+                <path class="receita" d="M48 420L368 120" />
+                <line
+                  class="empate-texto"
+                  x1="247.7"
+                  y1="242"
+                  x2="247.7"
+                  y2="420"
+                  stroke="#545F6E"
+                  stroke-width="1.5"
+                  stroke-dasharray="4 5"
+                />
+                <circle
+                  class="empate"
+                  cx="247.7"
+                  cy="232.8"
+                  r="9"
+                  fill="#FFFFFF"
+                  stroke="#18212E"
+                  stroke-width="3.5"
+                />
+                <text class="rotulo-forte empate-texto" x="258" y="262" font-size="16">
+                  Empata em 312
+                </text>
+                <text class="empate-texto" x="258" y="280" font-size="12">R$ 9.984 no mês</text>
+                <g font-size="11" text-anchor="middle">
+                  <text x="48" y="440">0</text>
+                  <text x="112" y="440">100</text>
+                  <text x="176" y="440">200</text>
+                  <text x="240" y="440">300</text>
+                  <text x="304" y="440">400</text>
+                  <text x="368" y="440">500</text>
+                </g>
+                <text x="368" y="464" font-size="12" text-anchor="end">
+                  lanches vendidos no mês
+                </text>
+              </svg>
+            </figure>
+          </div>
+          <div class="texto">
+            <p class="sobrelinha revela">Depois</p>
+            <h2 class="linhas">Quanto vender <em>pra pagar as contas.</em></h2>
+            <p class="lead revela">
+              Diga o que você vende, quanto custa cada um, o preço e as contas fixas do mês. O Cria
+              mostra onde o negócio empata e o que muda se o custo subir.
+            </p>
+            <p class="destaque revela">
+              <span>312 <small>lanches por mês</small></span>
+              No exemplo da Lanches da Vila: R$ 6.240 de contas fixas e lanche a R$ 32, com R$ 12 de
+              custo.
+            </p>
+            <dl class="contas">
+              <div>
+                <dt>Por dia, em 26 dias de trabalho</dt>
+                <dd>≈ 12 lanches</dd>
+              </div>
+              <div>
+                <dt>Faturamento no empate</dt>
+                <dd>R$ 9.984</dd>
+              </div>
+              <div>
+                <dt>Se a carne subir R$ 1 por lanche</dt>
+                <dd>+17 por mês</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <!-- A análise -->
+      <section class="bloco" id="analise" data-tema="claro">
+        <div class="miolo dupla">
+          <div class="texto">
+            <p class="sobrelinha revela">Sua análise</p>
+            <h2 class="linhas">Uma leitura honesta <em>do seu negócio.</em></h2>
+            <p class="lead revela">
+              Com as suas respostas, o Cria aponta o que pede atenção, o que já está bom e os
+              próximos passos. Tudo calculado no próprio celular, com regras claras e sem inventar
+              números.
+            </p>
+            <ul class="pontos">
+              <li class="atencao">
+                <i aria-hidden="true">!</i>
+                <p>
+                  <b>Carne no centro do risco.</b>
+                  <span
+                    >Cada R$ 1 a mais no custo do lanche sobe o empate em 17 lanches por mês.</span
+                  >
+                </p>
+              </li>
+              <li class="bom">
+                <i aria-hidden="true">✓</i>
+                <p>
+                  <b>Margem confortável.</b>
+                  <span>62,5% de cada venda sobra para pagar as contas fixas.</span>
+                </p>
+              </li>
+              <li class="passo">
+                <i aria-hidden="true">1</i>
+                <p>
+                  <b>Cotar um segundo fornecedor de carne.</b>
+                  <span>Um toque e o passo vira tarefa no plano de ação, com lembrete.</span>
+                </p>
+              </li>
+            </ul>
+          </div>
+          <div class="cena">
+            <figure class="cena-quadro">
+              <!-- Carla, a persona do exemplo, no traço do app. -->
+              <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                <rect width="400" height="500" fill="#FCE3E5" />
+                <circle cx="200" cy="200" r="150" fill="#FFFDF9" opacity=".55" />
+                <g transform="translate(40 70) scale(5)">
+                  <path d="M13 40c0-17 8-27 19-27s19 10 19 27v14H13z" fill="#2B1D16" />
+                  <path d="M6 80c0-18 11-28 26-28s26 10 26 28z" fill="#E4ECF7" />
+                  <path
+                    d="M24 52c2 4 5 6 8 6s6-2 8-6"
+                    fill="none"
+                    stroke="#B8C9E2"
+                    stroke-width="2"
+                  />
+                  <rect x="27" y="37" width="10" height="16" rx="4" fill="#B97A57" />
+                  <ellipse cx="32" cy="29" rx="10.5" ry="12.5" fill="#C98B67" />
+                  <path
+                    d="M21 28c1-10 6-14 11.5-14 6.5 0 10.5 5 11 12-5-1-9-4-11.5-8-2 5-6 8.5-11 10z"
+                    fill="#2B1D16"
+                  />
+                  <circle cx="28" cy="30" r="1.3" fill="#2B1D16" />
+                  <circle cx="36" cy="30" r="1.3" fill="#2B1D16" />
+                  <path
+                    d="M28.5 35.5c2 1.6 5 1.6 7 0"
+                    fill="none"
+                    stroke="#7A3E2A"
+                    stroke-width="1.4"
+                    stroke-linecap="round"
+                  />
+                  <circle cx="42.5" cy="33" r="1.6" fill="#EF6F7A" />
+                </g>
+                <rect x="70" y="392" width="260" height="20" rx="6" fill="#173B6C" />
+                <path d="M100 392l14-82h172l14 82z" fill="#1F4F8F" />
+                <circle cx="200" cy="350" r="9" fill="#EF6F7A" />
+                <rect x="30" y="34" width="210" height="58" rx="18" fill="#FFFFFF" />
+                <path d="M70 90l10 16 8-16z" fill="#FFFFFF" />
+                <text
+                  x="50"
+                  y="58"
+                  fill="#18212E"
+                  font-family="Poppins, system-ui, sans-serif"
+                  font-weight="600"
+                  font-size="15"
+                >
+                  “Lanche quente
+                </text>
+                <text
+                  x="50"
+                  y="78"
+                  fill="#18212E"
+                  font-family="Poppins, system-ui, sans-serif"
+                  font-weight="600"
+                  font-size="15"
+                >
+                  em 25 minutos.”
+                </text>
+              </svg>
+            </figure>
+            <div class="celular" data-vel="-14" data-gira="6">
+              <img
+                src="assets/telas/analise.webp"
+                alt="Tela Sua análise: 62,5% de sobra em cada venda, 12 lanches por dia para empatar, pontos de atenção e próximos passos"
+                width="640"
+                height="1391"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- O documento: galeria que anda de lado -->
+      <section class="documento" id="documento" data-tema="azul">
+        <div class="doc-pino">
+          <div class="miolo doc-cabeca">
+            <div>
+              <p class="sobrelinha revela">No fim</p>
+              <h2 class="linhas">9 páginas <em>pra mostrar a quem decide.</em></h2>
+            </div>
+            <p class="lead revela">
+              Capa, resumo, diagnóstico, os quadros, os números e o plano dos próximos 3 meses.
+              Gerado no celular, pronto pra mandar no WhatsApp ou imprimir.
+            </p>
+          </div>
+          <div class="trilha">
+            <article class="pagina">
+              <figure>
+                <img
+                  src="assets/documento/pagina-1.webp"
+                  alt="Capa: Lanches da Vila, plano de negócio, outubro de 2026"
+                  loading="lazy"
+                />
+              </figure>
+              <p><b>1</b>Capa</p>
+            </article>
+            <article class="pagina">
+              <figure>
+                <img
+                  src="assets/documento/pagina-2.webp"
+                  alt="Resumo: o negócio, para quem, como ganha dinheiro e próximos passos"
+                  loading="lazy"
+                />
+              </figure>
+              <p><b>2</b>Resumo em uma página</p>
+            </article>
+            <article class="pagina">
+              <figure>
+                <img
+                  src="assets/documento/pagina-3.webp"
+                  alt="Diagnóstico: o que as suas respostas dizem"
+                  loading="lazy"
+                />
+              </figure>
+              <p><b>3</b>Diagnóstico</p>
+            </article>
+            <article class="pagina paisagem">
+              <figure>
+                <img
+                  src="assets/documento/pagina-4.webp"
+                  alt="Lean Canvas da Lanches da Vila, com os nove blocos preenchidos"
+                  loading="lazy"
+                />
+              </figure>
+              <p><b>4</b>Lean Canvas</p>
+            </article>
+            <article class="pagina paisagem">
+              <figure>
+                <img
+                  src="assets/documento/pagina-5.webp"
+                  alt="Business Model Canvas da Lanches da Vila"
+                  loading="lazy"
+                />
+              </figure>
+              <p><b>5</b>Business Model Canvas</p>
+            </article>
+            <article class="pagina">
+              <figure>
+                <img
+                  src="assets/documento/pagina-6.webp"
+                  alt="SWOT: forças, fraquezas, oportunidades e ameaças"
+                  loading="lazy"
+                />
+              </figure>
+              <p><b>6</b>Forças e fraquezas</p>
+            </article>
+            <article class="pagina">
+              <figure>
+                <img
+                  src="assets/documento/pagina-7.webp"
+                  alt="Persona: Carla, 34 anos, e a proposta de valor"
+                  loading="lazy"
+                />
+              </figure>
+              <p><b>7</b>Cliente e proposta de valor</p>
+            </article>
+            <article class="pagina">
+              <figure>
+                <img
+                  src="assets/documento/pagina-8.webp"
+                  alt="Ponto de equilíbrio, cenários do mês e simulações"
+                  loading="lazy"
+                />
+              </figure>
+              <p><b>8</b>Números</p>
+            </article>
+            <article class="pagina">
+              <figure>
+                <img
+                  src="assets/documento/pagina-9.webp"
+                  alt="Plano de ação dos próximos 3 meses"
+                  loading="lazy"
+                />
+              </figure>
+              <p><b>9</b>Plano de ação</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Preço -->
+      <section class="preco" id="preco" data-tema="claro">
+        <div class="miolo">
+          <p class="sobrelinha revela">Preço</p>
+          <h2 class="linhas">R$ 29,90. <em>Uma vez.</em></h2>
+          <p class="lead revela">
+            Sem assinatura, sem mensalidade, para todos os seus negócios. A ideia em uma página e a
+            calculadora são grátis pra sempre.
           </p>
-          <div class="lojas" id="baixar">
-            <a class="botao" href="https://apps.apple.com/app/cria">Baixar na App Store</a>
-            <a class="botao" href="https://play.google.com/store/apps/details?id=com.kavicki.cria"
-              >Baixar no Google Play</a
+          <div class="planos">
+            <div class="plano revela">
+              <h3>Grátis <small>Pra começar</small></h3>
+              <ul>
+                <li>Sua ideia em uma página (Lean Canvas)</li>
+                <li>Calculadora do ponto de equilíbrio</li>
+                <li>Prévia da análise</li>
+                <li>Quantos negócios quiser</li>
+              </ul>
+            </div>
+            <div class="plano cheio revela">
+              <h3>Plano completo <small>Compra única</small></h3>
+              <ul>
+                <li>Como o negócio funciona (Business Model Canvas)</li>
+                <li>Forças e fraquezas (SWOT)</li>
+                <li>Seu cliente ideal e proposta de valor</li>
+                <li>Plano de ação com lembretes</li>
+                <li>Análise completa</li>
+                <li>Documento em PDF de 9 páginas</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="perguntas" data-tema="claro" aria-labelledby="perguntas-titulo">
+        <div class="miolo estreito">
+          <h2 id="perguntas-titulo" class="linhas">Perguntas</h2>
+          <details>
+            <summary>Preciso saber o que é Lean Canvas ou SWOT?</summary>
+            <div class="resposta">
+              <p>
+                Não. O app pergunta em português do dia a dia (“o que você vende?”, “quem compra de
+                você?”) e monta os quadros com as suas respostas. Os nomes técnicos aparecem só como
+                referência.
+              </p>
+            </div>
+          </details>
+          <details>
+            <summary>O documento serve pra pedir empréstimo?</summary>
+            <div class="resposta">
+              <p>
+                Ele organiza o que banco, sócio e Sebrae costumam perguntar: o negócio, o cliente,
+                os números e os próximos passos. Cada banco tem as próprias exigências, e o Cria não
+                é consultoria nem garante crédito.
+              </p>
+            </div>
+          </details>
+          <details>
+            <summary>Precisa de internet?</summary>
+            <div class="resposta">
+              <p>
+                Não. Responder, calcular, ver a análise e gerar o PDF funcionam offline. A internet
+                só entra pra comprar ou restaurar o plano completo com a loja.
+              </p>
+            </div>
+          </details>
+          <details>
+            <summary>Meus dados vão pra algum lugar?</summary>
+            <div class="resposta">
+              <p>
+                Não. Não tem cadastro, servidor nem anúncio. As respostas e os números ficam só no
+                seu celular, e o PDF só sai de lá quando você compartilha.
+              </p>
+            </div>
+          </details>
+          <details>
+            <summary>E se eu trocar de celular?</summary>
+            <div class="resposta">
+              <p>
+                A compra volta pelo “Restaurar compra”, com a mesma conta da loja. Os planos ainda
+                ficam só no aparelho, então guarde o PDF de cada negócio antes de trocar.
+              </p>
+            </div>
+          </details>
+          <details>
+            <summary>Funciona em outros idiomas?</summary>
+            <div class="resposta">
+              <p>O app está em português, inglês e espanhol, e segue o idioma do celular.</p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <section class="fecho" id="baixar" data-tema="azul">
+        <svg
+          class="degraus"
+          viewBox="0 0 1440 900"
+          preserveAspectRatio="xMidYMid slice"
+          aria-hidden="true"
+        >
+          <path d="M-40 820H260V680H560V540H880V400H1180V260H1500" />
+          <circle cx="1180" cy="150" r="48" />
+        </svg>
+        <div class="fecho-texto">
+          <svg class="fecho-icone revela" aria-hidden="true"><use href="#logo" /></svg>
+          <h2 class="linhas">O negócio já existe na sua cabeça. <em>Agora, no papel.</em></h2>
+          <!-- TODO: trocar pelos links das lojas quando o app for publicado
+               (Google Play: com.kavicki.cria; App Store: id ainda não existe). -->
+          <div class="lojas revela">
+            <a class="loja cheia" href="#baixar" aria-label="Google Play, em breve"
+              ><small>Em breve no</small>Google Play</a
+            >
+            <a class="loja" href="#baixar" aria-label="App Store, em breve"
+              ><small>Em breve na</small>App Store</a
             >
           </div>
         </div>
-        <div class="capa" aria-hidden="true">
-          <div class="t"><small>Plano de negócio</small><strong>Lanches da Vila</strong></div>
-          <div class="faixa"></div>
-        </div>
-      </section>
-
-      <section class="miolo secao">
-        <h2>Do primeiro rascunho ao documento</h2>
-        <div class="grade">
-          <div class="cartao">
-            <h3>Uma pergunta por vez</h3>
-            <p>
-              Cada pergunta explica por que importa e traz um exemplo. Pule o que não souber e volte
-              quando quiser — tudo fica salvo.
-            </p>
-          </div>
-          <div class="cartao">
-            <h3>Números que fazem sentido</h3>
-            <p>
-              Diga o que vende, os custos e o preço: o Cria mostra quanto vender por mês e por dia
-              para pagar as contas, e o que acontece se o custo subir.
-            </p>
-          </div>
-          <div class="cartao">
-            <h3>Análise do seu negócio</h3>
-            <p>
-              Pontos de atenção, o que está bom e próximos passos, montados a partir das suas
-              respostas — no próprio celular, sem internet.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section class="miolo secao">
-        <h2>Comece de graça</h2>
-        <div class="planos">
-          <div class="cartao">
-            <span class="selo">Grátis</span>
-            <ul>
-              <li>Sua ideia em uma página (Lean Canvas)</li>
-              <li>Calculadora do ponto de equilíbrio</li>
-              <li>Prévia da análise</li>
-              <li>Quantos negócios quiser</li>
-            </ul>
-          </div>
-          <div class="cartao azul">
-            <span class="selo">Plano completo · compra única</span>
-            <ul>
-              <li>Como o negócio funciona (Business Model Canvas)</li>
-              <li>Forças e fraquezas (SWOT)</li>
-              <li>Seu cliente ideal e proposta de valor</li>
-              <li>Plano de ação com lembretes</li>
-              <li>Análise completa e o documento em PDF</li>
-              <li>Para todos os seus negócios, sem assinatura</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section class="miolo secao">
-        <h2>Seu plano fica com você</h2>
-        <p style="max-width: 720px; color: var(--corpo)">
-          Sem conta, sem servidor, sem anúncio. As respostas e os números ficam só no seu celular.
-          Você paga uma vez e é seu.
-        </p>
       </section>
     </main>
 
-    <footer class="miolo rodape">
-      <span>Cria é um app da Kavicki.com · CNPJ 45.625.800/0001-36</span>
-      <nav aria-label="Rodapé">
-        <a href="./">Início</a>
-        <a href="privacidade.html">Privacidade</a>
-        <a href="termos.html">Termos de uso</a>
-        <a href="mailto:design@kavicki.com">design@kavicki.com</a>
-      </nav>
+    <footer class="rodape" data-tema="azul">
+      <div class="miolo rodape-linhas">
+        <span
+          >Cria é um app da Kavicki.com · <span class="inteiro">CNPJ 45.625.800/0001-36</span></span
+        >
+        <nav aria-label="Rodapé">
+          <a href="privacidade.html">Privacidade</a>
+          <a href="termos.html">Termos de uso</a>
+          <a href="mailto:design@kavicki.com">design@kavicki.com</a>
+        </nav>
+      </div>
     </footer>
   </body>
 </html>

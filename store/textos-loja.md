@@ -91,7 +91,7 @@ Sem conteúdo sensível. Apple: 4+. IARC (Play): Livre.
   "Restaurar compra" (em Ajustes e no próprio paywall).
 - Para testar sem comprar: crie um negócio, preencha "Sua ideia em uma página" e o "Ponto de
   equilíbrio"; os itens com cadeado abrem o paywall. A captura do paywall para a revisão está
-  em `store/appstore-revisao-paywall-1320x2868.png`.
+  em `store/appstore-revisao-paywall-1179x2556.png`.
 - O app não usa rede além da loja (RevenueCat). Não há conta nem login.
 - Lean Canvas e Business Model Canvas são citados com atribuição (CC BY-SA 3.0) em Ajustes e
   no PDF; os logos da Strategyzer não são usados.

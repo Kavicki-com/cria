@@ -1,3 +1,45 @@
+# Cria — estado do projeto
+
+Seções 1 a 5 revisadas em 2026-11-04 a partir dos arquivos e do git. Status de loja pode ter mudado depois da data de cada evidência. Este repositório é **público**: não registre aqui segredos, dados de clientes nem detalhes de vulnerabilidade. Depois da linha horizontal estão as notas de trabalho do kit e o plano do Cria, que continuam valendo.
+
+## 1. O que é o app
+
+Cria — Meu plano de negócios: app offline que guia quem está começando um pequeno negócio a montar o plano, uma pergunta por vez, e gera um PDF de 9 páginas (`README.md`, `docs/cria/PLANO.md`). A parte grátis tem o Lean Canvas, o ponto de equilíbrio e uma prévia da análise; a compra única de R$ 29,90 libera o resto.
+
+## 2. Stack
+
+- Expo `~57.0.26`, React Native `0.86.3`, React `19.2.3`, TypeScript `~6.0.3`, expo-router `~57.0.24`.
+- Dados: expo-sqlite `~57.0.4`, react-native-mmkv `^4.3.2`, zustand `^5.0.15`.
+- Compra: react-native-purchases `^10.10.2`. PDF: expo-print `~57.0.2`. Notificações locais: expo-notifications `~57.0.21`.
+- Versão do app: `1.0.0` (`app.config.ts`). Node `22.22.0` nos builds EAS (`eas.json`).
+- Site estático em `site/`, para `cria.kavicki.com` (6cd3055, 2026-10-19). Se está no ar: não determinado pelos arquivos.
+
+## 3. Situação real
+
+**Em desenvolvimento**, com última evidência de 2026-10-20.
+
+- O site mostra "Em breve" nas duas lojas, com TODO para trocar pelos links "quando o app for publicado" (`site/index.html:867`; c22f6ae, 2026-10-20).
+- 6cd3055 (2026-10-19) registra como não feitos os builds de produção e a submissão.
+- 626dd2a (2026-10-20) diz que o App Store Connect recusou o tamanho das capturas, o que mostra que houve tentativa de envio de capturas. Não mostra envio para revisão.
+- **Build de produção, TestFlight, teste na Play e submissão depois de 2026-10-20: não determinado pelos arquivos.** Falta um doc de status ou commit posterior.
+- **Configurado, sem provar publicação:** perfil `production` e bloco `submit` em `eas.json`; textos e artes em `store/`.
+
+## 4. Em andamento
+
+- Em 2026-11-04: única branch `main`, igual a `origin/main`, sem alteração não commitada.
+- Fases 0 a 8 do plano aparecem nos commits de 2026-10-19. Em 2026-10-20 vieram a nova landing (c22f6ae), as correções do roteiro de teste (55f910e) e as artes da loja (0a9bfa9, 626dd2a), o último commit.
+
+## 5. Pendências
+
+- `site/index.html:867`: TODO para trocar os links das lojas quando publicar.
+- Fazer builds de produção e submissão (6cd3055) e cadastrar o produto `com.kavicki.cria.desbloqueio` nas lojas, se ainda não foi feito.
+- Refazer as capturas a partir de um aparelho: as atuais vêm da pré-visualização web (0a9bfa9).
+- `docs/cria/HANDOFF.md`, seção 2, tem cinco itens sem marcar. O arquivo é de 2026-10-19 e pode estar desatualizado.
+- Verificar a landing em Safari e iOS (c22f6ae).
+- Os perfis de `eas.json` não têm `environment`, que o kit passou a nomear em fcd5996 (repo boillerplate).
+
+---
+
 # Kavicki starter kit — working notes
 
 Reusable base for **offline, single-purchase mobile apps**: no backend, no
@@ -43,7 +85,7 @@ much. For a small fix, retyping it is just as good.
 ## Before you commit
 
 ```bash
-npm run check   # typecheck + lint + format + locales + invariants
+npm run check   # typecheck + lint + format + locales + invariants + tests
 ```
 
 `npm run check` is the gate, and CI runs the same thing plus a Metro bundle.
@@ -213,7 +255,7 @@ feature because it is inert there.
   `runtimeVersion` in the app config, which it cannot write into a TypeScript
   one. None of that is needed for a dev build. An app that wants OTA updates
   adds `expo-updates`, runs `eas update:configure` and puts the channels back.
-- `extra.eas` is absent on purpose. Each app runs `eas init` and pastes the
+- **Obsoleto (2026-11-04): `app.config.ts` já tem `extra.eas.projectId` próprio deste app; só a instrução de colar o id como literal continua valendo.** `extra.eas` is absent on purpose. Each app runs `eas init` and pastes the
   printed id as a literal, because `app.config.ts` is TypeScript so `eas init`
   cannot write it, and `.env.local` is never seen by the build server. Shipping
   a placeholder UUID is worse than shipping nothing: EAS then fails with

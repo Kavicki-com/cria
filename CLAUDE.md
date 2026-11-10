@@ -16,13 +16,11 @@ Cria — Meu plano de negócios: app offline que guia quem está começando um p
 
 ## 3. Situação real
 
-**Em desenvolvimento**, com última evidência de 2026-10-20.
+**Publicado nas duas lojas** (aprovação informada pelo usuário em 2026-11-10). App Store: id `6825006518`; Google Play: `com.kavicki.cria`.
 
-- O site mostra "Em breve" nas duas lojas, com TODO para trocar pelos links "quando o app for publicado" (`site/index.html:867`; c22f6ae, 2026-10-20).
+- 2026-11-10: o site trocou o "Em breve" pelos links reais das duas lojas (`site/index.html`, seção `#baixar`).
 - 6cd3055 (2026-10-19) registra como não feitos os builds de produção e a submissão.
 - 626dd2a (2026-10-20) diz que o App Store Connect recusou o tamanho das capturas, o que mostra que houve tentativa de envio de capturas. Não mostra envio para revisão.
-- **Build de produção, TestFlight, teste na Play e submissão depois de 2026-10-20: não determinado pelos arquivos.** Falta um doc de status ou commit posterior.
-- **Configurado, sem provar publicação:** perfil `production` e bloco `submit` em `eas.json`; textos e artes em `store/`.
 
 ## 4. Em andamento
 
@@ -31,8 +29,6 @@ Cria — Meu plano de negócios: app offline que guia quem está começando um p
 
 ## 5. Pendências
 
-- `site/index.html:867`: TODO para trocar os links das lojas quando publicar.
-- Fazer builds de produção e submissão (6cd3055) e cadastrar o produto `com.kavicki.cria.desbloqueio` nas lojas, se ainda não foi feito.
 - Refazer as capturas a partir de um aparelho: as atuais vêm da pré-visualização web (0a9bfa9).
 - `docs/cria/HANDOFF.md`, seção 2, tem cinco itens sem marcar. O arquivo é de 2026-10-19 e pode estar desatualizado.
 - Verificar a landing em Safari e iOS (c22f6ae).
